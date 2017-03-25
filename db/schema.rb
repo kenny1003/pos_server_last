@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20170325071502) do
 
   create_table "stores", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "bill_id"
     t.integer  "workperiod_id"
     t.string   "name"
     t.datetime "created_at",    null: false
