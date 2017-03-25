@@ -4,6 +4,7 @@ class CreateMenus < ActiveRecord::Migration
       t.string :name
       t.string :category
       t.string :price
+      t.integer :store_id
 
       t.timestamps null: false
     end
