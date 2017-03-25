@@ -5,8 +5,6 @@ class CreateStores < ActiveRecord::Migration
       t.integer :workperiod_id
       t.string :name
 
-asa
-
 
 
       t.timestamps null: false
