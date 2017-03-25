@@ -1,6 +1,33 @@
 Rails.application.routes.draw do
+  get 'setting/index'
+
+  get 'report/index'
+
+  get 'bill/index'
+
+  get 'sale/index'
+
   devise_for :users
-  get 'home/indxe'
+  get 'home/index'
+
+  get 'home/nav'
+  get 'home/start'
+
+  #판매
+  get 'sale/index'
+
+  #계산서
+  get 'bill/index'
+
+  #리포트
+  get 'report/index'
+
+  #세팅
+  get 'setting/index'
+  post 'setting/write'=>'setting#menu_write'
+
+
+
 
   root 'home#index'
 
