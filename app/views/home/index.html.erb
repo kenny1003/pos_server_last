@@ -1,350 +1,109 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <title>Weather App Landing page</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="icon" type="image/png" href="favicon.ico">
+<!DOCTYPE html>
+<html lang="en">
 
-        <!--Google Font link-->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+<head>
 
-        <link rel="stylesheet" href="assets/stylesheet/swiper.min.css">
-        <link rel="stylesheet" href="assets/stylesheet/animate.css">
-        <link rel="stylesheet" href="assets/stylesheet/iconfont.css">
-        <link rel="stylesheet" href="assets/stylesheet/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/stylesheet/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/stylesheet/magnific-popup.css">
-        <link rel="stylesheet" href="assets/stylesheet/bootsnav.css">
-        
-        <!--For Plugins external css-->
-        <!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/stylesheet/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets/stylesheet/responsive.css" />
-
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        
-    </head>
-
-    <body data-spy="scroll" data-target=".navbar-collapse">
+    <title>Scrolling Nav - Start Bootstrap Template</title>
 
 
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-        <div class="culmn">
-            <!--Home page style-->
+</head>
 
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
-            <nav class="navbar navbar-default bootsnav navbar-fixed white no-background" style="background-color:transparent">
-                <div class="container">  
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-                    <!-- Start Atribute Navigation -->
-                    <div class="attr-nav">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                    </div>        
-                    <!-- End Atribute Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">모두의 POS</a>
+            </div>
 
-
-                    <!-- Start Header Navigation -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <a class="navbar-brand" href="#brand">
-                            <img src="assets/logo.png" class="logo logo-display" alt="">
-                            <img src="assets/footer-logo.png" class="logo logo-scrolled" alt="">
-                        </a>
-
-                    </div>
-                    <!-- End Header Navigation -->
-
-                    <!-- navbar menu -->
-                    <div class="collapse navbar-collapse" id="navbar-menu">
-                        <ul class="nav navbar-nav navbar-center">
-                            <li><a href="#home">Home</a></li>                    
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#reviews">Reviews</a></li>
-                            <li><a href="#download">Download</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div>   
-            </nav>
-
-            <!--Home Sections-->
-          
-            <section id="home" class="home">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_home">
-                            <div class="col-md-6">
-                                <div class="home_text">
-                                    <h1 class="text-white">Get the most fun weather app</h1>
-                                </div>
-
-                                <div class="home_btns m-top-40">
-                                    <a href="" class="btn btn-danger m-top-20">Download</a>
-                                    <a href="" class="btn btn-primary m-top-20">Features</a>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="phone_one phone_attr1 text-center sm-m-top-50">
-                                    <div class="attr_deg">9&deg;</div>
-                                    <div class="attr_rio text-uppercase">Rio</div>
-                                    <div class="attr_sun text-uppercase text-white">Sunny</div>
-                                    <div class="attr_lon text-uppercase text-white">London</div>
-                                    <img src="/assets/phone01.png" alt="" />
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="scrooldown">
-                            <a href="#features"><i class="fa fa-chevron-down"></i></a>
-                        </div>
-
-                    </div><!--End off row-->
-                </div><!--End off container -->
-            </section> <!--End off Home Sections-->
-
-
-
-            <!--Featured Section-->
-            <section id="features" class="features">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_features p-top-100">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
-                                <div class="head_title text-center">
-                                    <h2>Perfect Features</h2>
-                                    <h5>Only necessary</h5>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="features_item sm-m-top-30">
-                                    <div class="f_item_icon">
-                                        <i class="icon icon-diamond6"></i>
-                                    </div>
-                                    <div class="f_item_text">
-                                        <h3>Usability</h3>
-                                        <p>Sometimes the simplest things are the hardest to find. 
-                                            So we created a new line for everyday life</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="features_item sm-m-top-30">
-                                    <div class="f_item_icon">
-                                        <i class="icon icon-layers2"></i>
-                                    </div>
-                                    <div class="f_item_text">
-                                        <h3>Parallax Effect</h3>
-                                        <p>Sometimes the simplest things are the hardest to find. 
-                                            So we created a new line for everyday life</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="features_item sm-m-top-30">
-                                    <div class="f_item_icon">
-                                        <i class="icon icon-business-32"></i>
-                                    </div>
-                                    <div class="f_item_text">
-                                        <h3>Unlimites Colors</h3>
-                                        <p>Sometimes the simplest things are the hardest to find. 
-                                            So we created a new line for everyday life</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End off row -->
-                </div><!-- End off container -->
-            </section><!-- End off Featured Section-->
-
-
-
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="main_drag roomy-50">
-                            <div class="col-md-12">
-                                <div class="swiper-container">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide" style="background-image:url(assets/images/drag1.png)"></div>
-                                        <div class="swiper-slide" style="background-image:url(assets/images/drag3.png)"></div>
-                                        <div class="swiper-slide" style="background-image:url(assets/images/drag2.png)"></div>
-                                    </div>
-                                    <!-- If we need navigation buttons -->
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-            <!--screen short section-->
-
-            <section id="screen_area" class="screen_area">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_screen">
-                            <div class="col-md-8 col-md-offset-2 col-sm-12">
-                                <div class="head_title text-center">
-                                    <h2>Screenshots</h2>
-                                    <h5>The brightest images</h5>
-                                </div>
-                            </div>
-
-                            <!-- Screen01-->
-                            <div class="screen01 roomy-50">
-                                <div class="col-md-6">
-                                    <div class="screen01_img text-center">
-                                        <div class="attr_cloudy text-white">Cloudy</div>
-                                        <div class="attr_deg2 text-white">15 &deg;</div>
-                                        <img src="assets/screen01.png" alt="" />
-                                        <h1 class="cloudy">Cloudy</h1>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="screen01_content m-top-100">
-                                        <div class="screen01_content_img ">
-                                            <img src="assets/cloud1.png" alt="" />
-                                        </div>
-                                        <h2 class="m-top-40">When the clouds</h2>
-                                        <p class="m-top-20">Variable information on the air humidity, the feeling of the weather, 
-                                            and the ability to share this with your friends</p>
-
-                                        <ul class="list-inline m-top-50">
-                                            <li class="text-center">95%</li>
-                                            <li class="text-center">9 &deg; </li>
-                                            <li class="text-center">Rainy</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!--End off Screen01-->
-
-                            <!-- Screen02-->
-                            <div class="screen02 roomy-50 m-top-100">
-                                <div class="col-md-6 col-md-push-6">
-                                    <div class="screen02_img text-center">
-                                        <div class="attr_sun2 text-white">Cloudy</div>
-                                        <div class="attr_deg3 text-white">25 &deg;</div>
-                                        <img src="assets/screen02.png" alt="" />
-                                        <h1 class="sunny">Sunny</h1>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-md-pull-6">
-                                    <div class="screen02_content m-top-100">
-                                        <div class="screen02_content_img ">
-                                            <img src="assets/sun1.png" alt="" />
-                                        </div>
-                                        <h2 class="m-top-40">When the clouds</h2>
-                                        <p class="m-top-20">Sometimes the simplest things are the hardest to find. 
-                                            So we created a new line for everyday life. Sometimes the simplest things</p>
-
-                                        <ul class="list-inline m-top-50">
-                                            <li class="text-center">95%</li>
-                                            <li class="text-center">9 &deg; </li>
-                                            <li class="text-center">Rainy</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!--End off Screen02-->
-
-                            <!-- Screen03-->
-                            <div class="screen03 roomy-50 m-top-100">
-                                <div class="col-md-6">
-                                    <div class="screen03_img text-center">
-                                        <div class="attr_rainy2 text-white">Rainy</div>
-                                        <div class="attr_deg4 text-white">9 &deg;</div>
-                                        <img src="assets/images/screen03.png" alt="" />
-                                        <h1 class="rainy">Rainy</h1>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="screen03_content m-top-100">
-                                        <div class="screen03_content_img ">
-                                            <img src="assets/rainy1.png" alt="" />
-                                        </div>
-                                        <h2 class="m-top-40">When the rain</h2>
-                                        <p class="m-top-20">Sometimes the simplest things are the hardest to find. 
-                                            So we created a new line for everyday life. 
-                                            Sometimes the simplest things</p>
-
-                                        <ul class="list-inline m-top-50">
-                                            <li class="text-center">95%</li>
-                                            <li class="text-center">9 &deg; </li>
-                                            <li class="text-center">Rainy</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!--End off Screen02-->
-
-
-                        </div>
-                    </div><!--End off row-->
-                </div><!--End off container-->
-            </section><!--End off Screen01 Area Section -->
-
-
-
-            
-            
-            <footer id="footer" class="footer bg-black">
-                <div class="container">
-                    <div class="row">
-                        <div class="divider"></div>
-                        <div class="col-md-12">
-                            <div class="main_footer text-center p-top-40 p-bottom-30">
-                                <p class="wow fadeInRight" data-wow-duration="1s">
-                                    Made with 
-                                    <i class="fa fa-heart"></i>
-                                    by 
-                                    <a target="_blank" href="http://bootstrapthemes.co">Bootstrap Themes</a> 
-                                    2016. All Rights Reserved
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-
-
-
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container -->
+    </nav>
 
-        <!-- JS includes -->
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>모두의 POS</h1>
+                    <p><strong>Usage Instructions:</strong> Make sure to include the <code>scrolling-nav.js</code>, <code>jquery.easing.min.js</code>, and <code>scrolling-nav.css</code> files. To make a link smooth scroll to another section on the page, give the link the <code>.page-scroll</code> class and set the link target to a corresponding ID on the page.</p>
+                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>About Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <script src="assets/jquery.magnific-popup.js"></script>
-        <script src="assets/js/jquery.easing.1.3.js"></script>
-        <script src="assets/js/swiper.min.js"></script>
-        <script src="assets/js/jquery.collapse.js"></script>
-        <script src="assets/js/bootsnav.js"></script>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Services Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contact Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
+   
 
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
+</body>
 
-    </body>
 </html>
