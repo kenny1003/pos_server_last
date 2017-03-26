@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'setting/index'
   post 'setting/write'=>'setting#menu_write'
 
-
+  get 'test/index'
 
 
   root 'home#index'
