@@ -37,8 +37,8 @@ Bill.create(:store_id => 2, :salesmenu_id => 2, :workperiod_id => 2, :totalprice
 # t.string :price
 # t.integer :store_id
 
-Menu.create(:store_id => 1, :price => 10000, :category => "A",  :name =>"A")
-Menu.create(:store_id => 1, :price => 20000, :category => "B",  :name =>"B")
+Menu.create(:store_id => 1, :price => 10000, :category => "c",  :name =>"A")
+Menu.create(:store_id => 1, :price => 20000, :category => "A",  :name =>"B")
 Menu.create(:store_id => 2, :price => 10000, :category => "C",  :name =>"C")
 Menu.create(:store_id => 2, :price => 20000, :category => "D",  :name =>"D")
 

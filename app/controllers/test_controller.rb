@@ -18,7 +18,6 @@ class TestController < ApplicationController
         wb.add_worksheet do |sheet|
           #db data
           Store.find(1).bills do |x|
-
           sheet.add_row
 
           sheet.add_row
