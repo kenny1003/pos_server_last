@@ -38,7 +38,24 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="275">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+=======
+            <state relative-caret-position="54">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+=======
+=======
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
@@ -48,11 +65,21 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="_billpreview.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/sale/_billpreview.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
               <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+=======
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
+      <file leaf-file-name="20170322075659_create_menus.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20170322075659_create_menus.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
               <folding />
             </state>
           </provider>
@@ -71,8 +98,64 @@
       <file leaf-file-name="sale_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/sale_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="54">
               <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+=======
+            <state relative-caret-position="126">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/nav.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/setting/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setting_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/setting_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="126">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20170325071502_devise_create_users.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20170325071502_devise_create_users.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+=======
+            <state relative-caret-position="72">
+              <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+=======
+            <state relative-caret-position="216">
+              <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
               <folding />
             </state>
           </provider>
@@ -91,10 +174,27 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+=======
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/db/migrate/20170325065938_create_bills.rb" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/app/models/workperiod.rb" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/app/models/bill.rb" />
+        <option value="$PROJECT_DIR$/app/models/menu.rb" />
+        <option value="$PROJECT_DIR$/app/models/store.rb" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+=======
+        <option value="$PROJECT_DIR$/db/migrate/20170325065933_create_stores.rb" />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+=======
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170322075726_create_salesmenus.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170325070002_create_workperiods.rb" />
@@ -105,8 +205,17 @@
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/nav.erb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/views/setting/menu_change1.erb" />
         <option value="$PROJECT_DIR$/app/models/store.rb" />
+=======
+        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
+<<<<<<< HEAD
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+=======
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/setting_controller.rb" />
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
         <option value="$PROJECT_DIR$/app/views/setting/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/setting_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
@@ -119,9 +228,13 @@
         <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/shared/_links.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/views/sale/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/sale_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/sale/_billpreview.erb" />
+=======
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
       </list>
     </option>
   </component>
@@ -132,10 +245,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="59" />
-    <option name="y" value="24" />
-    <option name="width" value="1621" />
-    <option name="height" value="1026" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -152,10 +265,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="koreatech_pos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="koreatech_pos" />
+=======
               <option name="myItemId" value="pos_model_test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
@@ -414,7 +542,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="models" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+=======
               <option name="myItemId" value="controllers" />
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -439,7 +572,10 @@
         </subPane>
       </pane>
       <pane id="RailsProjectView" />
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
       <pane id="Scratches" />
     </panes>
   </component>
@@ -449,6 +585,18 @@
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Rails.Development: pos_model_test">
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
@@ -634,28 +782,96 @@
       <option name="presentableId" value="Default" />
       <updated>1490169372679</updated>
       <workItem from="1490169377115" duration="925000" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <workItem from="1490420117817" duration="5523000" />
+      <workItem from="1490429737577" duration="426000" />
+=======
+      <workItem from="1490420117817" duration="7718000" />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+=======
       <workItem from="1490420117817" duration="10438000" />
+<<<<<<< HEAD
       <workItem from="1490435906217" duration="17644000" />
       <workItem from="1490510687469" duration="24038000" />
       <workItem from="1490693013816" duration="6966000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1490435906217" duration="1547000" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+=======
+      <workItem from="1490435906217" duration="6227000" />
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="60011000" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="6874000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+=======
+    <option name="totallyTimeSpent" value="8643000" />
+=======
+    <option name="totallyTimeSpent" value="12910000" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="59" y="24" width="1621" height="1026" extended-state="6" />
+    <editor active="true" />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+    <layout>
+<<<<<<< HEAD
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29164422" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.265144" sideWeight="0.23342317" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.265144" sideWeight="0.7665768" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26464435" sideWeight="0.7698161" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2561826" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <option name="totallyTimeSpent" value="17590000" />
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="24" width="1621" height="1026" extended-state="6" />
     <editor active="false" />
     <layout>
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19213697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14648066" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26464435" sideWeight="0.2301839" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24842767" sideWeight="0.7698161" order="7" side_tool="false" content_ui="tabs" />
+=======
+<<<<<<< HEAD
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2568134" sideWeight="0.7698161" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2557652" sideWeight="0.7698161" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -699,6 +915,33 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170322075659_create_menus.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
     <entry file="file://$PROJECT_DIR$/app/models/menu.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -765,7 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,7 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,7 +1022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -811,6 +1051,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/menu.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170325065938_create_bills.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/salesmenu.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170322075726_create_salesmenus.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+=======
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
         </state>
       </provider>
     </entry>
@@ -829,33 +1103,104 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="90">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+=======
+        <state relative-caret-position="54">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 89a60faa773d0047bd974e196908996c45fbeaa7
+    <entry file="file://$PROJECT_DIR$/app/models/bill.rb">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="275">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+=======
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
     <entry file="file://$PROJECT_DIR$/db/migrate/20170325071502_devise_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+=======
+        <state relative-caret-position="108">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+        </state>
+      </provider>
+    </entry>
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
     <entry file="file://$PROJECT_DIR$/db/migrate/20170325065938_create_bills.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="234">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+=======
         <state relative-caret-position="72">
           <caret line="4" column="29" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/workperiod.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="306">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+=======
         <state relative-caret-position="72">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="162">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+=======
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
+=======
+        <state relative-caret-position="162">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
         </state>
       </provider>
     </entry>
@@ -951,7 +1296,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="18">
+          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+=======
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+=======
         <state relative-caret-position="108">
+<<<<<<< HEAD
           <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
         </state>
       </provider>
@@ -960,6 +1314,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+=======
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+>>>>>>> 3287324ed50184445a17191a6144181b8c45dfb6
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
           <folding />
         </state>
       </provider>
@@ -977,21 +1335,41 @@
         <state relative-caret-position="666">
           <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20170322075659_create_menus.rb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="108">
           <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+=======
+        <state relative-caret-position="54">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
           <folding />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/shared/_links.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="216">
           <caret line="12" column="60" lean-forward="false" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="54">
+          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+>>>>>>> b41450c4eaba5cce9ed00b2380c54320c12ce607
           <folding />
         </state>
       </provider>
@@ -1073,6 +1451,7 @@
         <state relative-caret-position="54">
           <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding />
+>>>>>>> f742d7239bd8517e7d3a849df062c91bbb76f0e9
         </state>
       </provider>
     </entry>

@@ -1,9 +1,67 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#seed : Store
+# t.integer :user_id
+# t.string :name
+Store.create(:name => '1st', :user_id => 1)
+Store.create(:name => '1st', :user_id => 2)
+Store.create(:name => '2rd', :user_id => 1)
+Store.create(:name => '2rd', :user_id => 2)
+#--------------------------------------------------------------------------
+#seed : Bill
+# t.integer :store_id
+# t.integer :salesmenu_id
+# t.integer :workperiod_id
+# t.integer :totalprice
 
-# Room.create(:name => 'marker_sinanbil', :marker => "36.768795, 127.282470", :title => '신안빌', :structure => "9평(방1, 화장실1)", :period => '6', :payment => '200', :fee => '20', :deposit => '30', :phone_num => '010-5353-0189')
+Bill.create(:store_id => 1, :salesmenu_id => 1, :workperiod_id => 1, :totalprice => 1)
+Bill.create(:store_id => 1, :salesmenu_id => 2, :workperiod_id => 1, :totalprice => 1)
+Bill.create(:store_id => 1, :salesmenu_id => 1, :workperiod_id => 2, :totalprice => 1)
+Bill.create(:store_id => 1, :salesmenu_id => 2, :workperiod_id => 2, :totalprice => 1)
+Bill.create(:store_id => 1, :salesmenu_id => 1, :workperiod_id => 1, :totalprice => 2)
+Bill.create(:store_id => 1, :salesmenu_id => 2, :workperiod_id => 1, :totalprice => 2)
+Bill.create(:store_id => 1, :salesmenu_id => 1, :workperiod_id => 2, :totalprice => 2)
+Bill.create(:store_id => 1, :salesmenu_id => 2, :workperiod_id => 2, :totalprice => 2)
+
+Bill.create(:store_id => 2, :salesmenu_id => 1, :workperiod_id => 1, :totalprice => 1)
+Bill.create(:store_id => 2, :salesmenu_id => 2, :workperiod_id => 1, :totalprice => 1)
+Bill.create(:store_id => 2, :salesmenu_id => 1, :workperiod_id => 2, :totalprice => 1)
+Bill.create(:store_id => 2, :salesmenu_id => 2, :workperiod_id => 2, :totalprice => 1)
+Bill.create(:store_id => 2, :salesmenu_id => 1, :workperiod_id => 1, :totalprice => 2)
+Bill.create(:store_id => 2, :salesmenu_id => 2, :workperiod_id => 1, :totalprice => 2)
+Bill.create(:store_id => 2, :salesmenu_id => 1, :workperiod_id => 2, :totalprice => 2)
+Bill.create(:store_id => 2, :salesmenu_id => 2, :workperiod_id => 2, :totalprice => 2)
+
+#--------------------------------------------------------------------------
+#seed : menu
+# t.string :name
+# t.string :category
+# t.string :price
+# t.integer :store_id
+
+Menu.create(:store_id => 1, :price => 10000, :category => "A",  :name =>"A")
+Menu.create(:store_id => 1, :price => 20000, :category => "B",  :name =>"B")
+Menu.create(:store_id => 2, :price => 10000, :category => "C",  :name =>"C")
+Menu.create(:store_id => 2, :price => 20000, :category => "D",  :name =>"D")
+
+#--------------------------------------------------------------------------
+# Seed : workperiod
+# t.integer :store_id
+# t.string :startingtime
+# t.string :finishtime
+
+Workperiod.create(:store_id => 1, :startingtime => "1", :finishtime => "2")
+Workperiod.create(:store_id => 1, :startingtime => "3", :finishtime => "4")
+Workperiod.create(:store_id => 2, :startingtime => "1", :finishtime => "2")
+Workperiod.create(:store_id => 2, :startingtime => "3", :finishtime => "4")
+
+#--------------------------------------------------------------------------
+# Seed : salesmenu
+# t.integer :menu_id
+# t.integer :qty
+# t.integer :bill_id
+
+Salesmenu.create(:bill_id => 1, :menu_id => 1, :qty => 10)
+Salesmenu.create(:bill_id => 1, :menu_id => 2, :qty => 20)
+Salesmenu.create(:bill_id => 2, :menu_id => 1, :qty => 30)
+Salesmenu.create(:bill_id => 2, :menu_id => 2, :qty => 40)
+
+#--------------------------------------------------------------------------
