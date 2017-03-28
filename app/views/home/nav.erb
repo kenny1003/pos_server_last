@@ -1,5 +1,22 @@
-<a href ="/home/start">영업시작하기</a> </br>
-<a href ="/sale/index">판매</a></br>
-<a href ="/bill/index">계산서</a></br>
-<a href ="/report/index">리포트</a></br>
-<a href ="/setting/index">세팅</a></br>
+<a href="/users/sign_out">로그아웃</a>
+
+<div class = "container">
+
+
+
+
+
+  <h3>
+
+    <% if $working == 0%>
+        <a href ="/home/storestart">영업시작</a> </br></br>
+    <%else%>
+        <a href ="/home/storefinish">영업끝</a> </br></br>
+    <%end%>
+    <a href ="/sale/index">판매</a></br></br>
+    <a href ="/bill/index">계산서</a></br></br>
+    <a href ="/report/index">리포트</a></br></br>
+    <a href ="/setting/index">세팅</a></br></br>
+  </h3>
+
+</div>

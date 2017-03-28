@@ -1,2 +1,20 @@
-<h1>Sale#index</h1>
-<p>Find me in app/views/sale/index.html.erb</p>
+<h1><%=current_user.store.name%></h1> <!-- 주점명 출력-->
+
+
+<div class = "container">
+
+  <form action="/sale/billpreview" method = "post">
+  <% @menu.each do |m|%>
+
+      <button type="submit" class="btn btn-default" name = "menuid" value ="<%=m.id%>"> <%=m.name%></button>
+
+  <%end%>
+  </form>
+  <%=$billid%>
+</div>
+<!-- ajax 구현 -->
+<!-- 위에서 클릭한 메뉴의 빌 내용을 아래 출력  -->
+
+<%= render 'sale/billpreview'%>
+
+

@@ -1,0 +1,15 @@
+<h1>메뉴수정페이지</h1>
+  <form action = "/setting/menu_change2/<%=@menu.id%>" method="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">카테고리</label>
+      <input type="text" class="form-control" name = "menu_category" value="<%=@menu.category%>">
+
+      <label for="exampleInputEmail1">메뉴 이름</label>
+      <input type="text" class="form-control" name = "menu_name" value="<%=@menu.name%>">
+
+      <label for="exampleInputEmail1">메뉴 가격</label>
+      <input type="text" class="form-control" name = "menu_price" value="<%=@menu.price%>">
+
+      <button type="submit" class="btn btn-default">수정완료</button>
+    </div>
+  </form>

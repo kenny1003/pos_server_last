@@ -8,13 +8,21 @@ Rails.application.routes.draw do
   get 'sale/index'
 
   devise_for :users
-  get 'home/index'
 
+  #처음시작페이지
+  get 'home/index'
   get 'home/nav'
   get 'home/start'
+  post 'home/makestore' => 'home#makestore'
+
+  get 'home/storestart'
+  get 'home/storefinish'
 
   #판매
   get 'sale/index'
+  post 'sale/billpreview' => 'sale#billpreview'
+  post 'sale/billfinish' => 'sale#billfinish'
+
 
   #계산서
   get 'bill/index'
@@ -26,7 +34,13 @@ Rails.application.routes.draw do
   get 'setting/index'
   post 'setting/write'=>'setting#menu_write'
 
+
   get 'test/index'
+
+  get 'setting/menu_change1/:menu_id'=>'setting#menu_change1'
+  post 'setting/menu_change2/:menu_id'=>'setting#menu_change2'
+  get 'setting/menu_destroy/:menu_id'=>'setting#menu_destroy'
+
 
 
   root 'home#index'
