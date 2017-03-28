@@ -1,14 +1,18 @@
 <h1>Setting#index</h1>
 <p>Find me in app/views/setting/index.html.erb</p>
+<%= @test %>
 
 <div class="row">
   <!--왼쪽 화면 -->
   <div class="col-md-2">
+
     메뉴입력------------------------------------------------------------------------
+    <%=@store_id%>
   </div>
 
 
   <!--오른쪽 화면 -->
+  <div class = "container">
   <div class="col-md-10">
     <form action = "/setting/write" method="POST">
       <div class="form-group">
@@ -26,6 +30,37 @@
     </form>
 
 
-    -------현재 메뉴------------------------------------------------------------------
+    -------현재 메뉴------------------------------------------------------------------</br>
+      <% counter = 0 %>
+
+          <% if @menu.present?%>
+              <table class="table table-bordered">
+                <tr>
+                  <th class = "col-xs-1">#</th>
+                  <th class = "col-xs-1">구분</th>
+                  <th class = "col-xs-4">메뉴이름</th>
+                  <th class = "col-xs-4">메뉴가격</th>
+                  <th class = "col-xs-2">수정/삭제</th>
+                </tr>
+
+                    <% @menu.each do |m|%>
+                    <tr>
+                        <td> <%=counter+=1%></td>
+                        <td> <%= m.category%></td>
+                        <td> <%= m.name%></td>
+                        <td> <%= m.price%></td>
+                        <td>
+                          <a href ="/setting/menu_change1/<%=m.id%>" class="btn btn-default">수정</a>
+                          <a href ="/setting/menu_destroy/<%=m.id%>" class="btn btn-default">삭제</a>
+                        </td>
+                    </tr>
+                    <%end%>
+
+              </table>
+          <% else%>
+              <h2>메뉴를입력해주세요</h2>
+          <% end %>
+
+    </div>
   </div>
 </div>

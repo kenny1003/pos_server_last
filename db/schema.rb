@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170325071502) do
   create_table "menus", force: :cascade do |t|
     t.string   "name"
     t.string   "category"
-    t.string   "price"
+    t.integer  "price"
     t.integer  "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170325071502) do
   create_table "stores", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
+    t.integer  "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

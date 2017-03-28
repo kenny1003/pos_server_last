@@ -3,6 +3,7 @@ class CreateStores < ActiveRecord::Migration
     create_table :stores do |t|
       t.integer :user_id
       t.string :name #주점 이름
+      t.integer :goal #목표매출
 
 
 

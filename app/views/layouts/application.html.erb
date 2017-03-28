@@ -19,6 +19,11 @@
 </head>
 <body>
 
+<% if user_signed_in?%>
+    <%=current_user.email%>
+    <a href="/users/sign_out">로그아웃</a>
+<%end%>
+
 <%= yield %>
 
 </body>

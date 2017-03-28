@@ -1,0 +1,14 @@
+
+<% if $billid != 0%>
+
+  <% Bill.find($billid).salesmenu.each do |m|%>
+          <%=m.menu.name%> / <%=m.menu.price%> </br>
+
+  <%end%>
+    <% $totalprice += m.menu.price %>
+
+<%end%>
+<%= $totalprice%>
+<form action="/sale/billfinish" method = "post">
+      <button type="submit" class="btn btn-default" name = "menuid"> 완료 </button>
+</form>
