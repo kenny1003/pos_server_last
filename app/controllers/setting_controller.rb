@@ -1,11 +1,10 @@
 class SettingController < ApplicationController
-  $categoryid
 
   before_action :authenticate_user! #로그인 사용자만 이용할 수 있음.
 
   def index
     if current_user.store.category.all.present?
-      @menu = current_user.store.menu #db 추출 (유저에 연결된 메뉴 추출)
+      #@menu = current_user.store.menu #db 추출 (유저에 연결된 메뉴 추출)
 
     end
 
@@ -28,14 +27,14 @@ class SettingController < ApplicationController
   def showmenu
 
     if params[:categoryid].present?
-      $categoryid = params[:categoryid]
+      #$categoryid = params[:categoryid]
       #@categoryid = params[:categoryid]
       @category = Store.find(current_user.id).category
       @menu = Category.find(params[:categoryid]).menu
 
     else
-      @category = current_user.store.category 
-      @menu = Category.find($categoryid).menu
+      @category = current_user.store.category
+      @menu = Category.find(params[:categoryid]).menu
     end
 
   end
