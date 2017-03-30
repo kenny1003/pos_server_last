@@ -25,16 +25,11 @@ class SettingController < ApplicationController
   end
 
   def showmenu
+    @categoryid = params[:categoryid]
+    @category = Store.find(current_user.id).category
 
     if params[:categoryid].present?
-      #$categoryid = params[:categoryid]
-      #@categoryid = params[:categoryid]
-      @category = Store.find(current_user.id).category
-      @menu = Category.find(params[:categoryid]).menu
-
-    else
-      @category = current_user.store.category
-      @menu = Category.find(params[:categoryid]).menu
+      @menu =  Category.find(params[:categoryid]).menu
     end
 
   end

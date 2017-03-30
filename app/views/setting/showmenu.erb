@@ -26,6 +26,9 @@
   <!--오른쪽 화면 -->
   <div class="col-md-10">
     ------------------------------------------------------</br>
+    <% if @categoryid.present? %>
+      <h1><%= Category.find(@categoryid).name%></h1>
+    <%end%>
 
     <form action = "/setting/menu_write" method="POST">
       <div class="form-group">
@@ -35,7 +38,7 @@
 
         <label for="exampleInputEmail1">메뉴 가격</label>
         <input type="text" class="form-control" name = "menu_price" >
-        <input type="hidden" class="form-control" name = "category_id" value = "<%=$categoryid%>" >
+        <input type="hidden" class="form-control" name = "category_id" value = "<%=@categoryid%>" >
 
         <button type="submit" class="btn btn-default">입력</button>
       </div>
