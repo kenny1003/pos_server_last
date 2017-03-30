@@ -1,19 +1,54 @@
 class SettingController < ApplicationController
+  $categoryid
+
   before_action :authenticate_user! #로그인 사용자만 이용할 수 있음.
 
   def index
-    @menu = current_user.store.menu #db 추출 (유저에 연결된 메뉴 추출)
+    if current_user.store.category.all.present?
+      @menu = current_user.store.menu #db 추출 (유저에 연결된 메뉴 추출)
+
+    end
+
+  end
+
+  def menusetting
+    @category = current_user.store.category
+  end
+
+  #메뉴카테고리 입력하기
+  def category_write
+    @category = Category.new
+    @category.name = params[:category]
+    @category.store_id = current_user.store.id #Store.find(current_user.id).id #db 연결 (store <-> category)
+    @category.save
+
+    redirect_to :back
+  end
+
+  def showmenu
+
+    if params[:categoryid].present?
+      $categoryid = params[:categoryid]
+      #@categoryid = params[:categoryid]
+      @category = Store.find(current_user.id).category
+      @menu = Category.find(params[:categoryid]).menu
+
+    else
+      @category = current_user.store.category 
+      @menu = Category.find($categoryid).menu
+    end
+
   end
 
   def menu_write
     @menu = Menu.new
-    @menu.store_id = Store.find(current_user.id).id #db 연결 (store <-> menu)
+    @menu.category_id = params[:category_id] #db 연결 (store <-> menu)
     @menu.name = params[:menu_name]
-    @menu.category = params[:menu_category]
     @menu.price = params[:menu_price]
     @menu.save
 
     redirect_to :back
+
   end
 
   def menu_change1

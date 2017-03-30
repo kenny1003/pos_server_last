@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325071502) do
+ActiveRecord::Schema.define(version: 20170328125255) do
 
   create_table "bills", force: :cascade do |t|
     t.integer  "store_id"
@@ -22,29 +22,38 @@ ActiveRecord::Schema.define(version: 20170325071502) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "menus", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.string   "category"
-    t.integer  "price"
     t.integer  "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "menus", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "store_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "salesmenus", force: :cascade do |t|
     t.integer  "menu_id"
-    t.integer  "qty"
+    t.integer  "qty",        default: 1
     t.integer  "bill_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "stores", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.integer  "goal"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "working",    default: false
+    t.boolean  "billopen",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|

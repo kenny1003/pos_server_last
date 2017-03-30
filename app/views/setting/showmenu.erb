@@ -1,0 +1,53 @@
+<div class="row">
+  <!--왼쪽 화면 -->
+  </br>
+  <div class="col-md-2">
+
+    <form action = "/setting/category_write" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">카테고리입력하기</label>
+        <input type="text" class="form-control" name = "category" placeholder="ex 드링크 주류 메인 ">
+
+        <button type="submit" class="btn btn-default">입력</button>
+      </div>
+    </form>
+
+    <%@category.each do |c|%>
+        <form action="/setting/showmenu" method="post">
+          <%=c.id%>
+          <button type="submit" class="btn btn-default" name = "categoryid" value ="<%=c.id%>"> <%= c.name%></button> </br>
+        </form>
+    <%end%>
+  </div>
+
+
+  <!--오른쪽 화면 -->
+  <div class="col-md-10">
+    ------------------------------------------------------</br>
+
+    <form action = "/setting/menu_write" method="POST">
+      <div class="form-group">
+
+        <label for="exampleInputEmail1">메뉴 이름</label>
+        <input type="text" class="form-control" name = "menu_name" >
+
+        <label for="exampleInputEmail1">메뉴 가격</label>
+        <input type="text" class="form-control" name = "menu_price" >
+        <input type="hidden" class="form-control" name = "category_id" value = "<%=$categoryid%>" >
+
+        <button type="submit" class="btn btn-default">입력</button>
+      </div>
+    </form>
+
+
+    <% if @menu.present?%>
+        <% @menu.each do |m|%>
+            <%=m.name%>
+        <%end%>
+
+    <%else%>
+        메뉴가 없습니다.
+    <%end%>
+
+  </div>
+</div>

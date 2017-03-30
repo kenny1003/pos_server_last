@@ -3,6 +3,6 @@ class Store < ActiveRecord::Base
   has_many :bills
   has_many :workperiod
 
-  has_many :menu
+  has_many :category
 
 end

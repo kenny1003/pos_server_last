@@ -23,6 +23,11 @@ Rails.application.routes.draw do
   post 'sale/billpreview' => 'sale#billpreview'
   post 'sale/billfinish' => 'sale#billfinish'
 
+  get 'sale/qty_minus'
+  get 'sale/qty_plus'
+  post 'sale/qty_plus' => 'sale#qty_plus'
+  post 'sale/qty_minus' => 'sale#qty_minus'
+
 
   #계산서
   get 'bill/index'
@@ -32,7 +37,13 @@ Rails.application.routes.draw do
 
   #세팅
   get 'setting/index'
-  post 'setting/write'=>'setting#menu_write'
+  get 'setting/category_index'
+  get 'setting/menusetting'
+  post 'setting/category_write'=>'setting#category_write'
+  post 'setting/showmenu' => 'setting#showmenu'
+  get 'setting/showmenu'
+
+  post 'setting/menu_write'=>'setting#menu_write'
 
   get 'setting/menu_change1/:menu_id'=>'setting#menu_change1'
   post 'setting/menu_change2/:menu_id'=>'setting#menu_change2'
