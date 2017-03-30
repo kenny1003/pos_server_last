@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 
-
+gem 'rubyzip', '~> 1.0.0'
+gem 'axlsx', '2.0.1'
+gem 'axlsx_rails'
 #devise (회원관리)
 gem 'devise'
 

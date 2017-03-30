@@ -45,10 +45,12 @@ Rails.application.routes.draw do
 
   post 'setting/menu_write'=>'setting#menu_write'
 
+
+  get 'test/index'
+
   get 'setting/menu_change1/:menu_id'=>'setting#menu_change1'
   post 'setting/menu_change2/:menu_id'=>'setting#menu_change2'
   get 'setting/menu_destroy/:menu_id'=>'setting#menu_destroy'
-
 
 
 

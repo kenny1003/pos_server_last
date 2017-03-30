@@ -1,10 +1,11 @@
 #seed : Store
-# t.integer :user_id
-# t.string :name
-Store.create(:name => '1st', :user_id => 1)
-Store.create(:name => '1st', :user_id => 2)
-Store.create(:name => '2rd', :user_id => 1)
-Store.create(:name => '2rd', :user_id => 2)
+#t.integer :user_id
+#t.string :name #주점 이름
+#t.integer :goal #목표매출
+Store.create(:name => '1st', :user_id => 1, :goal => 10000)
+Store.create(:name => '1st', :user_id => 2, :goal => 20000)
+Store.create(:name => '2rd', :user_id => 1, :goal => 30000)
+Store.create(:name => '2rd', :user_id => 2, :goal => 40000)
 #--------------------------------------------------------------------------
 #seed : Bill
 # t.integer :store_id
@@ -32,13 +33,13 @@ Bill.create(:store_id => 2, :salesmenu_id => 2, :workperiod_id => 2, :totalprice
 
 #--------------------------------------------------------------------------
 #seed : menu
-# t.string :name
-# t.string :category
-# t.string :price
-# t.integer :store_id
+#t.string :name
+#t.string :category
+#t.integer :price
+#t.integer :store_id
 
-Menu.create(:store_id => 1, :price => 10000, :category => "A",  :name =>"A")
-Menu.create(:store_id => 1, :price => 20000, :category => "B",  :name =>"B")
+Menu.create(:store_id => 1, :price => 10000, :category => "c",  :name =>"A")
+Menu.create(:store_id => 1, :price => 20000, :category => "A",  :name =>"B")
 Menu.create(:store_id => 2, :price => 10000, :category => "C",  :name =>"C")
 Menu.create(:store_id => 2, :price => 20000, :category => "D",  :name =>"D")
 
