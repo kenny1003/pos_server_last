@@ -5,8 +5,16 @@ class HomeController < ApplicationController
   before_action :authenticate_user! #로그인 사용자만 이용할 수 있음.
 
   def index
-    @test = $working
 
+
+  end
+
+  def nav
+    if current_user.store.present?
+
+    else
+      redirect_to :back
+    end
   end
 
   def choosestore

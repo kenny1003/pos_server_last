@@ -61,7 +61,7 @@
               <div style="padding-top:35px; padding-bottom:35px; background-color:#01A9DB; margin-top:30px;">
                 <span id="animationSandbox" style="color:white;">
                   <h1 class="title" style="font-size:40px;"><strong>모두의 POS</strong></h1>
-                  <h4>주점을 위한 POS시스템 for koreatech</h4>
+                  <h4>주점을 위한 POS시스템 for koreatech </h4>
                 </span>
               </div>
               
@@ -73,33 +73,24 @@
             </div>
           </div>
         </div>
+
+        <div class = "container">
+          dd
+
+          <!-- 기존에 주점을 만들었는지 확인함 -->
+          <% if current_user.store.present?%>
+              <%= render 'home/choosestore'%>
+          <% else %>
+              <%= render 'home/makestore'%> <!-- 주점을 안만들었으면 주점을 만드는페이지 출력 -->
+
+          <%end%>
+
+        </div>
+
+
+        <h2>
+          <a href ="/home/nav">시작하기</a>
+        </h2>
       </section>
-  
-     <%= @test %>
-    
-    <a href="/users/sign_out">로그아웃</a>
-    <p>
-      이 pos는 어쩌고 저쩌고........
-      (소개)
-    </p>
-    
-    <div class = "container">
-    
-      <!-- 기존에 주점을 만들었는지 확인함 -->
-      <% if current_user.store.present?%>
-          <%= render 'home/choosestore'%>
-      <% else %>
-          <%= render 'home/makestore'%> <!-- 주점을 안만들었으면 주점을 만드는페이지 출력 -->
-    
-      <%end%>
-    
-    </div>
-    
-    
-    <h2>
-      <a href ="/home/nav">시작하기</a>
-    </h2>
-    =======
-  
   </body>
 </html>
