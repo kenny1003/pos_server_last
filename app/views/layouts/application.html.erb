@@ -25,6 +25,29 @@
 </head>
 <body>
 
+  <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+              <div class="row">
+                <div class="navbar-header page-scroll col-xs-5">
+                  <a class="navbar-brand page-scroll" href="#">
+                    <i class="fa fa-television fa" aria-hidden="true" style="font-size:20px;"></i>
+                    <span style="font-size:14px;">모두의 Pos</span>
+                  </a>
+                </div>
+                <div class="navbar-brand page-scroll col-xs-7" style="text-align:right;">
+                  <a class="navbar-brand page-scroll" href="/users/sign_out">
+                    <i class="fa fa-sign-out fa" aria-hiddon="true" style="font-size:20px;"></i>
+                  </a>
+                  <span id="clock"></span>
+                </div>
+              </div>
+            
+            </div>
+            <!-- /.container -->
+        </nav>
+
+
 <% if user_signed_in?%>
     <%=current_user.email%>
     <a href="/users/sign_out">로그아웃</a>
