@@ -1,19 +1,68 @@
-</br></br></br>
+
+
+<h1>Setting#index</h1>
+<p>Find me in app/views/setting/index.html.erb</p>
+<%= @test %>
+
 <div class="row">
   <!--왼쪽 화면 -->
   <div class="col-md-2">
-    <div class = "container">
 
-    <a href="/setting/menusetting">메뉴세팅하기</a>
-    </div>
+    메뉴입력------------------------------------------------------------------------
+    <%=@store_id%>
   </div>
 
 
   <!--오른쪽 화면 -->
   <div class = "container">
   <div class="col-md-10">
-    오른쪽 화면
+    <form action = "/setting/write" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">카테고리</label>
+        <input type="text" class="form-control" name = "menu_category" placeholder="카테고리">
 
-  </div>
+        <label for="exampleInputEmail1">메뉴 이름</label>
+        <input type="text" class="form-control" name = "menu_name" placeholder="메뉴이름">
+
+        <label for="exampleInputEmail1">메뉴 가격</label>
+        <input type="text" class="form-control" name = "menu_price" placeholder="가격">
+
+      <button type="submit" class="btn btn-default">입력</button>
+      </div>
+    </form>
+
+
+    -------현재 메뉴------------------------------------------------------------------</br>
+      <% counter = 0 %>
+
+          <% if @menu.present?%>
+              <table class="table table-bordered">
+                <tr>
+                  <th class = "col-xs-1">#</th>
+                  <th class = "col-xs-1">구분</th>
+                  <th class = "col-xs-4">메뉴이름</th>
+                  <th class = "col-xs-4">메뉴가격</th>
+                  <th class = "col-xs-2">수정/삭제</th>
+                </tr>
+
+                    <% @menu.each do |m|%>
+                    <tr>
+                        <td> <%=counter+=1%></td>
+                        <td> <%= m.category%></td>
+                        <td> <%= m.name%></td>
+                        <td> <%= m.price%></td>
+                        <td>
+                          <a href ="/setting/menu_change1/<%=m.id%>" class="btn btn-default">수정</a>
+                          <a href ="/setting/menu_destroy/<%=m.id%>" class="btn btn-default">삭제</a>
+                        </td>
+                    </tr>
+                    <%end%>
+
+              </table>
+          <% else%>
+              <h2>메뉴를입력해주세요</h2>
+          <% end %>
+
+    </div>
   </div>
 </div>
