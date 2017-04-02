@@ -8,7 +8,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
   
-      <title>Scrolling Nav - Start Bootstrap Template</title>
+      <title>모두의 POS</title>
       
       <script>
       
@@ -16,23 +16,23 @@
           var clock = document.getElementById("clock");
           var now = new Date();
           var dayofweek = new Array(7);
-          dayofweek[0] = "일";
-          dayofweek[1] = "월";
-          dayofweek[2] = "화";
-          dayofweek[3] = "수";
-          dayofweek[4] = "목";
-          dayofweek[5] = "금";
-          dayofweek[6] = "토";
+          dayofweek[0] = "일요일";
+          dayofweek[1] = "월요일";
+          dayofweek[2] = "화요일";
+          dayofweek[3] = "수요일";
+          dayofweek[4] = "목요일";
+          dayofweek[5] = "금요일";
+          dayofweek[6] = "토요일";
           
           clock.innerHTML = 
-            "<span style='font-size:14px;'>" +
+            "<div style='font-size:12px; margin-bottom:-2px; font-w'>" +
             now.getFullYear() + ". " +
             (now.getMonth()+1) + ". " +
             now.getDate() + ". " +
-            dayofweek[now.getDay()] + "&nbsp;&nbsp;&nbsp;" + "</span>" +
-            "<span style='font-size:20px; font-weight:bold;'>" + now.getHours() + ":" +
-            now.getMinutes() + "</span>";
-            // now.getSeconds() + "초 ";
+            dayofweek[now.getDay()] + "&nbsp;&nbsp;&nbsp;" + "</div>" +
+            "<div style='font-size:33px; font-weight:bold; color:white'>" + now.getHours() + ":" +
+            now.getMinutes() + ":" + 
+            now.getSeconds() + "</div>";
             
           setTimeout("printTime()", 1000);
           // 60000은 60000밀리초, 1밀리초 = 1/1000;
@@ -48,49 +48,124 @@
   </head>
   
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-  
+    
       
-  
-      <section id="intro" class="intro-section" style="background-color:#E6E6E6;">
-        
-        <div class="container">
-          
-          <div class="row">
-           
-            <div class="col-lg-12">
-              <div style="padding-top:35px; padding-bottom:35px; background-color:#01A9DB; margin-top:30px;">
-                <span id="animationSandbox" style="color:white;">
-                  <h1 class="title" style="font-size:40px;"><strong>모두의 POS</strong></h1>
-                  <h4>주점을 위한 POS시스템 for koreatech </h4>
-                </span>
-              </div>
-              
-              
-              <div style="padding-top:35px; padding-bottom:40px; background-color:white;">
-                
-              </div>
-         
-            </div>
+      <nav class="navbar navbar-default" >
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <span class="navbar-brand">
+              <i class="fa fa-address-book fa-5x" aria-hidden="true" style="font-size:20px;">&nbsp;
+                <small>
+                  <% if user_signed_in?%>
+                    <%=current_user.email%>
+                  <%end%>
+                </small>
+              </i>
+            </span>
           </div>
-        </div>
-
-        <div class = "container">
-          dd
-
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <a class="navbar-brand" href="/">
+                <i class="fa fa-home fa-5x" aria-hidden="true" style="font-size:20px;"></i>
+              </a>
+              <a class="navbar-brand" href="#">
+                <i class="fa fa-gear fa-5x" aria-hidden="true" style="font-size:20px;"></i>
+              </a>
+              <a class="navbar-brand" href="/users/sign_out">
+                <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
+              </a>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav> <!-- 모두의POS navbar -->
+      
+      <main class="container">
+        <div class="row intro-section" style="width:80%; margin: 0 auto;">
           <!-- 기존에 주점을 만들었는지 확인함 -->
-          <% if current_user.store.present?%>
-              <%= render 'home/choosestore'%>
-          <% else %>
-              <%= render 'home/makestore'%> <!-- 주점을 안만들었으면 주점을 만드는페이지 출력 -->
+          <div class="col-lg-3" style="padding:5px;">
+            <div style="background-color:#01A9DB; height:410px;">
+              <div style="padding:15px;">
+                <div style="color:white">
+                  <h3><b>모두의 POS</b></h3><small>by Makers</small>
+                </div>
+                <hr>
+                <div>
+                  <% if current_user.store.present? %>
+                    <%= render 'home/choosestore' %>
+                  <% else %> 
+                    <%= render 'home/makestore' %> 
+                  <% end %> 
+                </div> <!-- 주점을 안만들었으면 주점을 만드는페이지 출력 -->
+              </div> <!-- 가장 우측 div box의 padding size -->
+            </div> <!-- 가장 우측 div box의 bgcolor, height-size -->
+          </div> <!-- 가장 우측 div box의 gridsystem ratio -->
+        
+          <div class="col-lg-9">
+            <div class="row">
+              <div class="col-lg-8" style="padding:5px;">
+                <div style="background-color:gray; height:200px;">
+                  <% if $working == 0 %>
+                    <a class="navbar-brand" href="/home/storestart">
+                      <i class="fa fa-lock fa-5x" aria-hidden="true"></i>
+                      <p>영업시작</p>
+                    </a>
+                  <% else %>
+                    <a class="navbar-brand" href="/home/storefinish">
+                      <i class="fa fa-hourglass-half fa-5x" aria-hidden="true"></i>
+                      <p>영업끝</p>
+                    </a>
+                  <% end %>
 
-          <%end%>
+                </div>
+              </div>
+              
+              <div class="col-lg-4" style=" padding:5px;">
+                <div style="background-color:green; height:200px;">
+                  <a class="navbar-brand" href="/sale/index">
+                    <i class="fa fa-print fa-5x" aria-hidden="true"></i>
+                    <p>판매</p>
+                  </a>
+                </div>
+              </div>
+              
+            </div>
+         
+            <div class="row">
+              <div class="col-lg-4" style="padding:5px;">
+                <div style="background-color:red; height:200px;">
+                  <a class="navbar-brand" href="/bill/index">
+                    <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+                    <p>계산서</p>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="col-lg-4" style="padding:5px;">
+                <div style="background-color:purple; height:200px;">
+                  <a class="navbar-brand" href="report/index">
+                    <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i>
+                    <p>리포트</p>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="col-lg-4" style="padding:5px;">
+                <div style="background-color:yellow; height:200px;">
+                  <a class="navbar-brand" href="setting/index">
+                    <i class="fa fa-edit fa-5x" aria-hidden="true"></i>
+                    <p>세팅</p>
+                  </a>
+                </div>
+              </div>
+              
+            </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+          </div> <!-- gridsystem에서 2번째 열의 ratio -->
+        </div> <!--  가장 바깥범위의 gridsystem row -->
+      </main> <!-- 모두의POS container -->
 
-        </div>
-
-
-        <h2>
-          <a href ="/home/nav">시작하기</a>
-        </h2>
-      </section>
+  
   </body>
 </html>

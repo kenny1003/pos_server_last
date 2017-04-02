@@ -1,7 +1,49 @@
 
+<div style="margin-top:20px;">
+  <div class="form-group">
+    <div style="margin-bottom:10px; margin:auto;">
+      <i class="fa fa-user-circle-o fa-5x" aria-hidden="true" style="font-size:50px;"></i>&nbsp;&nbsp;
 
+      <label for="exampleInputEmail1"><small>주점명 : </small></label>
+      <label style="color:white" for="exampleInputEmail1"><small><%= current_user.store.name %></small></label>
+    </div>
+    
 
-<%= current_user.store.name%>
+    
+    
+    
+    
+    
+    <div class="progress" style="margin-bottom:10px; margin-top:10px;">
+      <small>330 만원</small>
+      <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">40% Complete (success)</span><small>누적 매출액</small>
+      </div>
+    </div>
+    <div class="progress" style="margin-bottom:10px;">
+      <small>79 만원</small>
+      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">20% Complete</span><small>오늘 매출액</small>
+      </div>
+    </div>
+    <div class="progress" style="margin-bottom:10px;">
+      <small>29 명</small>
+      <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">60% Complete (warning)</span><small>인원 수</small>
+      </div>
+    </div>
+    <div class="progress" style="margin-bottom:10px;">
+      <small>2,592 개</small>
+      <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">80% Complete (danger)</span><small>계산서 수</small>
+      </div>
+    </div>
+    <div style="margin-top:25px;">
+      <span id="clock"></span>
+    </div>
+    
+  </div>
+</div>
 
 
 

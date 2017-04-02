@@ -34,7 +34,7 @@ class HomeController < ApplicationController
       @store.name = params[:store_name]
       @store.goal = params[:goal]
       @store.save
-      redirect_to "/home/nav"
+      redirect_to "/home/index"
     end
 
   end
