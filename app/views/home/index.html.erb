@@ -107,6 +107,7 @@
         <div class="row intro-section" style="width:80%; margin: 0 auto;">
           <!-- 기존에 주점을 만들었는지 확인함 -->
           
+<<<<<<< HEAD
           <div class="col-lg-3" style="padding:5px;">
             <div style="background-color:#01A9DB; height:410px;">
               
@@ -122,6 +123,16 @@
                     <%= render 'home/makestore' %> 
                   <% end %>
                 </div>
+=======
+          <div class="row">
+           
+            <div class="col-lg-12">
+              <div style="padding-top:35px; padding-bottom:35px; background-color:#01A9DB; margin-top:30px;">
+                <span id="animationSandbox" style="color:white;">
+                  <h1 class="title" style="font-size:40px;"><strong>모두의 POS</strong></h1>
+                  <h4>주점을 위한 POS시스템 for koreatech </h4>
+                </span>
+>>>>>>> 3829ef2f919cd046bcfd8b8812ce28e541192c2e
               </div>
               
               
@@ -200,6 +211,7 @@
           
           
         </div>
+<<<<<<< HEAD
         
       </main>
 
@@ -231,5 +243,26 @@
     =======
   -->
   
+=======
+
+        <div class = "container">
+          dd
+
+          <!-- 기존에 주점을 만들었는지 확인함 -->
+          <% if current_user.store.present?%>
+              <%= render 'home/choosestore'%>
+          <% else %>
+              <%= render 'home/makestore'%> <!-- 주점을 안만들었으면 주점을 만드는페이지 출력 -->
+
+          <%end%>
+
+        </div>
+
+
+        <h2>
+          <a href ="/home/nav">시작하기</a>
+        </h2>
+      </section>
+>>>>>>> 3829ef2f919cd046bcfd8b8812ce28e541192c2e
   </body>
 </html>

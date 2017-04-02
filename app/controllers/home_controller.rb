@@ -4,11 +4,17 @@ $working = 0
 class HomeController < ApplicationController
   before_action :authenticate_user! #로그인 사용자만 이용할 수 있음.
 
-
-
   def index
-    @test = $working
 
+
+  end
+
+  def nav
+    if current_user.store.present?
+
+    else
+      redirect_to :back
+    end
   end
 
   def choosestore
@@ -37,6 +43,8 @@ class HomeController < ApplicationController
   def storestart
 
     $working = 1 #영업중 상태
+    current_user.store.working = true
+    current_user.store.save
 
     @workperiod = Workperiod.new
     @workperiod.store_id = current_user.store.id #db 연결 (workperiod <-> store)
@@ -49,6 +57,9 @@ class HomeController < ApplicationController
   def storefinish
 
     $working = 0 #영업종료 상태
+
+    current_user.store.working = false
+    current_user.store.save
 
     @workperiod = Workperiod.last
     @workperiod.store_id = current_user.store.id #db 연결 (workperiod <-> store)
