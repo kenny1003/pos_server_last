@@ -25,7 +25,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 <% if user_signed_in?%>
 
 <nav class="navbar navbar-default" >
@@ -60,45 +59,7 @@
   </div><!-- /.container-fluid -->
 </nav> <!-- 모두의POS navbar -->
 <%end%>
-=======
-  <% if user_signed_in?%>
-  
-    <nav class="navbar navbar-default" >
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-                <span class="navbar-brand">
-                  <i class="fa fa-address-book fa-5x" aria-hidden="true" style="font-size:20px;">&nbsp;
-                    <small>
-                      <% if user_signed_in?%>
-                        <%=current_user.email%>
-                      <%end%>
-                    </small>
-                  </i>
-                </span>
-        </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <a class="navbar-brand" href="/">
-              <i class="fa fa-home fa-5x" aria-hidden="true" style="font-size:20px;"></i>
-            </a>
-            <a class="navbar-brand" href="#">
-              <i class="fa fa-gear fa-5x" aria-hidden="true" style="font-size:20px;"></i>
-            </a>
-            <a class="navbar-brand" href="/users/sign_out">
-              <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
-            </a>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav> <!-- 모두의POS navbar -->
-  <%end%>
 
-
-
->>>>>>> 33849ae917066965cd435c9b48a6595d632ba66a
 
 <% if user_signed_in?%>
   <!--
