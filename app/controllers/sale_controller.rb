@@ -16,7 +16,7 @@ class SaleController < ApplicationController
       end
       @billshow = current_user.store.bills.last #마지막에 생성된 계산서를 보여준다.
     else
-      redirect_to "/home/nav" #영업중이 아니라면 메뉴페이지로 이동한다.
+      redirect_to "/home/index" #영업중이 아니라면 메뉴페이지로 이동한다.
     end
 
   end
