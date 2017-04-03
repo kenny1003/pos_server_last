@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20170328125255) do
     t.integer  "store_id"
     t.integer  "salesmenu_id"
     t.integer  "workperiod_id"
-    t.integer  "totalprice"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "totalprice",    default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "categories", force: :cascade do |t|

@@ -4,7 +4,8 @@ class CreateBills < ActiveRecord::Migration
       t.integer :store_id
       t.integer :salesmenu_id
       t.integer :workperiod_id
-      t.integer :totalprice
+      t.integer :totalprice, :default => 0
+
 
       t.timestamps null: false
     end
