@@ -23,7 +23,7 @@ class HomeController < ApplicationController
   def makestore
 
     if current_user.store present?
-      redirect_to "/home/nav"
+      redirect_to "/home/index"
 
     else
       @store = Store.new
@@ -46,7 +46,7 @@ class HomeController < ApplicationController
     @workperiod.store_id = current_user.store.id #db 연결 (workperiod <-> store)
     @workperiod.startingtime = "start"
     @workperiod.save
-    redirect_to "/home/nav"
+    redirect_to "/home/index"
   end
 
   #영업 끝
@@ -63,7 +63,7 @@ class HomeController < ApplicationController
       @workperiod.store_id = current_user.store.id #db 연결 (workperiod <-> store)
       @workperiod.finishtime = "finish"
       @workperiod.save
-      redirect_to "/home/nav"
+      redirect_to "/home/index"
 
     end
 

@@ -1,0 +1,49 @@
+<h1>오늘 계산서</h1>
+
+<div class="row">
+  <!--왼쪽 화면 -->
+
+  <div class="col-md-2">
+    <div class = "container">
+
+      <a href="/bill/index">전체계산서</a> </br> <!--bill/index의 디폴트 값은 '전체계산서 출력-->
+
+      <a href="/bill/today">오늘계산서</a>
+    </div>
+  </div>
+
+
+  <!--오른쪽 화면 -->
+
+  <div class="col-md-10">
+
+    <% if current_user.store.working %>
+        <div id="mainbox">
+          <% @bill_today.each do |b|%>
+
+              <div id="card">
+                <div id ="store_title"><%=b.created_at.strftime("%F // %H:%M")%></div>
+
+                <div id ="store_content">
+                  --------------------------------------</br>
+                  <% b.salesmenu.each do |s|%>
+                      <%=s.menu.name%> &nbsp; &nbsp;<%=s.qty%> </br>
+                  <%end%>
+                </div>
+                ------------------------------------------
+                <div id ="store_title">총 금액 : <%=b.totalprice%> 원</div>
+              </div>
+
+          <%end%>
+
+
+        </div>
+
+    <%else%>
+      '영업중'이 아닙니다.
+
+    <%end%>
+
+
+
+  </div>

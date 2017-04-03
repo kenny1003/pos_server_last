@@ -31,6 +31,9 @@ Rails.application.routes.draw do
 
   #계산서
   get 'bill/index'
+  get 'bill/today'
+  post 'bill/bill_destroy' => 'bill#bill_destroy'
+
 
   #리포트
   get 'report/index'

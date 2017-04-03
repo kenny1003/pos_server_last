@@ -58,3 +58,75 @@ html {
     background-color: #0489B1;
     text-decoration: underline;
 }
+
+
+
+#card{
+    width: 300px;
+    height : auto;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 3px #888;
+    border-top: 10px solid darkorange;
+    min-height: 50px;
+    padding: 10px;
+    margin: 20px;
+}
+
+#s_img{
+    border: 1.5px solid black;
+    width: 80px;
+    height: 60px;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+#store_title{
+    font-size: 170%;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+#review-star{
+    margin-left: 110px;
+    width: 100px;
+    height: auto;
+}
+
+#store_content{
+    margin-top: 7px;
+    margin-left: 10px;
+    font-family: segoe ui;
+    line-height: 1.4em;
+    font-size: 1.2em;
+}
+
+#mainbox{
+    font-family: calibri;
+    box-sizing: border-box;
+    justify-content: left;
+    margin-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#mainbox_storeshow{
+    /*font-family: calibri;
+    box-sizing: border-box;*/
+    justify-content: left;
+    width: 700px;
+    margin: auto;
+}
+#card_storeshow{
+    width: auto;
+    height : auto;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 3px #888;
+    border-top: 10px solid darkorange;
+    padding : 10px;
+    margin-top :20px
+}
+
+#store_show_title{
+    text-align: center;
+}
