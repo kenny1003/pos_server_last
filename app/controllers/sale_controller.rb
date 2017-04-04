@@ -4,7 +4,7 @@ class SaleController < ApplicationController
   $totalprice
 
   def index
-
+    
     #영업중 일때만 판매 페이지를 열 수 있음.
     if current_user.store.working
 

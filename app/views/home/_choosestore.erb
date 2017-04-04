@@ -7,7 +7,7 @@
       <label for="exampleInputEmail1"><small>주점명 : </small></label>
       <label style="color:white" for="exampleInputEmail1"><small><%= current_user.store.name %></small></label>
     </div>
-
+    
     <div class="progress" style="margin-bottom:10px; margin-top:10px;">
       <% if current_user.store.working %>
         <small><%=@income_today%>원</small>

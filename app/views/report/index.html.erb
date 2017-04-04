@@ -2,3 +2,29 @@
 
 <h1>Report#index</h1>
 <p>Find me in app/views/report/index.html.erb</p>
+
+
+ <table border='1' class="table table table-striped sortable">
+     <!--table table-striped sortable 이것은 자바스크립트로 돌아가는 정렬-->
+     <!--table table-striped sortable 후에 연구할 예정-->
+    <tr>
+        <th>순번</th>
+        <th>일자</th>
+        <th>판매상품</th>
+        <th>총가격</th>
+    </tr>
+    
+        <% @bill_all.each do |b|%>
+    <tr>
+        <th><%=b.id%></th>
+        <td><%=b.created_at.strftime("%F // %H:%M")%></td>
+        <td>
+            <% b.salesmenu.each do |s|%>
+                <%=s.menu.name%> &nbsp; &nbsp;<%=s.qty%> </br>
+            <%end%></td>
+        <td><%=b.totalprice%></td>
+    </tr>
+        <%end%>
+</table>
+ 
+     
