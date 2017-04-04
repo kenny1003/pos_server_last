@@ -3,6 +3,32 @@ class HomeController < ApplicationController
 
   def index
 
+    if current_user.store.present? and current_user.store.workperiod.present?
+      #누적계산서 총액
+      @bill_all = current_user.store.bills
+      current_user.store.incomeall = 0
+      @bill_all.each do |b|
+        current_user.store.incomeall += b.totalprice
+      end
+      current_user.store.save
+      @income_all = current_user.store.incomeall
+
+      #오늘계산서 총액
+      @bill_today = current_user.store.workperiod.last.bill
+      current_user.store.incometoday = 0
+      @bill_today.each do |b|
+        current_user.store.incometoday += b.totalprice
+      end
+      current_user.store.save
+      @income_today = current_user.store.incometoday
+
+      #누적계산서 수
+      @bill_all_count = current_user.store.bills.size
+
+      #오늘계산서 수
+      @bill_today_count = current_user.store.workperiod.last.bill.size
+    end
+
 
   end
 
@@ -15,7 +41,6 @@ class HomeController < ApplicationController
   end
 
   def choosestore
-
 
   end
 

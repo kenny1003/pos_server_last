@@ -50,10 +50,12 @@ ActiveRecord::Schema.define(version: 20170328125255) do
     t.integer  "user_id"
     t.string   "name"
     t.integer  "goal"
-    t.boolean  "working",    default: false
-    t.boolean  "billopen",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "incometoday", default: 0
+    t.integer  "incomeall",   default: 0
+    t.boolean  "working",     default: false
+    t.boolean  "billopen",    default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|

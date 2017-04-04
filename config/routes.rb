@@ -32,7 +32,11 @@ Rails.application.routes.draw do
   #계산서
   get 'bill/index'
   get 'bill/today'
+  get 'bill/workperiod'
+  get 'bill/workperiod_show/:workperiod_id' => 'bill#workperiod_show'
   post 'bill/bill_destroy' => 'bill#bill_destroy'
+  post 'bill/qty_plus' => 'bill#qty_plus'
+  post 'bill/qty_minus' => 'bill#qty_minus'
 
 
   #리포트

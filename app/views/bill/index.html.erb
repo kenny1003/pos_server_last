@@ -6,7 +6,8 @@
   <div class="col-md-2">
       <div class = "container">
         <a href="/bill/index">전체계산서</a> </br> <!--bill/index의 디폴트 값은 '전체계산서 출력-->
-        <a href="/bill/today">오늘계산서</a>
+        <a href="/bill/today">오늘계산서</a> </br>
+        <a href="/bill/workperiod">영업기간별 계산서</a>
       </div>
   </div>
 
@@ -21,11 +22,20 @@
 
       <div id="card">
         <div id ="store_title"><%=b.created_at.strftime("%F // %H:%M")%></div>
-
         <div id ="store_content">
           --------------------------------------</br>
           <% b.salesmenu.each do |s|%>
-              <%=s.menu.name%> &nbsp; &nbsp;<%=s.qty%> </br>
+              <%=s.menu.name%> &nbsp; &nbsp;
+              <form action="/bill/qty_plus" method = "post">
+                <button type="submit" class="glyphicon glyphicon-plus" name = "qty" value ="<%=s.id%>"> </button>
+              </form>
+              <%=s.qty%>
+              <form action="/bill/qty_minus" method = "post">
+                <button type="submit" class="glyphicon glyphicon-minus" name ="qty" value ="<%=s.id%>"> </button>
+              </form>
+
+              </br>
+
           <%end%>
         </div>
         ------------------------------------------
