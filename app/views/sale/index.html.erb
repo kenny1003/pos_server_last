@@ -18,36 +18,11 @@
         <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC;">
           <!-- 기존에 주점을 만들었는지 확인함 -->
           <div class="col-lg-4" style="padding:5px;">
-            <div style="background-color:white; height:410px;">
-              <div style="padding:15px;">
-                <div style="color:black">
-                  <h4>주문 내역</h4>
-                  <div>=================================</div>
-                  <div style="height:250px; margin-left:1px; margin-right:1px;">
-                    
-                    <div class="row" style="font-size:14px; height:200px;">
-                      <span class="col-lg-4">참이슬</span>
-                      <span class="col-lg-4">5,000</span>
-                      <span class="col-lg-4">+ 3 -</span>
-                    </div>
-                    <div>--------------------------------------------------------</div>
-                    <div class="row">
-                      <span class="col-lg-4">총 액</span>
-                      <span class="col-lg-8" style="text-align:right">38,000 원</span>
-                    </div>
-                  </div>
-                  <div>=================================</div>
-                </div>
-                <div class="row" style="margin-top:15px;">
-                  <button type="submit" class="btn btn-default"><%= "결제" %></button>
-                  <button type="submit" class="btn btn-default"><%= "초기화" %></button>
-                  <button type="submit" class="btn btn-default"><%= "취소" %></button>
-                </div>
-
-              </div> <!-- 가장 우측 div box의 padding size -->
-            </div> <!-- 가장 우측 div box의 bgcolor, height-size -->
+            
+            <%= render 'sale/billpreview'%>
+            
           </div> <!-- 가장 우측 div box의 gridsystem ratio -->
-        
+
           <div class="col-lg-8">
             <div>
               <div style="padding-top:5px;">
@@ -75,36 +50,18 @@
             </div>
          
             <div class="row" style="padding:5px; height:338px;">
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
-              <div class="col-lg-3" style="padding:5px;">
-                <div style="background-color:#DCDCDC; height:100px;">??</div>
-              </div>
+              <form action="/sale/billpreview" method = "post">
+                <% @category.each do |c| %>
+                  <% c.menu.each do |m| %>
+                    <div class="col-lg-3" style="padding:5px;">
+                      <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" 
+                      style="background-color:white; height:100px; width:140px; box-shadow:0 2px 2px 0 darkgray;">
+                        <%=m.name%>/<%=m.price%>
+                      </button>
+                    </div>
+                  <% end %>
+                <% end %>
+              </form>
             </div>
               
             </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
@@ -116,7 +73,9 @@
   </body>
 </html>
 
-<h1><%=current_user.store.name%></h1> <!-- 주점명 출력-->
+
+<!--
+<h1><%=current_user.store.name%></h1> 
 
 <h2>판매페이지</h2>
 
@@ -133,12 +92,9 @@
   -------------------------------------------------
 
   </br></br>
-  <%= render 'sale/billpreview'%>
-
-
 </div>
-<!-- ajax 구현 -->
-<!-- 위에서 클릭한 메뉴의 빌 내용을 아래 출력  -->
+
+-->
 
 
 
