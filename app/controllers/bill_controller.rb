@@ -2,14 +2,14 @@ class BillController < ApplicationController
   #전체계산서
   def index
     if current_user.store.present?
-      @bill_all = current_user.store.bills
+      @bill_all = current_user.store.bills.order(created_at: :desc) #생성시간을 기준으로 내림차순 정렬
     end
 
   end
 
   #오늘계산서
   def today
-    @bill_today = current_user.store.workperiod.last.bill
+    @bill_today = current_user.store.workperiod.last.bill.order(created_at: :desc)
   end
 
   def bill_destroy
@@ -44,7 +44,7 @@ class BillController < ApplicationController
   end
 
   def workperiod
-    @workperiod = current_user.store.workperiod
+    @workperiod = current_user.store.workperiod.order(created_at: :desc)
   end
 
   def workperiod_show

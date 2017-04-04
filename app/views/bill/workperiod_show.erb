@@ -39,12 +39,9 @@
             <div id ="store_content">
               --------------------------------------</br>
               <% b.salesmenu.each do |s|%>
-                  <%=s.menu.name%> &nbsp; &nbsp;
-                  <form action="/bill/qty_plus" method = "post">
-                    <button type="submit" class="glyphicon glyphicon-plus" name = "qty" value ="<%=s.id%>"> </button>
-                  </form>
-                  <%=s.qty%>
                   <form action="/bill/qty_minus" method = "post">
+                    <%=s.menu.name%> &nbsp; &nbsp;
+                    <%=s.qty%>
                     <button type="submit" class="glyphicon glyphicon-minus" name ="qty" value ="<%=s.id%>"> </button>
                   </form>
 
@@ -55,11 +52,7 @@
             ------------------------------------------
             <div id ="store_title">총 금액 : <%=b.totalprice%> 원</div> </br>
             <form action="/bill/bill_destroy" method = "post">
-              <button type="submit" class="btn btn-default" name = "billid" value ="<%=b.id%>">수정</button>
-            </form>
-
-            <form action="/bill/bill_destroy" method = "post">
-              <button type="submit" class="btn btn-default" name = "billid" value ="<%=b.id%>">삭제</button>
+              <button type="submit" class="btn btn-default" name = "billid" value ="<%=b.id%>">계산서삭제</button>
             </form>
           </div>
 
