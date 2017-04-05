@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'sale/index'
   post 'sale/billpreview' => 'sale#billpreview'
   post 'sale/billfinish' => 'sale#billfinish'
+  post 'sale/showmenu' => 'sale#showmenu'
+  get 'sale/showcategory/:category_id' => 'sale#showcategory'
 
   get 'sale/qty_minus'
   get 'sale/qty_plus'

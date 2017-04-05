@@ -4,7 +4,7 @@ class CreateSalesmenus < ActiveRecord::Migration
       t.integer :menu_id
       t.integer :qty, :default => 1
       t.integer :bill_id
-
+      
       t.timestamps null: false
     end
   end
