@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  
   get 'setting/index'
 
   get 'report/index'
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
 
   #리포트
   get 'report/index'
+  get 'report/index/:value' => 'report#index'
 
   #세팅
   get 'setting/index'
