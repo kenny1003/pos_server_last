@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
 
+=======
+  
+  
+>>>>>>> 8f547a9fb719c9cfd2b9445b6e6702983c98b2ef
   get 'setting/index'
 
   get 'report/index'
@@ -25,6 +30,8 @@ Rails.application.routes.draw do
   get 'sale/index'
   post 'sale/billpreview' => 'sale#billpreview'
   post 'sale/billfinish' => 'sale#billfinish'
+  post 'sale/showmenu' => 'sale#showmenu'
+  get 'sale/showcategory/:category_id' => 'sale#showcategory'
 
   get 'sale/qty_minus'
   get 'sale/qty_plus'
@@ -44,6 +51,7 @@ Rails.application.routes.draw do
 
   #리포트
   get 'report/index'
+  get 'report/index/:value' => 'report#index'
 
   #세팅
   get 'setting/index'
