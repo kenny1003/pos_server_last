@@ -32,16 +32,13 @@
                   <div class="btn btn-default"><%= "◀" %></div>
                   
                   <div class="btn-group">
-                    
                     <div class="btn-group">
                       <% @category.each do |c|%>
                         <a href="/sale/showcategory/<%=c.id%>">
                           <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%><%=c.id%></button>
                         </a>
                       <% end %>
-                           
                     </div>
-
                   </div>
                   
                   <div class="btn btn-default"><%= "▶" %></div>
