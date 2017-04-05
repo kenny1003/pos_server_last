@@ -33,9 +33,12 @@
                   
                   <div class="btn-group">
                     <div class="btn-group">
+                      <a href="/sale/index">
+                        <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
+                      </a>
                       <% @category.each do |c|%>
                         <a href="/sale/showcategory/<%=c.id%>">
-                          <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%><%=c.id%></button>
+                          <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
                         </a>
                       <% end %>
                     </div>

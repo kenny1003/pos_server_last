@@ -66,3 +66,5 @@ Salesmenu.create(:bill_id => 2, :menu_id => 1, :qty => 30)
 Salesmenu.create(:bill_id => 2, :menu_id => 2, :qty => 40)
 
 #--------------------------------------------------------------------------
+
+Pincode.create(:pincode =>'123456', :used => false, :storeid=>'', :major=>'')

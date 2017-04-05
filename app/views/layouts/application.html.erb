@@ -36,6 +36,9 @@
                 <small>
                   <% if user_signed_in?%>
                     <%=current_user.email%>
+                      <%if current_user.admin_check %>
+                        <a href="/admin/index">관리자페이지</a>
+                      <%end%>
                   <%end%>
                 </small>
               </i>
@@ -66,6 +69,7 @@
   <%=current_user.email%>
   <a href="/users/sign_out">로그아웃</a>
   -->
+
 <%end%>
 
 <%= yield %>

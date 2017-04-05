@@ -3,28 +3,44 @@
 <h1>Report#index</h1>
 <p>Find me in app/views/report/index.html.erb</p>
 
-
- <table border='1' class="table table table-striped sortable">
-     <!--table table-striped sortable 이것은 자바스크립트로 돌아가는 정렬-->
-     <!--table table-striped sortable 후에 연구할 예정-->
-    <tr>
-        <th>순번</th>
-        <th>일자</th>
-        <th>판매상품</th>
-        <th>총가격</th>
-    </tr>
-    
-        <% @bill_all.each do |b|%>
-    <tr>
-        <th><%=b.id%></th>
-        <td><%=b.created_at.strftime("%F // %H:%M")%></td>
-        <td>
-            <% b.salesmenu.each do |s|%>
-                <%=s.menu.name%> &nbsp; &nbsp;<%=s.qty%> </br>
-            <%end%></td>
-        <td><%=b.totalprice%></td>
-    </tr>
-        <%end%>
-</table>
- 
-     
+<div class="container">
+    	<div class="list-group">
+             <table border='1' class="table table-bordered" style="font-weight:bold; text-align:center;">
+                 <!--table table-striped sortable 이것은 자바스크립트로 돌아가는 정렬-->
+                 <!--table table-striped sortable 후에 연구할 예정-->
+                <tr>
+                    <% if  @order_count==0%>
+                    <th onclick="location.href='/report/index/1'" class="col-md-1">순번</th>
+                    <% else %>
+                    <th onclick="location.href='/report/index/0'" class="col-md-1">순번</th>
+                    <% end %>
+                    <% if  @order_count==2%>
+                    <th onclick="location.href='/report/index/3'" class="col-md-3">일자</th>
+                    <% else %>
+                    <th onclick="location.href='/report/index/2'" class="col-md-3">일자</th>
+                    <% end %>
+                    <th class="col-md-2">판매상품</th>
+                    <% if  @order_count==4%>
+                    <th onclick="location.href='/report/index/5'" class="col-md-2">총가격</th>
+                    <% else %>
+                    <th onclick="location.href='/report/index/4'" class="col-md-2">총가격</th>
+                    <% end %>
+                </tr>
+                 </table>
+                  </div>
+                </div>
+                <div class="container" style="margin-top:-18px;">
+              	    <table class="table table-bordered">
+                        <% @bill_all.each do |b|%>
+                            <tr>
+                            <th class="col-md-1"><%=b.id%></th>
+                            <td class="col-md-3"><%=b.created_at.strftime("%F // %H:%M")%></td>
+                            <td class="col-md-2">
+                                <% b.salesmenu.each do |s|%>
+                                    <%=s.menu.name%> &nbsp; &nbsp;<%=s.qty%> </br>
+                                <%end%></td>
+                            <td class="col-md-2"><%=b.totalprice%></td>
+                            </tr>
+                        <%end%>
+                    </table>
+     </div>

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-
-
+gem 'will_paginate', '~> 3.0'
+gem 'spreadsheet'
 gem 'rubyzip', '~> 1.0.0'
 gem 'axlsx', '2.0.1'
 gem 'axlsx_rails'
