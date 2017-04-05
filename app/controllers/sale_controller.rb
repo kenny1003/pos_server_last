@@ -96,5 +96,21 @@ class SaleController < ApplicationController
     @temp.save
     redirect_to :back
   end
+  
+  def showmenu
+
+    # redirect_to :back
+  end
+  
+  def showcategory
+    @category = current_user.store.category #db 추출 (카테고리추출)
+  
+    #사용자가 선택한 workperiod
+    @picked_category = current_user.store.category.find(params[:category_id])
+
+
+  end
+
+
 
 end

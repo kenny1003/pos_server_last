@@ -31,6 +31,8 @@
                 <div class="row" style="height:70px; vertical-align:middle;">
                   <div class="btn btn-default"><%= "◀" %></div>
                   
+                  <div class="btn-group">
+                    
                     <div class="btn-group">
                       <% @category.each do |c|%>
                         <a href="/sale/showcategory/<%=c.id%>">
@@ -39,9 +41,7 @@
                       <% end %>
                            
                     </div>
-                           
-                    </div>
-                    
+
                   </div>
                   
                   <div class="btn btn-default"><%= "▶" %></div>
@@ -53,9 +53,7 @@
             <div class="row" style="padding:5px; height:338px;">
               
               <form action="/sale/billpreview" method = "post">
-                <% @category.each do |c| %>
-                  <% c.menu.each do |m| %>
-
+                <% @picked_category.menu.each do |m| %>
                       <div class="col-lg-3" style="padding:5px;">
                         <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" 
                         style="background-color:white; height:100px; width:140px; box-shadow:0 2px 2px 0 darkgray;">
@@ -63,9 +61,11 @@
                         </button>
                       </div>
 
-                  <% end %>
                 <% end %>
-                </form>
+                
+                
+                
+              </form>
 
 
             </div>
@@ -78,29 +78,4 @@
   
   </body>
 </html>
-
-
-<!--
-<h1><%=current_user.store.name%></h1> 
-
-<h2>판매페이지</h2>
-
-<div class = "container">
-
-  <form action="/sale/billpreview" method = "post">
-    <% @category.each do |c|%>
-        <h3><%=c.name%></h3>
-        <% c.menu.each do |m|%>
-          <button type="submit" class="btn btn-default" name = "menuid" value ="<%=m.id%>"> <%=m.name%>/<%=m.price%></button></br>
-        <%end%>
-    <%end%>
-  </form>
-  -------------------------------------------------
-
-  </br></br>
-</div>
-
--->
-
-
 
