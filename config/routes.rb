@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-
-
-=======
-  
-  
->>>>>>> 8f547a9fb719c9cfd2b9445b6e6702983c98b2ef
   get 'setting/index'
 
   get 'report/index'
@@ -70,7 +63,7 @@ Rails.application.routes.draw do
   post 'setting/menu_change2/:menu_id'=>'setting#menu_change2'
   get 'setting/menu_destroy/:menu_id'=>'setting#menu_destroy'
 
-  #admin
+  #admin 관리자페이지
   get 'admin/index'
   get 'admin/pincode'
 

@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user! #로그인 사용자만 이용할 수 있음.
+  before_action :admin_check
 
   def index
 
@@ -115,5 +116,15 @@ class HomeController < ApplicationController
     end
 
   end
+
+  def admin_check
+    if current_user.email == "kwang3353@gmail.com" or current_user.email == "nemoland0506@gmail.com"
+      or current_user.email == "admin@gmail.com"
+      current_user.admin_check = true
+      current_user.save
+    end
+  end
+
+
 
 end
