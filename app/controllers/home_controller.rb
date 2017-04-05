@@ -51,12 +51,35 @@ class HomeController < ApplicationController
       redirect_to "/home/index"
 
     else
-      @store = Store.new
-      @store.user_id = current_user.id
-      @store.name = params[:store_name]
-      @store.goal = params[:goal]
-      @store.save
-      redirect_to "/home/index"
+      #새로운 주점을 만들경우
+
+      #입력한 핀코드가 맞는지 확인한다. 그리고 그 인증코드가 사용중인지 아닌지 확인한다.
+      if Pincode.where(:pincode => params[:pincode]).present? and !Pincode.where(:pincode => params[:pincode]).last.used
+        @temp = Pincode.where(:pincode => params[:pincode])
+        @pincode = @temp.last
+
+        @store = Store.new
+        @store.user_id = current_user.id
+        @store.name = params[:store_name]
+        @store.goal = params[:goal]
+        @store.save
+
+        #인증코드
+        @pincode.storeid=@store.id
+        @pincode.used = true
+        @pincode.save
+        redirect_to "/home/index"
+      else
+        redirect_to "/home/index"
+        #redirect_to :back
+      end
+
+      #@store = Store.new
+      #@store.user_id = current_user.id
+      #@store.name = params[:store_name]
+      #@store.goal = params[:goal]
+      #@store.save
+      #redirect_to "/home/index"
     end
 
   end
@@ -78,7 +101,6 @@ class HomeController < ApplicationController
   def storefinish
     if current_user.store.billopen #계산서가 열려있으면 영업종료를 할 수 없다.
       redirect_to "/sale/index"
-
 
     else
       current_user.store.working = false
