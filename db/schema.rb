@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170405122320) do
     t.boolean  "used",       default: false
     t.integer  "storeid"
     t.string   "major"
+    t.string   "memo"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end

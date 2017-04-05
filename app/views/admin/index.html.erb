@@ -5,6 +5,7 @@
   <div class="col-md-2" id ="admin_left">
     <div class = "container">
       <a href="/admin/index">회원관리</a> </br> <!-- 디폴트 값은 회원관리 페이지 -->
+      <a href="/admin/store">상점관리</a> </br>
       <a href="/admin/pincode">인증코드관리</a> </br>
 
 
@@ -23,20 +24,33 @@
         <thead>
         <tr>
           <th class="col-md-1">#</th>
-          <th class="col-md-5">사용자이메일주소</th>
-          <th class="col-md-5">이름</th>
-          <th class="col-md-1">핸드폰번호</th>
-          <th class="col-md-1">핸드폰번호</th>
+          <th class="col-md-2">사용자이메일주소</th>
+          <th class="col-md-2">이름</th>
+          <th class="col-md-2">핸드폰번호</th>
+          <th class="col-md-2">가입일</th>
+          <th class="col-md-2">주점</th>
+
         </tr>
         </thead>
 
         <tbody>
+          <%counter=1%>
+          <% @user.each do |u|%>
             <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
+              <td><%=counter%></td>
+              <td><%=u.email%></td>
+              <td><%=u.name%></td>
+              <td><%=u.phone_number%></td>
+              <td><%=u.created_at.strftime("(%F) %H:%M")%></td>
+
+              <%if u.store.present?%>
+                  <td><%=u.store.name%></td>
+              <%else%>
+                  <td>x</td>
+              <%end%>
             </tr>
+            <%counter+=1%>
+          <% end %>
         </tbody>
       </table>
     </div>

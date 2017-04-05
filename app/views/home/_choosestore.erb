@@ -42,9 +42,20 @@
         <span class="sr-only">80% Complete (danger)</span><small>누적 계산서 수</small>
       </div>
     </div>
-    <div style="margin-top:25px;">
-      <span id="clock"></span>
-    </div>
+
+    <% if current_user.store.confirmation%> <!-- 인증이 된 상점인지 확인한다. -->
+        <div style="margin-top:25px;">
+          <span id="clock"></span>
+        </div>
+    <% else %>
+        <form action = "/home/choosestore" method="POST">
+        상점 재인증이 필요합니다.</br>
+        <input type="text" class="form-control" name = "pincode" placeholder="유효한 인증코드 입력  " style="font-align:right;"><br>
+        <button type="submit" class="btn btn-default">재인증</button>
+    <%end%>
+
+
+
     
   </div>
 </div>

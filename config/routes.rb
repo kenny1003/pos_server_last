@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'home/nav'
   get 'home/start'
   post 'home/makestore' => 'home#makestore'
+  post 'home/choosestore' => 'home#choosestore'
 
   get 'home/storestart'
   get 'home/storefinish'
@@ -67,6 +68,11 @@ Rails.application.routes.draw do
   #admin 관리자페이지
   get 'admin/index'
   get 'admin/pincode'
+  post 'admin/pincode_write'=>'admin#pincode_write'
+  get 'admin/pincode_destroy/:pincode_id'=>'admin#pincode_destory'
+  get 'admin/store'
+
+  post 'admin/store_detail'=>'admin#store_detail'
 
 
   root 'home#index'
