@@ -5,6 +5,7 @@
   <div class="col-md-2" id ="admin_left">
     <div class = "container">
       <a href="/admin/index">회원관리</a> </br> <!-- 디폴트 값은 회원관리 페이지 -->
+      <a href="/admin/store">상점관리</a> </br>
       <a href="/admin/pincode">인증코드관리</a> </br>
 
 
@@ -16,6 +17,18 @@
 
   <div class="col-md-10">
     <h3>인증코드관리</h3>
+    <div class = "container">
+    <form action="/admin/pincode_write" method="POST">
+      <div class="form-group">
+        <label for="exampleInputEmail1">인증코드</label>
+        <input name="pincode" type="text" class="form-control" id="exampleInputEmail1" placeholder="6자리">
+        <label for="exampleInputEmail1">인증코드 생성메모</label>
+        <input name="memo" type="text" class="form-control" id="exampleInputEmail1" placeholder="ex 전자공학과(예정)">
+      </div>
+      <button type="submit" class="btn btn-default">입력</button>
+    </form>
+    </div>
+  </br>
 
     <div class = "container">
 
@@ -23,17 +36,23 @@
       <thead>
       <tr>
         <th class="col-md-1">#</th>
-        <th class="col-md-5">인증코드</th>
-        <th class="col-md-5">사용자</th>
-        <th class="col-md-1">사용여부</th>
+
+        <th class="col-md-2">인증코드</th>
+        <th class="col-md-3">인증코드 생성메모</th>
+        <th class="col-md-2">사용자</th>
+        <th class="col-md-1">코드사용여부</th>
+        <th class="col-md-1">코드삭제</th>
       </tr>
       </thead>
 
       <tbody>
+      <%counter=1%>
       <% @pincode_all.each do |p|%>
           <tr>
-            <td>1</td>
+            <td><%=counter%></td>
+
             <td><%=p.pincode%></td>
+            <td><%=p.memo%></td>
             <%if p.used%>
                 <td><%=Store.find(p.storeid).name%></td>
             <%else%>
@@ -41,7 +60,9 @@
             <%end%>
 
             <td><%=p.used%></td>
+            <td><a href="/admin/pincode_destroy/<%=p.id%>">삭제</a></td>
           </tr>
+          <%counter+=1%>
       <%end%>
       </tbody>
     </table>
