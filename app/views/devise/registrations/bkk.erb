@@ -64,8 +64,11 @@
                 </div>
                 </div>
 
+
                 <div style="font-size:13px;">
-                  <button id = "button" type="submit">계정 만들기</button></br>
+                  <div class="actions" style="margin-top:25px; margin-bottom:3px;">
+                    <%= f.submit "계정만들기", class: "sign-up-btn" %>
+                  </div>
             <% end %>
             <%= render "devise/shared/links" %>
             </div>
@@ -80,7 +83,6 @@
 <script>
     $('#bounce1').addClass('animated fadeInUp');
 </script>
-
 
 
 
