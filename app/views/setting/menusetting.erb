@@ -35,7 +35,6 @@
            
             </form>
             <hr>
-      
             <%@category.each do |c|%>
               <form action="/setting/showmenu" method="post">
                 <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button> </br>
@@ -43,7 +42,10 @@
             <%end%>
             
           </div> <!-- 가장 우측 div box의 gridsystem ratio -->
-          
+
+
+
+
           <div class="col-lg-8">
             <div>
               <div style="padding-top:5px;">

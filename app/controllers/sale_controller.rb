@@ -105,8 +105,9 @@ class SaleController < ApplicationController
   def showcategory
     @category = current_user.store.category #db 추출 (카테고리추출)
   
-    #사용자가 선택한 workperiod
+
     @picked_category = current_user.store.category.find(params[:category_id])
+    @billshow = current_user.store.bills.last #마지막에 생성된 계산서를 보여준다.
 
 
   end
