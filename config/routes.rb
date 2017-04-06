@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   get 'home/storestart'
   get 'home/storefinish'
+  get 'home/setting'
+  get 'home/setting_store' #상점 수정 페이지
+  post 'home/setting_store_update' => 'home#setting_store_update'
 
   #판매
   get 'sale/index'

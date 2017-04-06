@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   before_action :admin_check
 
   def index
-
     if current_user.store.present? and current_user.store.workperiod.present?
       #누적계산서 총액
       @bill_all = current_user.store.bills
@@ -135,6 +134,34 @@ class HomeController < ApplicationController
     end
 
   end
+
+  def setting
+    @store = current_user.store
+  end
+
+  def setting_store
+    @store = current_user.store
+
+  end
+
+  def setting_store_update
+    @store = current_user.store
+    @store.name = params[:store_name]
+    @store.goal = params[:goal]
+    @store.major = params[:major]
+    @store.save
+
+    redirect_to "/home/setting"
+
+
+  end
+
+
+
+
+
+
+
 
   #처음 가입하는 이메일을 통해서 관리자 권한을 부여
   def admin_check
