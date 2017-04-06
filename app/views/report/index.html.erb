@@ -64,9 +64,12 @@
 </head>
 <body>
 
+
   <h1>리포트</h1>
   <p>리포트 기능입니당 + 페이지네이션</p>
-  
+  <% if !current_user.store.bills.present? %>
+<h1><%= @error_message %></h1>
+<% else %>
   <div class="container">
   	<div class="list-group">
       <table border='1' class="table table-bordered" style="font-weight:bold; text-align:center;">
@@ -113,6 +116,8 @@
     </table>
     <div class="digg_pagination" style="text-align:center; margin-top:-10px;"><%= will_paginate @bill_all %></div>
   </div>
+  <% end %>
 </body>
 </html>
    
+
