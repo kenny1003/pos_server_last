@@ -20,11 +20,19 @@
             
             <form action = "/setting/category_write" method="POST">
               <label for="exampleInputEmail1">카테고리</label>
-              <div class="form-group">
-                
-                <input type="text" class="form-control" name = "category" placeholder="ex) 주류,안주류,기타" style="width:200px; float:left">
-                <button type="submit" class="btn btn-default">추가</button>
+              
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <i class="fa fa-asterisk" aria-hidden="true"></i>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <input type="text" class="form-control" name = "category" placeholder="ex) 주류,안주류,기타" style="width:200px; float:left">
+                  <button type="submit" class="btn btn-default">추가</button>
+                </ul>
               </div>
+              
+           
             </form>
             <hr>
       
@@ -42,47 +50,57 @@
                 <div class="row" style=" vertical-align:middle;">
                   <label for="exampleInputEmail1">메뉴 목록</label>
                   
-                  <form action = "/setting/menu_write" method="POST">
-                    <div class="form-group" style="float:left;">
-                      <label for="exampleInputEmail1" style="float:left;">메뉴명</label>
-                      <input type="text" class="form-control" name="menu_name" style="width:200px;">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1" style="float:left;">가격</label>
-                      <input type="text" class="form-control" name="menu_price" style="width:200px;">
-                      <input type="hidden" class="form-control" name="category_id" value="<%=@categoryid%>">
-                    </div>
-                    <button type="submit" class="btn btn-default">입력</button>
-                  </form>
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <i class="fa fa-asterisk" aria-hidden="true"></i>
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <form action = "/setting/menu_write" method="POST">
+                        <div class="form-group" style="float:left;">
+                          <label for="exampleInputEmail1" style="float:left;">메뉴명</label>
+                          <input type="text" class="form-control" name="menu_name" style="width:200px;">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1" style="float:left;">가격</label>
+                          <input type="text" class="form-control" name="menu_price" style="width:200px;">
+                          <input type="hidden" class="form-control" name="category_id" value="<%=@categoryid%>">
+                        </div>
+                        <button type="submit" class="btn btn-default">입력</button>
+                      </form>
+                  </div>
+                  
                   
                   <hr>
                 </div>
               </div>
             </div>
          
-            <div style="padding:5px; height:338px;">
+            <div class="row" style="padding:5px; height:338px;">
               
-              <table style="font-weight:bold; text-align:center; border:1px solid black;">
-                <tr class="row">
-                  <td class="col-md-2">번호</td>
-                  <td class="col-md-5">메뉴명</td>
-                  <td class="col-md-3">가격</td>
-                  <td class="col-md-2">비고</td>
-                </tr>
-                <% if @menu.present? %>
-                  <% @menu.each do |m|%>
-                    <tr>
-                      <td class="col-md-2"><%=m.id%></td>
-                      <td class="col-md-5"><%=m.name%></td>
-                      <td class="col-md-3"><%=m.price%></td>
-                      <td class="col-md-2"> ? </td>
-                    </tr>
-                  <%end%>
-                <%else%>
-                  <!-- 메뉴가 없습니다. -->
-                <%end%>
-                    
-              </table>
+
+                        
+                        <table style="font-weight:bold; text-align:center; border:1px solid black;">
+                          <tr class="row">
+                            <td class="col-md-2">번호</td>
+                            <td class="col-md-5">메뉴명</td>
+                            <td class="col-md-3">가격</td>
+                            <td class="col-md-2">비고</td>
+                          </tr>
+                          <% if @menu.present? %>
+                            <% @menu.each do |m|%>
+                              <tr>
+                                <td style="text-align:center;"><%=m.id%></td>
+                                <td><%=m.name%></td>
+                                <td style="text-align:center;"><%=m.price%></td>
+                                <td style="text-align:center;"> ? </td>
+                              </tr>
+                            <%end%>
+                          <%else%>
+                            <!-- 메뉴가 없습니다. -->
+                          <%end%>
+                              
+                        </table>
                         
                 
             </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
@@ -93,5 +111,4 @@
   
   </body>
 </html>
-
 

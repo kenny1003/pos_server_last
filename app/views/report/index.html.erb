@@ -1,46 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report</title>
+  <style>
+    .digg_pagination {
+      background: white;
+      cursor: default;
+      /* self-clearing method: */ 
+    }
+    .digg_pagination a, .digg_pagination span, .digg_pagination em {
+      padding: 0.2em 0.5em;
+      display: block;
+      float: left;
+      margin-right: 1px; 
+    }
+    .digg_pagination .disabled {
+      color: #999999;
+      border: 1px solid #dddddd; 
+    }
+    .digg_pagination .current {
+      font-style: normal;
+      font-weight: bold;
+      background: #2e6ab1;
+      color: white;
+      border: 1px solid #2e6ab1; 
+    }
+    .digg_pagination a {
+      text-decoration: none;
+      color: #105cb6;
+      border: 1px solid #9aafe5; 
+    }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; 
+    }
+    .digg_pagination .page_info {
+      background: #2e6ab1;
+      color: white;
+      padding: 0.4em 0.6em;
+      width: 22em;
+      margin-bottom: 0.3em;
+      text-align: center; 
+    }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; 
+    }
+    .digg_pagination:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; 
+    }
+    * html .digg_pagination {
+      height: 1%; 
+    }
+    *:first-child + html .digg_pagination {
+      overflow: hidden; 
+    }
+  </style>
+</head>
+<body>
 
 
-<h1>Report#index</h1>
-<p>Find me in app/views/report/index.html.erb</p>
+  <h1>리포트</h1>
+  <p>리포트 기능입니당 + 페이지네이션</p>
+  <% if !current_user.store.bills.present? %>
+<h1><%= @error_message %></h1>
+<% else %>
+  <div class="container">
+  	<div class="list-group">
+      <table border='1' class="table table-bordered" style="font-weight:bold; text-align:center;">
+           <!--table table-striped sortable 이것은 자바스크립트로 돌아가는 정렬-->
+           <!--table table-striped sortable 후에 연구할 예정-->
+        <tr>
+          <% if  @order_count==0%>
+            <th onclick="location.href='/report/index/1'" class="col-md-1">순번</th>
+          <% else %>
+            <th onclick="location.href='/report/index/0'" class="col-md-1">순번</th>
+          <% end %>
+          
+          <% if  @order_count==2%>
+            <th onclick="location.href='/report/index/3'" class="col-md-3">일자</th>
+          <% else %>
+            <th onclick="location.href='/report/index/2'" class="col-md-3">일자</th>
+          <% end %>
+          
+          <th class="col-md-2">판매상품</th>
+          
+          <% if  @order_count==4%>
+            <th onclick="location.href='/report/index/5'" class="col-md-2">총가격</th>
+          <% else %>
+            <th onclick="location.href='/report/index/4'" class="col-md-2">총가격</th>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="container" style="margin-top:-18px;">
+    <table class="table table-bordered">
+      <% @bill_all.each do |b|%>
+        <tr>
+          <th class="col-md-1"><%= b.id %></th>
+          <td class="col-md-3"><%= b.created_at.strftime("%F // %H:%M") %></td>
+          <td class="col-md-2">
+            <% b.salesmenu.each do |s| %>
+              <%= s.menu.name %> &nbsp; &nbsp;<%= s.qty %> </br>
+            <% end %>
+          </td>
+          <td class="col-md-2"><%= b.totalprice %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="digg_pagination" style="text-align:center; margin-top:-10px;"><%= will_paginate @bill_all %></div>
+  </div>
+  <% end %>
+</body>
+</html>
+   
 
-<div class="container">
-    	<div class="list-group">
-             <table border='1' class="table table-bordered" style="font-weight:bold; text-align:center;">
-                 <!--table table-striped sortable 이것은 자바스크립트로 돌아가는 정렬-->
-                 <!--table table-striped sortable 후에 연구할 예정-->
-                <tr>
-                    <% if  @order_count==0%>
-                    <th onclick="location.href='/report/index/1'" class="col-md-1">순번</th>
-                    <% else %>
-                    <th onclick="location.href='/report/index/0'" class="col-md-1">순번</th>
-                    <% end %>
-                    <% if  @order_count==2%>
-                    <th onclick="location.href='/report/index/3'" class="col-md-3">일자</th>
-                    <% else %>
-                    <th onclick="location.href='/report/index/2'" class="col-md-3">일자</th>
-                    <% end %>
-                    <th class="col-md-2">판매상품</th>
-                    <% if  @order_count==4%>
-                    <th onclick="location.href='/report/index/5'" class="col-md-2">총가격</th>
-                    <% else %>
-                    <th onclick="location.href='/report/index/4'" class="col-md-2">총가격</th>
-                    <% end %>
-                </tr>
-                 </table>
-                  </div>
-                </div>
-                <div class="container" style="margin-top:-18px;">
-              	    <table class="table table-bordered">
-                        <% @bill_all.each do |b|%>
-                            <tr>
-                            <th class="col-md-1"><%=b.id%></th>
-                            <td class="col-md-3"><%=b.created_at.strftime("%F // %H:%M")%></td>
-                            <td class="col-md-2">
-                                <% b.salesmenu.each do |s|%>
-                                    <%=s.menu.name%> &nbsp; &nbsp;<%=s.qty%> </br>
-                                <%end%></td>
-                            <td class="col-md-2"><%=b.totalprice%></td>
-                            </tr>
-                        <%end%>
-                    </table>
-     </div>
