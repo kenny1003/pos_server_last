@@ -1,58 +1,97 @@
-</br></br>
-</br>
-<div class="row">
-  <!--왼쪽 화면 -->
-  </br>
-  <div class="col-md-2">
+<!DOCTYPE html>
+<html>
+  <head>
+  
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+  
+      <title>모두의 POS</title>
+    
+  </head>
+  
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    
+      <main class="container">
+        <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC;">
+          <div class="col-lg-4" style="padding:5px;">
+            
+            <form action = "/setting/category_write" method="POST">
+              <label for="exampleInputEmail1">카테고리</label>
+              <div class="form-group">
+                
+                <input type="text" class="form-control" name = "category" placeholder="ex) 주류,안주류,기타" style="width:200px; float:left">
+                <button type="submit" class="btn btn-default">추가</button>
+              </div>
+            </form>
+            <hr>
+      
+            <%@category.each do |c|%>
+              <form action="/setting/showmenu" method="post">
+                <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button> </br>
+              </form>
+            <%end%>
+            
+          </div> <!-- 가장 우측 div box의 gridsystem ratio -->
+          
+          <div class="col-lg-8">
+            <div>
+              <div style="padding-top:5px;">
+                <div class="row" style=" vertical-align:middle;">
+                  <label for="exampleInputEmail1">메뉴 목록</label>
+                  
+                  <form action = "/setting/menu_write" method="POST">
+                    <div class="form-group" style="float:left;">
+                      <label for="exampleInputEmail1" style="float:left;">메뉴명</label>
+                      <input type="text" class="form-control" name="menu_name" style="width:200px;">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1" style="float:left;">가격</label>
+                      <input type="text" class="form-control" name="menu_price" style="width:200px;">
+                      <input type="hidden" class="form-control" name="category_id" value="<%=@categoryid%>">
+                    </div>
+                    <button type="submit" class="btn btn-default">입력</button>
+                  </form>
+                  
+                  <hr>
+                </div>
+              </div>
+            </div>
+         
+            <div style="padding:5px; height:338px;">
+              
+              <table style="font-weight:bold; text-align:center; border:1px solid black;">
+                <tr class="row">
+                  <td class="col-md-2">번호</td>
+                  <td class="col-md-5">메뉴명</td>
+                  <td class="col-md-3">가격</td>
+                  <td class="col-md-2">비고</td>
+                </tr>
+                <% if @menu.present? %>
+                  <% @menu.each do |m|%>
+                    <tr>
+                      <td class="col-md-2"><%=m.id%></td>
+                      <td class="col-md-5"><%=m.name%></td>
+                      <td class="col-md-3"><%=m.price%></td>
+                      <td class="col-md-2"> ? </td>
+                    </tr>
+                  <%end%>
+                <%else%>
+                  <!-- 메뉴가 없습니다. -->
+                <%end%>
+                    
+              </table>
+                        
+                
+            </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+          </div> <!-- gridsystem에서 2번째 열의 ratio -->
+        </div> <!--  가장 바깥범위의 gridsystem row -->
+      </main> <!-- 모두의POS container -->
 
-    <form action = "/setting/category_write" method="POST">
-      <div class="form-group">
-        <label for="exampleInputEmail1">카테고리입력하기</label>
-        <input type="text" class="form-control" name = "category" placeholder="ex 드링크 주류 메인 ">
-
-        <button type="submit" class="btn btn-default">입력</button>
-      </div>
-    </form>
-
-    <%@category.each do |c|%>
-        <form action="/setting/showmenu" method="post">
-          <%=c.id%>
-          <button type="submit" class="btn btn-default" name = "categoryid" value ="<%=c.id%>"> <%= c.name%></button> </br>
-        </form>
-    <%end%>
-  </div>
+  
+  </body>
+</html>
 
 
-  <!--오른쪽 화면 -->
-  <div class="col-md-10">
-    ------------------------------------------------------</br>
-    <% if @categoryid.present? %>
-      <h1><%= Category.find(@categoryid).name%></h1>
-    <%end%>
-
-    <form action = "/setting/menu_write" method="POST">
-      <div class="form-group">
-
-        <label for="exampleInputEmail1">메뉴 이름</label>
-        <input type="text" class="form-control" name = "menu_name" >
-
-        <label for="exampleInputEmail1">메뉴 가격</label>
-        <input type="text" class="form-control" name = "menu_price" >
-        <input type="hidden" class="form-control" name = "category_id" value = "<%=@categoryid%>" >
-
-        <button type="submit" class="btn btn-default">입력</button>
-      </div>
-    </form>
-
-
-    <% if @menu.present?%>
-        <% @menu.each do |m|%>
-            <%=m.name%>
-        <%end%>
-
-    <%else%>
-        메뉴가 없습니다.
-    <%end%>
-
-  </div>
-</div>

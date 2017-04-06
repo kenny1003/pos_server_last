@@ -8,4 +8,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user! #모든 컨트롤러에서 로그인 여부를 확인한다.
 
 
+
+
 end

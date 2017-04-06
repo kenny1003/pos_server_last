@@ -55,6 +55,23 @@
                   <%= f.label :"비밀번호 확인" %><br />
                   <%= f.password_field :password_confirmation, autocomplete: "off" %>
                 </div>
+
+                  ----------------------------------------기본정보입력----------------------------------------
+
+                <div class="field" style="margin-bottom:10px;">
+                  <%= f.label :"이름" %><br />
+                  <%= f.text_field :name%>
+                </div>
+
+                <div class="field" style="margin-bottom:10px;">
+                  <%= f.label :"핸드폰번호" %><br />
+                  <%= f.text_field :phone_number%>
+                </div>
+
+
+
+
+
             </div>
             
             <div class="actions" style="margin-top:25px; margin-bottom:3px;">

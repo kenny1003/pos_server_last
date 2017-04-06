@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  
-  
   get 'setting/index'
 
   get 'report/index'
@@ -9,13 +7,15 @@ Rails.application.routes.draw do
 
   get 'sale/index'
 
-  devise_for :users
+
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   #처음시작페이지
   get 'home/index'
   get 'home/nav'
   get 'home/start'
   post 'home/makestore' => 'home#makestore'
+  post 'home/choosestore' => 'home#choosestore'
 
   get 'home/storestart'
   get 'home/storefinish'
@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   get 'setting/menusetting'
   post 'setting/category_write'=>'setting#category_write'
   post 'setting/showmenu' => 'setting#showmenu'
+  get 'setting/showmenu/:category_id' => 'setting#showmenu'
   get 'setting/showmenu'
 
   post 'setting/menu_write'=>'setting#menu_write'
@@ -64,6 +65,14 @@ Rails.application.routes.draw do
   post 'setting/menu_change2/:menu_id'=>'setting#menu_change2'
   get 'setting/menu_destroy/:menu_id'=>'setting#menu_destroy'
 
+  #admin 관리자페이지
+  get 'admin/index'
+  get 'admin/pincode'
+  post 'admin/pincode_write'=>'admin#pincode_write'
+  get 'admin/pincode_destroy/:pincode_id'=>'admin#pincode_destory'
+  get 'admin/store'
+
+  post 'admin/store_detail'=>'admin#store_detail'
 
 
   root 'home#index'
