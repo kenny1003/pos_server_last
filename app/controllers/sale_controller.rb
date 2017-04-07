@@ -58,7 +58,7 @@ class SaleController < ApplicationController
     @temp_store.billopen = true #계산서를 작성중으로 만든다.
     @temp_store.save #저장
 
-return head :no_content
+    redirect_to :back
   end
 
   def billfinish
@@ -88,11 +88,20 @@ return head :no_content
       @temp_bill.salesmenu.each do |b|
         b.destroy
       end
-
     end
-
     redirect_to "/sale/index"
 
+  end
+
+  def bill_cancle
+    @temp_bill = current_user.store.bills.last
+
+    if @temp_bill.salesmenu.present?
+      @temp_bill.salesmenu.each do |b|
+        b.destroy
+      end
+    end
+    redirect_to "/home/index"
 
   end
 
