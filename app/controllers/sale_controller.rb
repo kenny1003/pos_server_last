@@ -25,13 +25,18 @@ class SaleController < ApplicationController
 
     if current_user.store.billopen #계산서가 열여있으면,
       #첫번째 이후의 주문, 2번째 3번째 ...
+      if current_user.store.bills.last.salesmenu.where(:menu_id =>params[:menuid]).present?
+        
+        current_user.store.bills.last.salesmenu.find_by(menu_id: params[:menuid]).increment!(:qty)
+       else
+
       @salesmenu = Salesmenu.new
       @salesmenu.menu_id = params[:menuid]
       @salesmenu.bill_id = current_user.store.bills.last.id
       @salesmenu.save
-
+    end
       @billshow = current_user.store.bills.last
-
+    
     else #계산서가 닫혀있으면 새로운 계산서 생성(처음 계산서르 생성한 후 첫번째 주문)
       @bill = Bill.new
       @bill.store_id = current_user.store.id #db 연결 (bill <-> store)
@@ -53,7 +58,7 @@ class SaleController < ApplicationController
     @temp_store.billopen = true #계산서를 작성중으로 만든다.
     @temp_store.save #저장
 
-    redirect_to :back
+return head :no_content
   end
 
   def billfinish

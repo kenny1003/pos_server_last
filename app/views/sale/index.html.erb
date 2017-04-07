@@ -9,8 +9,12 @@
       <meta name="author" content="">
   
       <title>모두의 POS</title>
+      <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
       
-      
+
       
   </head>
   
@@ -18,11 +22,11 @@
     
       <main class="container">
         <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC; padding:10px;">
-          <!-- 기존에 주점을 만들었는지 확인함 -->
-          <div class="col-lg-4" style="padding:5px;">
-            
-            <%= render 'sale/billpreview'%>
-            
+          <!-- 기존에 주점을 만들었는지 확인함 -->ㄱㄱ
+          <div class="col-lg-4" style="padding:5px;" id="reply_preview">
+             
+             <%= render 'sale/billpreview'%>
+
           </div> <!-- 가장 우측 div box의 gridsystem ratio -->
           
           <div class="col-lg-8">
@@ -52,12 +56,12 @@
             
             <div class="row" style="padding:5px; height:338px;padding-left:15px; padding-right:15px;">
               
-              <form action="/sale/billpreview" method = "post">
+              
                 <% @category.each do |c| %>
                   <% c.menu.each do |m| %>
 
                     <div class="col-lg-3" style="padding:5px;">
-                      <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" 
+                      <button type="submit" class="btn btn-defalut reply_sale" value="<%= m.id %>" name="menuid" 
                       style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
                         <%=m.name%>/<%=m.price%>
                       </button>
@@ -65,7 +69,7 @@
 
                   <% end %>
                 <% end %>
-              </form>
+              
             </div>
               
           </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
@@ -74,4 +78,22 @@
     </main> <!-- 모두의POS container -->
 
   </body>
+  
 </html>
+<script>
+$(".reply_sale").click(function(){
+
+    send_value=this.value;
+
+  $.ajax({
+    method: "POST",
+    url: "/sale/billpreview",
+    data: { menuid : send_value },
+    dataType : 'json'
+  })
+  .done(function() {
+  $( "#reply_preview" ).append( "HELP");// <-- error point
+  });
+
+ });
+</script>
