@@ -58,23 +58,40 @@ class SaleController < ApplicationController
 
   def billfinish
 
-    #판매페이지에서 완료 버튼을 누르면 계산서의 billopen을 false값으로 만들어서 주문이 끝난 상태를 나타낸다.
-    @temp_store = current_user.store
-    @temp_store.billopen = false
-    @temp_store.save
-
     @current_bill = current_user.store.bills.last
 
+    if @current_bill.salesmenu.present?
+      #판매페이지에서 완료 버튼을 누르면 계산서의 billopen을 false값으로 만들어서 주문이 끝난 상태를 나타낸다.
+      @temp_store = current_user.store
+      @temp_store.billopen = false
+      @temp_store.save
 
-    @current_bill.salesmenu.each do |b|
-      @current_bill.totalprice += b.menu.price * b.qty
+      @current_bill.salesmenu.each do |b|
+        @current_bill.totalprice += b.menu.price * b.qty
+      end
+
+      @current_bill.save
     end
-    @current_bill.save
-
-
 
     redirect_to "/sale/index"
   end
+
+  def billreset
+    @temp_bill = current_user.store.bills.last
+
+    if @temp_bill.salesmenu.present?
+      @temp_bill.salesmenu.each do |b|
+        b.destroy
+      end
+
+    end
+
+    redirect_to "/sale/index"
+
+
+  end
+
+
 
   #주문화면에서 메뉴 수량 감소
   def qty_minus

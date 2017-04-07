@@ -34,11 +34,11 @@
                   <div class="btn-group">
                     <div class="btn-group">
                       <a href="/sale/index">
-                        <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
+                        <button class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
                       </a>
                       <% @category.each do |c|%>
                         <a href="/sale/showcategory/<%=c.id%>">
-                          <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
+                          <button class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
                         </a>
                       <% end %>
                     </div>
@@ -50,14 +50,14 @@
               </div>
             </div>
             
-            <div class="row" style="padding:5px; height:338px;padding-left:15px; padding-right:15px;">
+            <div class="row" style="margin-left:25px;padding:5px; height:338px;padding-left:15px; padding-right:15px;">
               
               <form action="/sale/billpreview" method = "post">
                 <% @category.each do |c| %>
                   <% c.menu.each do |m| %>
 
-                    <div class="col-lg-3" style="padding:5px;">
-                      <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" 
+                    <div class="col-lg-3" style="margin-right:15px;">
+                      <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid"
                       style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
                         <%=m.name%>/<%=m.price%>
                       </button>

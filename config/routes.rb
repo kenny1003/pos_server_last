@@ -29,9 +29,11 @@ Rails.application.routes.draw do
   post 'sale/billfinish' => 'sale#billfinish'
   post 'sale/showmenu' => 'sale#showmenu'
   get 'sale/showcategory/:category_id' => 'sale#showcategory'
+  post 'sale/billreset' => 'sale#billreset'
 
-  get 'sale/qty_minus'
-  get 'sale/qty_plus'
+  get 'sale/qty_minus/:qty'=>'sale#qty_minus'
+  get 'sale/qty_plus/:qty' => 'sale#qty_plus'
+
   post 'sale/qty_plus' => 'sale#qty_plus'
   post 'sale/qty_minus' => 'sale#qty_minus'
 

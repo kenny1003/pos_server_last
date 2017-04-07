@@ -1,25 +1,21 @@
-<div style="background-color:white; height:410px;">
-  <div style="padding:15px;">
+<div style="background-color:white; height:auto; width:340px">
+  <div style="padding:10px;">
     <div style="color:black">
       <h4>주문 내역</h4>
-      <div>=================================</div>
+      <div>======================================</div>
       <div style="height:250px; margin-left:1px; margin-right:1px;">
         <div class="row" style="font-size:14px; height:200px;">
           <% @total_price = 0 %>
           <% if current_user.store.billopen %>
             <% if @billshow.present? %>
               <% @billshow.salesmenu.each do |m|%>
-          
-                <span class="col-lg-4"><%= m.menu.name %></span>
-                <span class="col-lg-4"><%= m.menu.price * m.qty %></span>
-                <span class="col-lg-4">
-                  <form action="/sale/qty_plus" method = "post">
-                    <button type="submit" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"> </button>
-                  </form>
-                  <span><%= m.qty %></span>
-                  <form action="/sale/qty_minus" method = "post">
-                    <button type="submit" class="glyphicon glyphicon-minus" name ="qty" value ="<%=m.id%>"> </button>
-                  </form>
+                <span class="col-lg-3"><%= m.menu.name %></span>
+                <span class="col-lg-3"><%= m.menu.price * m.qty %></span>
+                <span class="col-lg-6">
+                  <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
+                    <span style="font-size:1.5em"><%= m.qty %></span>
+                  <button onclick="location.href='/sale/qty_minus/<%=m.id%>'" class="glyphicon glyphicon-minus" name = "qty" value ="<%=m.id%>"></button>
+
                 </span>
                 <% @total_price = @total_price + (m.menu.price * m.qty) %>
               <% end %>
@@ -29,27 +25,26 @@
           <% end %>
           
         </div>
-        <div>--------------------------------------------------------</div>
+        <div>-----------------------------------------------------------------</div>
 
         <div class="row">
           <span class="col-lg-4">총 액</span>
           <span class="col-lg-8" style="text-align:right"><%= @total_price %> 원</span>
         </div>
       </div>
-      <div>=================================</div>
+      <div>======================================</div>
     </div>
        
     <div class="row" style="margin-top:15px;">
-      
       <form class="col-lg-4" action="/sale/billfinish" method = "post">
         <button type="submit" formmethod="post" formaction="/sale/billfinish" class="btn btn-default">완료</button>
       </form>
-      <form class="col-lg-4">
-        <button type="submit" onclick="location.href='/sale/index'" class="btn btn-default">초기화</button>
+      <form class="col-lg-4" action="/sale/billreset" method = "post">
+        <button type="submit"   class="btn btn-default">초기화</button>
       </form>
-      <form class="col-lg-4">
-        <button type="submit" onclick="location.href='/home/index'" class="btn btn-default">취소</button>
-      </form>
+      <div class="col-lg-4">
+        <button onclick="location.href='/home/index'" class="btn btn-default">취소</button>
+      </div>
       
     </div>
   </div> <!-- 가장 우측 div box의 padding size -->
