@@ -17,7 +17,7 @@
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     
       <main class="container">
-        <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC;">
+        <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC; padding:10px;">
           <!-- 기존에 주점을 만들었는지 확인함 -->
           <div class="col-lg-4" style="padding:5px;">
             
@@ -28,54 +28,47 @@
           <div class="col-lg-8">
             <div>
               <div style="padding-top:5px;">
-                <div class="row" style="height:70px; vertical-align:middle;">
-                  <div class="btn btn-default"><%= "◀" %></div>
+                <div class="row" style="height:70px; border-bottom:1px solid white">
+                  <div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "◀" %></div>
                   
                   <div class="btn-group">
                     <div class="btn-group">
                       <a href="/sale/index">
-                        <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
+                        <button class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
                       </a>
                       <% @category.each do |c|%>
                         <a href="/sale/showcategory/<%=c.id%>">
-                          <button class="btn btn-defalut" style="background-color:white; height:30px; width:100px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
+                          <button class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
                         </a>
                       <% end %>
                     </div>
                   </div>
+      
+                  <div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "▶" %></div>
                   
-                  <div class="btn btn-default"><%= "▶" %></div>
-                  <hr>
                 </div>
               </div>
             </div>
-         
-            <div class="row" style="padding:5px; height:338px;">
+            
+            <div class="row" style="padding:5px; height:338px;padding-left:15px; padding-right:15px;">
               
               <form action="/sale/billpreview" method = "post">
                 <% @picked_category.menu.each do |m| %>
                       <div class="col-lg-3" style="padding:5px;">
                         <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" 
-                        style="background-color:white; height:100px; width:140px; box-shadow:0 2px 2px 0 darkgray;">
+                        style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
                           <%=m.name%>/<%=m.price%>
                         </button>
                       </div>
 
                 <% end %>
-                
-                
-                
               </form>
-
-
             </div>
               
-            </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
-          </div> <!-- gridsystem에서 2번째 열의 ratio -->
-        </div> <!--  가장 바깥범위의 gridsystem row -->
-      </main> <!-- 모두의POS container -->
+          </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+        </div> <!-- gridsystem에서 2번째 열의 ratio -->
+      </div> <!--  가장 바깥범위의 gridsystem row -->
+    </main> <!-- 모두의POS container -->
 
-  
   </body>
 </html>
-
