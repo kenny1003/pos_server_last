@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report</title>
+ 
+</head>
+<body>
+  <div class="container">
+  	<div class="list-group">
+      <table class="table table-bordered">
+        <tr><th class="col-md-4">누적판매량</th></tr>
+        <tr><th class="col-md-1">이름</th>
+          <% if @order_count==0%>
+            <th onclick="location.href='/report/sales_rate/1'" class="col-md-4">판매량</th>
+          <% else %>
+            <th onclick="location.href='/report/sales_rate/0'" class="col-md-4">판매량</th>
+          <% end %></tr>
+      </table>
+    </div>
+  </div>  
+  
+  <div class="container" style="margin-top:-18px;">
+    <table class="table table-bordered">
+      <% @sales_rate_.each do |x, y| %>
+          <tr>
+          <th class="col-md-2"><%= x %></th>
+          <td class="col-md-2"><%= y %></td>
+          </tr>
+      <% end %>
+    </table>
+    <%=@order_count%>
+  </div>
+  
+  
+  <div class="container">
+  	<div class="list-group">
+      <table class="table table-bordered"><tr>
+          <% if @order_count==0%>
+            <th class="col-md-4">최고의 인기 메뉴</th>
+          <% else %>
+            <th class="col-md-4">가장 적게 팔린 메뉴</th>
+          <% end %>
+            <th class="col-md-4"><%=@sales_rate_.keys[0]%></th></tr>
+      </table>
+</body>
+</html>

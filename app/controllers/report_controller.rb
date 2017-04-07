@@ -24,4 +24,32 @@ class ReportController < ApplicationController
     @bill_all=current_user.store.bills.paginate(:page => params[:page], :per_page => 10).order("#{order_way}")
     end
   end
+  
+  def sales_rate
+
+  @sales_rate_=Hash.new
+  current_user.store.category.each do |c|
+    c.menu.each do |m|
+        temp={"#{m.name}" => 0}
+        @sales_rate_ = @sales_rate_.merge!(temp)
+    end
+  end
+    
+    
+  current_user.store.bills.each do |b|
+      b.salesmenu.each do |s|
+          @sales_rate_["#{s.menu.name}"]+=s.qty
+      end
+  end
+    
+    
+      if params[:value].blank? || params[:value].to_i==0
+          @order_count=0
+          @sales_rate_=Hash[@sales_rate_.sort_by{ |_, v| -v }]
+      else  
+          @order_count=params[:value].to_i
+           @sales_rate_=Hash[@sales_rate_.sort_by{ |_, v| -v }.reverse]
+      end
+  
+  end
 end
