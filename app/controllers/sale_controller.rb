@@ -59,6 +59,7 @@ class SaleController < ApplicationController
     @temp_store.save #저장
 
     redirect_to :back
+
   end
 
   def billfinish
