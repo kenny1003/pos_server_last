@@ -52,6 +52,8 @@ Rails.application.routes.draw do
   #리포트
   get 'report/index'
   get 'report/index/:value' => 'report#index'
+  get 'report/sales_rate' => 'report#sales_rate'
+  get 'report/sales_rate/:value' => 'report#sales_rate'
 
   #세팅
   get 'setting/index'
