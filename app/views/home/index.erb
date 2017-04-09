@@ -73,16 +73,16 @@
           <div class="col-lg-9">
             <div class="row">
               <div class="col-lg-8" style="padding:5px;">
-                <div style="background-color:gray; height:200px;">
+                <div style="background-color:gray; height:200px; padding-top:30px; ">
                   <% if current_user.store.present?%>
                     <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
-                      <a class="navbar-brand" href="/home/storestart">
-                        <i class="fa fa-lock fa-5x" aria-hidden="true"></i>
+                      <a class="" href="/home/storestart" style="font-size:23px; color:white;">
+                        <i class="fa fa-lock fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                         <p>영업시작</p>
                       </a>
                     <% else %>
-                      <a class="navbar-brand" href="/home/storefinish">
-                        <i class="fa fa-hourglass-half fa-5x" aria-hidden="true"></i>
+                      <a class="" href="/home/storefinish" style="font-size:23px; color:white;">
+                        <i class="fa fa-hourglass-half fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                         <p>영업끝</p>
                       </a>
                     <% end %>
@@ -92,40 +92,51 @@
               </div>
               
               <div class="col-lg-4" style=" padding:5px;">
-                <div style="background-color:green; height:200px;">
-                  <a class="navbar-brand" href="/sale/index">
-                    <i class="fa fa-print fa-5x" aria-hidden="true"></i>
-                    <p>판매</p>
-                  </a>
-                </div>
+                <% if current_user.store.present?%>
+                  <% if !current_user.store.working %>
+                    <div style="background-color:gray; height:200px; padding-top:30px; ">
+                      <span class="" href="/sale/index" style="font-size:23px; color:white;">
+                        <i class="fa fa-calculator fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                        <p>판매하기</p>
+                      </span>
+                    </div>
+                  <% else %>
+                    <div style="background-color:green; height:200px; padding-top:30px; ">
+                      <a class="" href="/sale/index" style="font-size:23px; color:white;">
+                        <i class="fa fa-calculator fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                        <p>판매하기</p>
+                      </a>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
               
             </div>
          
             <div class="row">
               <div class="col-lg-4" style="padding:5px;">
-                <div style="background-color:red; height:200px;">
-                  <a class="navbar-brand" href="/bill/index">
-                    <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+                <div style="background-color:red; height:200px; padding-top:30px; ">
+                  <a class="" href="/bill/index" style="font-size:23px; color:white;" >
+                    <i class="fa fa-print fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                     <p>계산서</p>
                   </a>
                 </div>
               </div>
               
               <div class="col-lg-4" style="padding:5px;">
-                <div style="background-color:purple; height:200px;">
-                  <a class="navbar-brand" href="/report/index">
-                    <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i>
+                <div style="background-color:purple; height:200px; padding-top:30px; ">
+                  <a class="" href="/report/index" style="font-size:23px; color:white;">
+                    <i class="fa fa-line-chart fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                     <p>리포트</p>
                   </a>
                 </div>
               </div>
               
               <div class="col-lg-4" style="padding:5px;">
-                <div style="background-color:yellow; height:200px;">
-                  <a class="navbar-brand" href="/setting/menusetting">
-                    <i class="fa fa-edit fa-5x" aria-hidden="true"></i>
-                    <p>메뉴세팅</p>
+                <div style="background-color:#FFBF00; height:200px; padding-top:30px; ">
+                  <a class="" href="/setting/menusetting" style="font-size:23px; color:white;">
+                    <i class="fa fa-edit fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                    <p>메뉴관리</p>
                   </a>
                 </div>
               </div>
@@ -133,7 +144,27 @@
             </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
           </div> <!-- gridsystem에서 2번째 열의 ratio -->
         </div> <!--  가장 바깥범위의 gridsystem row -->
+        
+        <div class="row intro-section">
+          <div class="container" style="width:80%; padding:5px;">
+            <% if current_user.store.present?%>
+              <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
+                <div style="background-color:gray; height:50px; padding-top:15px;">
+                  <p style="font-size:15px; color:white; font-weight:bold;">영업중이 아닙니다. 판매하기를 사용하시려면 영업시작을 눌러주세요.</p>
+                </div>
+              <% else %>
+                <div style="background-color:green; height:50px; padding-top:15px;">
+                  <p style="font-size:15px; color:white; font-weight:bold;">지금은 영업중입니다.</p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        
+        
       </main> <!-- 모두의POS container -->
+      
+      
 
 
   </body>

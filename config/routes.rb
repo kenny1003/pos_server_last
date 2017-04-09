@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'sale/showcategory/:category_id' => 'sale#showcategory'
   post 'sale/billreset' => 'sale#billreset'
   post 'sale/bill_cancle' => 'sale#bill_cancle'
+  get 'sale/go_settingmenu' => 'sale#go_settingmenu'
 
   get 'sale/qty_minus/:qty'=>'sale#qty_minus'
   get 'sale/qty_plus/:qty' => 'sale#qty_plus'
