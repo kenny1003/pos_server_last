@@ -69,22 +69,24 @@
             <% else %>
               <div class="row">
                 <div class="col-lg-8" style="padding:5px;">
-                  <div style="background-color:gray; height:200px; padding-top:30px;">
-                    <% if current_user.store.present?%>
-                      <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
+                  <% if current_user.store.present?%>
+                    <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
+                      <div style="background-color:gray; height:200px; padding-top:30px;">
                         <a class="" href="/home/storestart" style="font-size:23px; color:white;">
                           <i class="fa fa-lock fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                           <p>영업시작</p>
                         </a>
-                      <% else %>
+                      </div>
+                    <% else %>
+                      <div style="background-color:green; height:200px; padding-top:30px;">
                         <a class="" href="/home/storefinish" style="font-size:23px; color:white;">
                           <i class="fa fa-hourglass-half fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                           <p>영업끝</p>
                         </a>
-                      <% end %>
+                      </div>
                     <% end %>
+                  <% end %>
   
-                  </div>
                 </div>
                 
                 <div class="col-lg-4" style=" padding:5px;">
