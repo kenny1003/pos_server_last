@@ -29,10 +29,24 @@
             <div>======================================</div>
             <div style="height:250px; margin-left:1px; margin-right:1px;">
               <div class="row" style="font-size:14px; height:200px;">
-                <div id = "billpreview_test">
+                <% @total_price = 0 %>
+                <% if current_user.store.billopen %>
+                    <% if @billshow.present? %>
+                        <% @billshow.salesmenu.each do |m|%>
+                            <span class="col-lg-3"><%= m.menu.name %></span>
+                            <span class="col-lg-3"><%= m.menu.price * m.qty %></span>
+                            <span class="col-lg-6">
+                  <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
+                    <span style="font-size:1.5em"><%= m.qty %></span>
+                  <button onclick="location.href='/sale/qty_minus/<%=m.id%>'" class="glyphicon glyphicon-minus" name = "qty" value ="<%=m.id%>"></button>
 
-
-                </div>
+                </span>
+                            <% @total_price = @total_price + (m.menu.price * m.qty) %>
+                        <% end %>
+                    <% else %>
+                    <% end %>
+                <% else %>
+                <% end %>
 
               </div>
               <div>-----------------------------------------------------------------</div>
@@ -61,11 +75,6 @@
       </div> <!-- 가장 우측 div box의 bgcolor, height-size -->
 
 
-
-
-
-
-
     </div> <!-- 가장 우측 div box의 gridsystem ratio -->
 
     <div class="col-lg-8">
@@ -76,12 +85,12 @@
 
             <div class="btn-group">
               <div class="btn-group">
-                <a href="/sale/index">
+
                   <button id = "all"class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
-                </a>
+
 
                 <% @category.each do |c|%>
-                      <button id="c_<%=c.id%>" class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
+                    <button id="c_<%=c.id%>" class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
                 <% end %>
               </div>
             </div>
@@ -94,22 +103,26 @@
 
       <div class="row" style="margin-left:40px;padding:5px; height:338px;padding-left:15px; padding-right:15px;">
 
-        <!-- form 자리-->
-          <div id="menu" class = "menuclass">
 
+        <form action="/sale/billpreview" method = "post">
+
+          <div id="menu">
+            <%@category.each do |c|%>
+                <% c.menu.each do |m| %>
+                    <button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>
+                    <%end%><%end%>
           </div>
-
-
           <% @category.each do |c| %>
               <% c.menu.each do |m| %>
+
                   <div class="col-lg-3" style="margin-right:15px; margin-top:10px;">
-                    <button id = "menu123" type="submit" class="btn btn-defalut menusubmit1" value="<%= m.id %>" name="menuid" style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
+                    <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
                       <%=m.name%>/<%=m.price%>
                     </button>
                   </div>
               <% end %>
           <% end %>
-        <!-- /form 자리-->
+        </form>
       </div>
 
     </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
@@ -117,58 +130,25 @@
   </div> <!--  가장 바깥범위의 gridsystem row -->
 </main> <!-- 모두의POS container -->
 
-<button class = "menuhi1">hihi</button>
-</br>
 
 <script>
+    <%@category.each do |c|%>
     $(document).ready(function(){
-      <%@category.each do |c|%>
-
-      $("#c_<%=c.id%>").click(function(){
-          $("#menu").html("<% c.menu.each do |m| %>" + <!--#menu 자리에 삽입-->
-              "<button type=submit value=<%=m.id %> name=menuid id=m_<%=m.id%>><%=m.name%>/<%=m.price%></button>" +
-              "<% end %>");
-      });
-        <%end%>
-    });
-</script>
-
-<script>
-    $(document).ready(function(){
-        <%@category.each do |c|%>
-          <% c.menu.each do |m| %>
-        $("#m_<%=m.id%>").click(function(){
-            $("#billpreview_test").html("" + <!--#menu 자리에 삽입-->
-                "<%=m.name%>/<%=m.price%>" +
+        $("#c_<%=c.id%>").click(function(){ <!--11아이디를 가진 버튼을 누를 때-->
+            $("#menu").html("<% c.menu.each do |m| %>" +
+                "<button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>" +
                 "<% end %>");
         });
-        <%end%>
     });
+    <%end%>
 
+    $("#all").click(function(){
 
-
-
-
-</script>
-
-
-
-<script>
-    $(document).ready(function(){
-        $('.23r213').click(function(){
-            menu_id = this.value;
-            $.ajax({
-                method: "POST",
-                url: "/sale/billwrite_test",
-                data: { menuid: menu_id}
-            })
-            alert(menu_id);
-        });
+        $("#menu").html("<%@category.each do |c|%>"+"<% c.menu.each do |m| %>"+
+            "<button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>"+
+            "<%end%>"+"<%end%>");
     });
-
-
 </script>
-
 
 </body>
 </html>
