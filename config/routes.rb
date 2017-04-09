@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   #판매
   get 'sale/index'
+
+  get 'sale/index_test' #test페이지
+  post 'sale/billwrite_test' => 'sale#billwrite_test'
+
   post 'sale/billpreview' => 'sale#billpreview'
   post 'sale/billfinish' => 'sale#billfinish'
   post 'sale/showmenu' => 'sale#showmenu'

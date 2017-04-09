@@ -21,20 +21,77 @@
           <!-- 기존에 주점을 만들었는지 확인함 -->
           <div class="col-lg-4" style="padding:5px;">
             
-            <%= render 'sale/billpreview'%>
-            
+
+            <div style="background-color:white; height:auto; width:340px">
+              <div style="padding:10px;">
+                <div style="color:black">
+                  <h4>주문 내역</h4>
+                  <div>======================================</div>
+                  <div style="height:250px; margin-left:1px; margin-right:1px;">
+                    <div class="row" style="font-size:14px; height:200px;">
+                      <% @total_price = 0 %>
+                      <% if current_user.store.billopen %>
+                          <% if @billshow.present? %>
+                              <% @billshow.salesmenu.each do |m|%>
+                                  <span class="col-lg-3"><%= m.menu.name %></span>
+                                  <span class="col-lg-3"><%= m.menu.price * m.qty %></span>
+                                  <span class="col-lg-6">
+                  <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
+                    <span style="font-size:1.5em"><%= m.qty %></span>
+                  <button onclick="location.href='/sale/qty_minus/<%=m.id%>'" class="glyphicon glyphicon-minus" name = "qty" value ="<%=m.id%>"></button>
+
+                </span>
+                                  <% @total_price = @total_price + (m.menu.price * m.qty) %>
+                              <% end %>
+                          <% else %>
+                          <% end %>
+                      <% else %>
+                      <% end %>
+
+                    </div>
+                    <div>-----------------------------------------------------------------</div>
+
+                    <div class="row">
+                      <span class="col-lg-4">총 액</span>
+                      <span class="col-lg-8" style="text-align:right"><%= @total_price %> 원</span>
+                    </div>
+                  </div>
+                  <div>======================================</div>
+                </div>
+
+                <div class="row" style="margin-top:15px;">
+                  <form class="col-lg-4" action="/sale/billfinish" method = "post">
+                    <button type="submit" formmethod="post" formaction="/sale/billfinish" class="btn btn-default">완료</button>
+                  </form>
+                  <form class="col-lg-4" action="/sale/billreset" method = "post">
+                    <button type="submit"   class="btn btn-default">초기화</button>
+                  </form>
+                  <form class="col-lg-4" action="/sale/bill_cancle" method = "post">
+                    <button type="submit"   class="btn btn-default">취소</button>
+                  </form>
+
+                </div>
+              </div> <!-- 가장 우측 div box의 padding size -->
+            </div> <!-- 가장 우측 div box의 bgcolor, height-size -->
+
+
+
+
+
+
+
           </div> <!-- 가장 우측 div box의 gridsystem ratio -->
           
           <div class="col-lg-8">
             <div>
               <div style="padding-top:5px;">
                 <div class="row" style="height:70px; border-bottom:1px solid white">
-                  <div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "◀" %></div>
+                  <!--<div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "◀" %></div> -->
                   
                   <div class="btn-group">
                     <div class="btn-group">
                       <a href="/sale/index">
-                        <button class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
+                        <button id = "all"class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
                       </a>
                       <% @category.each do |c|%>
                         <a href="/sale/showcategory/<%=c.id%>">
@@ -44,19 +101,19 @@
                     </div>
                   </div>
       
-                  <div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "▶" %></div>
+                  <!--<div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "▶" %></div>-->
                   
                 </div>
               </div>
             </div>
             
-            <div class="row" style="margin-left:25px;padding:5px; height:338px;padding-left:15px; padding-right:15px;">
+            <div class="row" style="margin-left:40px;padding:5px; height:338px;padding-left:15px; padding-right:15px;">
               
               <form action="/sale/billpreview" method = "post">
                 <% @category.each do |c| %>
                   <% c.menu.each do |m| %>
 
-                    <div class="col-lg-3" style="margin-right:15px;">
+                    <div class="col-lg-3" style="margin-right:15px; margin-top:10px; ">
                       <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid"
                       style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
                         <%=m.name%>/<%=m.price%>
@@ -71,6 +128,23 @@
         </div> <!-- gridsystem에서 2번째 열의 ratio -->
       </div> <!--  가장 바깥범위의 gridsystem row -->
     </main> <!-- 모두의POS container -->
+
+      <button id="11">Change content of all p elements</button>
+
+      <p>
+        전체메뉴출력
+      </p>
+
+
+
+
+      <script>
+          $(document).ready(function(){
+              $("#all").click(function(){
+                  $("p").html("Hello<b>world! <button>11</button></b>");
+              });
+          });
+      </script>
 
   </body>
 </html>
