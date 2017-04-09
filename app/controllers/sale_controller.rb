@@ -1,7 +1,63 @@
 class SaleController < ApplicationController
-  $billstart
-  $billid
-  $totalprice
+
+  def index_test
+    #영업중 일때만 판매 페이지를 열 수 있음.
+    if current_user.store.working
+
+      #로그인한 계정에 세팅된 메뉴만 출력
+      if current_user.store.category.exists?
+        @category = current_user.store.category #db 추출 (카테고리추출)
+      else
+        redirect_to "/setting/menusetting" #상점에서 저장한 메뉴가 하나도 없으면 메뉴 세팅 페이지로 이동
+      end
+      @billshow = current_user.store.bills.last #마지막에 생성된 계산서를 보여준다.
+    else
+      redirect_to "/home/index" #영업중이 아니라면 메뉴페이지로 이동한다.
+    end
+
+    @billshow = current_user.store.bills.last
+
+  end
+
+  def billwrite_test
+    if current_user.store.billopen #계산서가 열여있으면,
+      #첫번째 이후의 주문, 2번째 3번째 ...
+      if current_user.store.bills.last.salesmenu.where(:menu_id =>params[:menuid]).present?
+        current_user.store.bills.last.salesmenu.find_by(menu_id: params[:menuid]).increment!(:qty)
+      else
+
+        @salesmenu = Salesmenu.new
+        @salesmenu.menu_id = params[:menuid]
+        @salesmenu.bill_id = current_user.store.bills.last.id
+        @salesmenu.save
+      end
+      @billshow = current_user.store.bills.last
+
+    else #계산서가 닫혀있으면 새로운 계산서 생성(처음 계산서를 생성한 후 첫번째 주문)
+      @bill = Bill.new
+      @bill.store_id = current_user.store.id #db 연결 (bill <-> store)
+      @bill.workperiod_id = current_user.store.workperiod.last.id #db 연결 (bill <-> workpeiod)
+      @bill.save
+
+      #첫번째 주문
+      @salesmenu = Salesmenu.new
+      @salesmenu.menu_id = params[:menuid]
+      @salesmenu.bill_id = @bill.id
+      @salesmenu.qty = 1 #처음 주문을 하면 주문 수량을 1부터 시작
+
+      @salesmenu.save
+
+      @billshow = @bill #current_user.store.bills.last
+    end
+
+    @temp_store = current_user.store #임시값으로 현재 사용자의 상점을 저장한다.
+    @temp_store.billopen = true #계산서를 작성중으로 만든다.
+    @temp_store.save #저장
+
+    redirect_to :back
+
+  end
+
 
   def index
     
