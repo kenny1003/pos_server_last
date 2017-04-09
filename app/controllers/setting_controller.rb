@@ -24,10 +24,27 @@ class SettingController < ApplicationController
     redirect_to :back
   end
 
+  def category_destroy
+    @category= Category.find(params[:categoryid])
+    if @category.menu.present?
+
+
+    else
+
+      @category.destroy
+    end
+    redirect_to :back
+
+  end
+
+
+
+
+
   def showmenu
     @categoryid = params[:categoryid]
     @category = Store.find(current_user.id).category
-  
+    flash[:notice] = "Post successfully created"
 
 
     if params[:categoryid].present?
@@ -49,24 +66,23 @@ class SettingController < ApplicationController
   end
 
   def menu_change1
-    @menu = Menu.find(params[:menu_id])
+    @menu = Menu.find(params[:menuid])
 
   end
 
   def menu_change2
-    @menu = Menu.find(params[:menu_id])
+    @menu = Menu.find(params[:menuid])
     #@menu.store_id 는 고칠필요없음
     @menu.name = params[:menu_name]
-    @menu.category = params[:menu_category]
     @menu.price = params[:menu_price]
     @menu.save
 
-    redirect_to "/setting/index"
+    redirect_to "/setting/showmenu"
 
   end
 
   def menu_destroy
-    @menu = Menu.find(params[:menu_id])
+    @menu = Menu.find(params[:menuid])
     @menu.destroy
     redirect_to :back
   end

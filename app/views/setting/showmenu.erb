@@ -31,14 +31,16 @@
                   <button type="submit" class="btn btn-default">추가</button>
                 </ul>
               </div>
-              
-           
+
             </form>
             <hr>
       
             <%@category.each do |c|%>
               <form action="/setting/showmenu" method="post">
-                <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button> </br>
+                <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
+                <a href="/setting/category_destroy/<%=c.id%>">
+                  <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
+                </a>
               </form>
             <%end%>
             
@@ -80,18 +82,23 @@
               <div style="background-color:white; margin-right:20px;">
                 <table border="1" style="font-weight:bold; text-align:center;">
                   <tr class="row" style="font-size:20px;">
-                    <td class="col-md-5">메뉴명</td>
-                    <td class="col-md-5">가격</td>
+                    <td class="col-md-4">메뉴명</td>
+                    <td class="col-md-4">가격</td>
                     <td class="col-md-2">비고</td>
+                    <td class="col-md-2"style="font-size:15px;">수정/삭제</td>
                   </tr>
                   </table>
                 <% if @menu.present? %>
                   <% @menu.each do |m|%>
                     <table border="1" style="text-align:centbor;">
                     <tr class="row" style="font-size:20px;">
-                      <td class="col-md-5" style="text-align:center;"><%=m.name%></td>
-                      <td class="col-md-5"><%=m.price%></td>
+                      <td class="col-md-4" style="text-align:center;"><%=m.name%></td>
+                      <td class="col-md-4 "><%=m.price%></td>
                       <td class="col-md-2" style="text-align:center;"></td>
+                      <td class="col-md-2" style="text-align:center;font-size:15px;">
+                        <a href="/setting/menu_change1/<%=m.id%>">수정</a>/
+                        <a href="/setting/menu_destroy/<%=m.id%>">삭제</a>
+                      </td>
                     </tr>
                     </table>
                   <%end%>
@@ -107,4 +114,5 @@
   
   </body>
 </html>
+
 

@@ -72,16 +72,16 @@
                   <div style="background-color:gray; height:200px; padding-top:30px;">
                     <% if current_user.store.present?%>
                       <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
-                        <a class="" href="/home/storestart" style="font-size:23px; color:white;">
+                        <a onclick="myFunction_start()" href="#" style="font-size:23px; color:white;">
                           <i class="fa fa-lock fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                           <p>영업시작</p>
                         </a>
                       <% else %>
-                        <a class="" href="/home/storefinish" style="font-size:23px; color:white;">
+                        <a onclick="myFunction_finish()" href="#" style="font-size:23px; color:white;">
                           <i class="fa fa-hourglass-half fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                           <p>영업끝</p>
                         </a>
-                      <% end %>
+                      <% end%>
                     <% end %>
   
                   </div>
@@ -161,9 +161,73 @@
         
         
       </main> <!-- 모두의POS container -->
+
+      <script>
+          function myFunction_start() {
+              var x;
+              if (confirm("오늘 영업을 시작하시겠습니까?") == true) {
+                  location.href = "/home/storestart";
+              } else {
+
+              }
+
+          }
+      </script>
+
+      <script>
+          function myFunction_finish() {
+              var x;
+              if (confirm("오늘 영업을 종료하시겠습니까?") == true) {
+                  location.href = "/home/storefinish";
+              } else {
+                  location.href = "/home/index";
+
+              }
+
+          }
+      </script>
+
+      <script>
+          $(document).ready(function() {
+              $('#makestore').formValidation({
+                  framework: 'bootstrap',
+                  icon: {
+                      valid: 'glyphicon glyphicon-ok',
+                      invalid: 'glyphicon glyphicon-remove',
+                      validating: 'glyphicon glyphicon-refresh'
+                  },
+                  fields: {
+                      store_name: {
+                          validators: {
+                              notEmpty: {
+                                  message: 'The username is required'
+                              },
+                              stringLength: {
+                                  min: 6,
+                                  max: 30,
+                                  message: 'The username must be more than 6 and less than 30 characters long'
+                              },
+                              regexp: {
+                                  regexp: /^[a-zA-Z0-9_]+$/,
+                                  message: 'The username can only consist of alphabetical, number and underscore'
+                              }
+                          }
+                      },
+                      password: {
+                          validators: {
+                              notEmpty: {
+                                  message: 'The password is required'
+                              }
+                          }
+                      }
+                  }
+              });
+          });
+      </script>
       
       
 
 
   </body>
 </html>
+

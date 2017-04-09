@@ -1,169 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
+<title>Demo Ads</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<div class="w3-panel w3-animate-opacity">
+  <div class="w3-tag w3-jumbo">S</div>
+  <div class="w3-tag w3-jumbo">A</div>
+  <div class="w3-tag w3-jumbo">L</div>
+  <div class="w3-tag w3-jumbo">E</div>
+  <div class="w3-tag w3-jumbo">E</div>
+</div>
 
-  <title>모두의 POS</title>
+<div class="w3-row-padding">
 
-
-
-</head>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-<main class="container">
-  <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC; padding:10px;">
-    <!-- 기존에 주점을 만들었는지 확인함 -->
-    <div class="col-lg-4" style="padding:5px;">
-
-
-      <div style="background-color:white; height:auto; width:340px">
-        <div style="padding:10px;">
-          <div style="color:black">
-            <h4>주문 내역</h4>
-            <div>======================================</div>
-            <div style="height:250px; margin-left:1px; margin-right:1px;">
-              <div class="row" style="font-size:14px; height:200px;">
-                <% @total_price = 0 %>
-                <% if current_user.store.billopen %>
-                    <% if @billshow.present? %>
-                        <% @billshow.salesmenu.each do |m|%>
-                            <span class="col-lg-3"><%= m.menu.name %></span>
-                            <span class="col-lg-3"><%= m.menu.price * m.qty %></span>
-                            <span class="col-lg-6">
-                  <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
-                    <span style="font-size:1.5em"><%= m.qty %></span>
-                  <button onclick="location.href='/sale/qty_minus/<%=m.id%>'" class="glyphicon glyphicon-minus" name = "qty" value ="<%=m.id%>"></button>
-
-                </span>
-                            <% @total_price = @total_price + (m.menu.price * m.qty) %>
-                        <% end %>
-                    <% else %>
-                    <% end %>
-                <% else %>
-                <% end %>
-
-              </div>
-              <div>-----------------------------------------------------------------</div>
-
-              <div class="row">
-                <span class="col-lg-4">총 액</span>
-                <span class="col-lg-8" style="text-align:right"><%= @total_price %> 원</span>
-              </div>
-            </div>
-            <div>======================================</div>
-          </div>
-
-          <div class="row" style="margin-top:15px;">
-            <form class="col-lg-4" action="/sale/billfinish" method = "post">
-              <button type="submit" formmethod="post" formaction="/sale/billfinish" class="btn btn-default">완료</button>
-            </form>
-            <form class="col-lg-4" action="/sale/billreset" method = "post">
-              <button type="submit"   class="btn btn-default">초기화</button>
-            </form>
-            <form class="col-lg-4" action="/sale/bill_cancle" method = "post">
-              <button type="submit"   class="btn btn-default">취소</button>
-            </form>
-
-          </div>
-        </div> <!-- 가장 우측 div box의 padding size -->
-      </div> <!-- 가장 우측 div box의 bgcolor, height-size -->
-
-
-    </div> <!-- 가장 우측 div box의 gridsystem ratio -->
-
-    <div class="col-lg-8">
-      <div>
-        <div style="padding-top:5px;">
-          <div class="row" style="height:70px; border-bottom:1px solid white">
-            <!--<div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "◀" %></div> -->
-
-            <div class="btn-group">
-              <div class="btn-group">
-
-                  <button id = "all"class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
-
-
-                <% @category.each do |c|%>
-                    <button id="c_<%=c.id%>" class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
-                <% end %>
-              </div>
-            </div>
-
-            <!--<div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "▶" %></div>-->
-
-          </div>
-        </div>
+  <div class="w3-third">
+    <div class="w3-card">
+      <div class="w3-container w3-red">
+        <h1><b>HOO</b></h1>
       </div>
-
-      <div class="row" style="margin-left:40px;padding:5px; height:338px;padding-left:15px; padding-right:15px;">
-
-
-        <form action="/sale/billpreview" method = "post">
-
-          <div id="menu">
-            <%@category.each do |c|%>
-                <% c.menu.each do |m| %>
-                    <button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>
-                    <%end%><%end%>
-          </div>
-          <% @category.each do |c| %>
-              <% c.menu.each do |m| %>
-
-                  <div class="col-lg-3" style="margin-right:15px; margin-top:10px;">
-                    <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
-                      <%=m.name%>/<%=m.price%>
-                    </button>
-                  </div>
-              <% end %>
-          <% end %>
-        </form>
+      <div class="w3-container w3-xlarge">
+        <p>The Newest<br>
+          <i><b>triple-action</b></i><br>
+          <span class="w3-xxlarge w3-text-red"><b>HOO</b></span></p>
+        <p><del>$400</del> <span class="w3-tag w3-yellow">New!</span><br>
+          Now only $299 !!!</p>
       </div>
+      <div class="w3-container w3-red">
+        <p class="w3-opacity">Contact: 555 555 555</p>
+      </div>
+    </div>
+    <br>
+    <div class="w3-card">
+      <div class="w3-container w3-green">
+        <h1><b>HOO</b></h1>
+      </div>
+      <div class="w3-container w3-xlarge">
+        <p>The Newest<br>
+          <i><b>triple-action</b></i><br>
+          <span class="w3-xxlarge w3-text-red"><b>HOO</b></span></p>
+        <p><del>$400</del> <span class="w3-badge w3-red">6</span><br>
+          Now only $299 !!!</p>
+      </div>
+      <div class="w3-container w3-green">
+        <p class="w3-opacity">Contact: 555 555 555</p>
+      </div>
+    </div>
 
-    </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
-  </div> <!-- gridsystem에서 2번째 열의 ratio -->
-  </div> <!--  가장 바깥범위의 gridsystem row -->
-</main> <!-- 모두의POS container -->
+    <div class="w3-card">
+      <div class="w3-container w3-green">
+        <h1><b>HOO</b></h1>
+      </div>
+      <div class="w3-container w3-xlarge">
+        <p>The Newest<br>
+          <i><b>triple-action</b></i><br>
+          <span class="w3-xxlarge w3-text-red"><b>HOO</b></span></p>
+        <p><del>$400</del> <span class="w3-badge w3-red">6</span><br>
+          Now only $299 !!!</p>
+      </div>
+      <div class="w3-container w3-green">
+        <p class="w3-opacity">Contact: 555 555 555</p>
+      </div>
+    </div>
+  </div>
 
-<button class = "menuhi1">hihi</button>
-</br>
+    </div>
+  </div>
 
-<script>
-    $(document).ready(function(){
-      <%@category.each do |c|%>
-
-      $("#c_<%=c.id%>").click(function(){
-          $("#menu").html("<% c.menu.each do |m| %>" + <!--#menu 자리에 삽입-->
-              "<button type='submit' value='<%=m.id %>' name='menuid' id='m_<%=m.id%>><%=m.name%>/<%=m.price%>!!'</button>" +
-              "<% end %>");
-      });
-        <%end%>
-    });
-</script>
-
-<script>
-    <%@category.each do |c|%>
-    $(document).ready(function(){
-        $("#c_<%=c.id%>").click(function(){ <!--11아이디를 가진 버튼을 누를 때-->
-            $("#menu").html("<% c.menu.each do |m| %>" +
-                "<button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>" +
-                "<% end %>");
-        });
-    });
-    <%end%>
-
-    $("#all").click(function(){
-
-        $("#menu").html("<%@category.each do |c|%>"+"<% c.menu.each do |m| %>"+
-            "<button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>"+
-            "<%end%>"+"<%end%>");
-    });
-</script>
-
+</div>
 </body>
 </html>
