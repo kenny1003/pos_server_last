@@ -48,6 +48,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="w3-card">
       <div class="w3-container w3-green">
         <h1><b>HOO</b></h1>
@@ -64,6 +65,42 @@
       </div>
     </div>
   </div>
+=======
+    </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+  </div> <!-- gridsystem에서 2번째 열의 ratio -->
+  </div> <!--  가장 바깥범위의 gridsystem row -->
+</main> <!-- 모두의POS container -->
+
+<button class = "menuhi1">hihi</button>
+</br>
+
+<script>
+    $(document).ready(function(){
+      <%@category.each do |c|%>
+
+      $("#c_<%=c.id%>").click(function(){
+          $("#menu").html("<% c.menu.each do |m| %>" + <!--#menu 자리에 삽입-->
+              "<button type='submit' value='<%=m.id %>' name='menuid' id='m_<%=m.id%>><%=m.name%>/<%=m.price%>!!'</button>" +
+              "<% end %>");
+      });
+        <%end%>
+    });
+</script>
+
+
+<script>
+    <%@category.each do |c|%>
+    $(document).ready(function(){
+        $("#c_<%=c.id%>").click(function(){ <!--11아이디를 가진 버튼을 누를 때-->
+            $("#menu").html("<% c.menu.each do |m| %>" +
+                "<button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>" +
+                "<% end %>");
+        });
+    });
+    <%end%>
+
+    $("#all").click(function(){
+>>>>>>> e7ca2c1687bc47ff6b3ab1786e6b859842f422f6
 
     </div>
   </div>

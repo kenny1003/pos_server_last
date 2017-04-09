@@ -1,36 +1,41 @@
-<h1>영업기간별 계산서 출력</h1>
-
-<div class="row">
-  <!--왼쪽 화면 -->
-
-  <div class="col-md-2">
-    <div class = "container">
-      <a href="/bill/index">전체계산서</a> </br> <!--bill/index의 디폴트 값은 '전체계산서 출력-->
-      <a href="/bill/today">오늘계산서</a></br>
-      <a href="/bill/workperiod">영업기간별 계산서</a>
+<div class="container">
+  <div class="row">
+    <!--왼쪽 화면 -->
+    
+  
+    <div class="col-md-2" style="background-color:darkgray;">
+      <hr>
+      <div style="text-align:center">
+        <h3>기간별 계산서</h3>
+      </div>
+      <hr>
+      <div class = "container" style="height:480px; color:white">
+        <h4><a href="/bill/index">전체계산서</a></h4> <!--bill/index의 디폴트 값은 '전체계산서 출력-->
+        <h4><a href="/bill/today">오늘계산서</a></h4>
+        <h4><a href="/bill/workperiod" style="color:white">기간별 계산서</a></h4>
+        
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            영업기간
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <% @workperiod.each do |w|%>
+                <li><a href="/bill/workperiod_show/<%=w.id%>"><%=w.created_at.strftime("(%F)  %H:%M")%> ~ <%=w.updated_at.strftime("(%F) %H:%M")%></a></li>
+            <%end%>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">***</a></li>
+          </ul>
+        </div>
+      
+      </div>
     </div>
-  </div>
-
 
   <!--오른쪽 화면 -->
 
   <div class="col-md-10">
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        영업기간
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <% @workperiod.each do |w|%>
-            <li><a href="/bill/workperiod_show/<%=w.id%>"><%=w.created_at.strftime("(%F)  %H:%M")%> ~ <%=w.updated_at.strftime("(%F) %H:%M")%></a></li>
-        <%end%>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">***</a></li>
-      </ul>
-    </div>
+    
   </div>
-  영업기간을 선택해주세요
-</div>
 
 
 

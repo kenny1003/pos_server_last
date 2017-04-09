@@ -1,8 +1,8 @@
-<div style="background-color:white; height:auto; width:340px">
-  <div style="padding:10px;">
+<div style="background-color:white; height:auto;">
+  <div style="padding:15px;">
     <div style="color:black">
       <h4>주문 내역</h4>
-      <div>======================================</div>
+      <div>=================================</div>
       <div style="height:250px; margin-left:1px; margin-right:1px;">
         <div class="row" style="font-size:14px; height:200px;">
           <% @total_price = 0 %>
@@ -13,7 +13,7 @@
                 <span class="col-lg-3"><%= m.menu.price * m.qty %></span>
                 <span class="col-lg-6">
                   <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
-                    <span style="font-size:1.5em"><%= m.qty %></span>
+                    <span style="font-size:14px;"><%= m.qty %></span>
                   <button onclick="location.href='/sale/qty_minus/<%=m.id%>'" class="glyphicon glyphicon-minus" name = "qty" value ="<%=m.id%>"></button>
 
                 </span>
@@ -26,14 +26,14 @@
           <% end %>
           
         </div>
-        <div>-----------------------------------------------------------------</div>
+        <div>--------------------------------------------------------</div>
 
         <div class="row">
           <span class="col-lg-4">총 액</span>
           <span class="col-lg-8" style="text-align:right"><%= @total_price %> 원</span>
         </div>
       </div>
-      <div>======================================</div>
+      <div>=================================</div>
     </div>
        
     <div class="row" style="margin-top:15px;">

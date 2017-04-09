@@ -22,25 +22,26 @@
     <div class="col-lg-4" style="padding:5px;">
 
 
-      <div style="background-color:white; height:auto; width:340px">
-        <div style="padding:10px;">
+      <div style="background-color:white; height:510px;">
+        <div style="padding:15px;">
           <div style="color:black">
             <h4>주문 내역</h4>
-            <div>======================================</div>
-            <div style="height:250px; margin-left:1px; margin-right:1px;">
-              <div class="row" style="font-size:14px; height:200px;">
+            <div>================================</div>
+            <div style="height:350px; margin-left:1px; margin-right:1px;">
+              <div class="row" style="font-size:12px; height:300px;">
                 <% @total_price = 0 %>
                 <% if current_user.store.billopen %>
                     <% if @billshow.present? %>
                         <% @billshow.salesmenu.each do |m|%>
-                            <span class="col-lg-3"><%= m.menu.name %></span>
-                            <span class="col-lg-3"><%= m.menu.price * m.qty %></span>
-                            <span class="col-lg-6">
-                  <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
-                    <span style="font-size:1.5em"><%= m.qty %></span>
-                  <button onclick="location.href='/sale/qty_minus/<%=m.id%>'" class="glyphicon glyphicon-minus" name = "qty" value ="<%=m.id%>"></button>
-
-                </span>
+                            <div>
+                              <span class="col-lg-5"><%= m.menu.name %></span>
+                              <span class="col-lg-2"><%= m.menu.price * m.qty %></span>
+                              <span class="col-lg-5">
+                                <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
+                                <span style="font-size:11px;"><%= m.qty %></span>
+                                <button onclick="location.href='/sale/qty_minus/<%=m.id%>'" class="glyphicon glyphicon-minus" name = "qty" value ="<%=m.id%>"></button>
+                              </span>
+                            </div>
                             <% @total_price = @total_price + (m.menu.price * m.qty) %>
                         <% end %>
                     <% else %>
@@ -49,14 +50,14 @@
                 <% end %>
 
               </div>
-              <div>-----------------------------------------------------------------</div>
+              <div>------------------------------------------------------</div>
 
               <div class="row">
                 <span class="col-lg-4">총 액</span>
                 <span class="col-lg-8" style="text-align:right"><%= @total_price %> 원</span>
               </div>
             </div>
-            <div>======================================</div>
+            <div>================================</div>
           </div>
 
           <div class="row" style="margin-top:15px;">
@@ -80,17 +81,17 @@
     <div class="col-lg-8">
       <div>
         <div style="padding-top:5px;">
-          <div class="row" style="height:70px; border-bottom:1px solid white">
+          <div class="row" style="height:60px; border-bottom:1px solid white">
             <!--<div class="btn btn-default" style="height:60px; padding-top:18px;"><%= "◀" %></div> -->
 
             <div class="btn-group">
               <div class="btn-group">
 
-                <button id = "all"class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
+                <button id = "all" class="btn btn-defalut" style="background-color:white; height:45px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
 
 
                 <% @category.each do |c|%>
-                    <button id="c_<%=c.id%>" class="btn btn-defalut" style="background-color:white; height:60px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
+                  <button id="c_<%=c.id%>" class="btn btn-defalut" style="background-color:white; height:45px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
                 <% end %>
               </div>
             </div>
@@ -101,27 +102,24 @@
         </div>
       </div>
 
-      <div class="row" style="margin-left:40px;padding:5px; height:338px;padding-left:15px; padding-right:15px;">
-
-
+      <div class="row" style="padding:5px; height:338px; padding-left:15px; padding-right:5px;">
         <form action="/sale/billpreview" method = "post">
-
-          <div id="menu">
-            <%@category.each do |c|%>
+          
+            <div id="menu" style="overflow-y:scroll; height:445px;">
+              <% @category.each do |c| %>
                 <% c.menu.each do |m| %>
-                    <button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>
-                    <%end%><%end%>
-          </div>
-          <% @category.each do |c| %>
-              <% c.menu.each do |m| %>
-
-                  <div class="col-lg-3" style="margin-right:15px; margin-top:10px;">
-                    <button type="submit" class="btn btn-defalut" value="<%= m.id %>" name="menuid" style="background-color:white; height:100px; width:135px; box-shadow:0 2px 2px 0 darkgray;">
-                      <%=m.name%>/<%=m.price%>
+                  <div class="col-lg-3" style="padding:5px;" >
+                    <button class="btn btn-defalut" id='showmenuid' type='submit' value='<%= m.id %>' name='menuid' style="background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;">
+                      <b><%=m.name%></b><br>
+                      <%=m.price%> 원
                     </button>
                   </div>
+                <% end %>
               <% end %>
-          <% end %>
+            </div>
+             
+         
+          
         </form>
       </div>
 
@@ -136,7 +134,9 @@
     $(document).ready(function(){
         $("#c_<%=c.id%>").click(function(){ <!--11아이디를 가진 버튼을 누를 때-->
             $("#menu").html("<% c.menu.each do |m| %>" +
-                "<button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>" +
+                "<div class='col-lg-3' style='padding:5px;'>"+
+                "<button class='btn btn-defalut' id='showmenuid' type='submit' value='<%= m.id %>' name='menuid' style='background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;'><b><%=m.name%></b><br><%=m.price%> 원</button>" +
+                "</div>"+
                 "<% end %>");
         });
     });
@@ -145,8 +145,10 @@
     $("#all").click(function(){
 
         $("#menu").html("<%@category.each do |c|%>"+"<% c.menu.each do |m| %>"+
-            "<button id = showmenuid type=submit value=<%= m.id %> name=menuid><%=m.name%></button>"+
-            "<%end%>"+"<%end%>");
+            "<div class='col-lg-3' style='padding:5px;'>"+
+            "<button class='btn btn-defalut' id='showmenuid' type='submit' value='<%= m.id %>' name='menuid' style='background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;'><b><%=m.name%></b><br><%=m.price%> 원</button>"+
+            "</div>"+
+            "<% end %>"+"<% end %>");
     });
 </script>
 
