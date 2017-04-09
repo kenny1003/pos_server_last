@@ -12,7 +12,7 @@ class SaleController < ApplicationController
       if current_user.store.category.exists?
         @category = current_user.store.category #db 추출 (카테고리추출)
       else
-        redirect_to "/setting/menusetting" #상점에서 저장한 메뉴가 하나도 없으면 메뉴 세팅 페이지로 이동
+        redirect_to "/sale/go_settingmenu" #상점에서 저장한 메뉴가 하나도 없으면 메뉴 세팅 페이지로 이동
       end
       @billshow = current_user.store.bills.last #마지막에 생성된 계산서를 보여준다.
     else
