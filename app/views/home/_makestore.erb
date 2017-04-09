@@ -1,21 +1,25 @@
-
-<div style="margin-top:35px;">
-  <h3 style><b>주점 시작하기</b></h3>
-  <form action = "/home/makestore" method="POST">
-    <div class="form-group">
-      <label for="exampleInputEmail1"><small>주 점 이 름</small></label>
-      <input type="text" class="form-control" name = "store_name" placeholder="ex 컴공 어서옵셔"><br>
+<div style="background-color:#01A9DB; height:410px;">
+  <div style="padding:15px;">
+    <div style="margin-top:15px;">
+      <form action = "/home/makestore" method="POST">
+        <div class="form-group">
+          <label for="exampleInputEmail1"><small>주 점 이 름</small></label>
+          <input type="text" class="form-control" name = "store_name" placeholder="ex 컴공 어서옵셔"><br>
+          
+          <label for="exampleInputEmail1"><small>목 표 매 출</small></label>
+          <input type="text" class="form-control" name = "goal" placeholder="만원" style="font-align:right;"><br>
+          
+          <label for="exampleInputEmail1"><small>코리아텍 학과</small></label>
+          <input type="text" class="form-control" name = "major" placeholder="ex)전자공학과" style="font-align:right;"><br>
+          
+          <label for="exampleInputEmail1"><small>인증코드 입력</small></label>
+          <input type="text" class="form-control" name = "pincode" placeholder="6자리 코드 입력" style="font-align:right;"><br>
+          
+          <button type="submit" class="btn btn-default">시작하기</button>
+        </div>
+      </form>
+    </div> <!-- 주점을 안만들었으면 주점을 만드는페이지 출력 -->
+  </div> <!-- 가장 우측 div box의 padding size -->
+</div> <!-- 가장 우측 div box의 bgcolor, height-size -->
   
-      <label for="exampleInputEmail1"><small>목 표 매 출</small></label>
-      <input type="text" class="form-control" name = "goal" placeholder="만원" style="font-align:right;"><br>
-
-      <label for="exampleInputEmail1"><small>코리아텍 학과</small></label>
-      <input type="text" class="form-control" name = "major" placeholder="ex)전자공학과" style="font-align:right;"><br>
-
-      <label for="exampleInputEmail1"><small>인증코드 입력</small></label>
-      <input type="text" class="form-control" name = "pincode" placeholder="6자리 코드 입력" style="font-align:right;"><br>
   
-      <button type="submit" class="btn btn-default">시작하기</button>
-    </div>
-  </form>
-</div>

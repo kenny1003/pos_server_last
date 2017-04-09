@@ -53,12 +53,7 @@
         <div class="row intro-section" style="width:80%; margin: 0 auto;">
           <!-- 기존에 주점을 만들었는지 확인함 -->
           <div class="col-lg-3" style="padding:5px;">
-            <div style="background-color:#01A9DB; height:410px;">
-              <div style="padding:15px;">
-                <div style="color:white">
-                  <h3><b>모두의 POS</b></h3><small>by Makers</small>
-                </div>
-                <hr>
+            
                 <div>
                   <% if current_user.store.present? %>
                     <%= render 'home/choosestore' %>
@@ -67,81 +62,84 @@
                   <% end %> 
                 </div> <!-- 주점을 안만들었으면 주점을 만드는페이지 출력 -->
               </div> <!-- 가장 우측 div box의 padding size -->
-            </div> <!-- 가장 우측 div box의 bgcolor, height-size -->
-          </div> <!-- 가장 우측 div box의 gridsystem ratio -->
-        
+
           <div class="col-lg-9">
-            <div class="row">
-              <div class="col-lg-8" style="padding:5px;">
-                <div style="background-color:gray; height:200px; padding-top:30px; ">
+            <% if !current_user.store.present? %>
+              <%= render 'home/beforestore' %>
+            <% else %>
+              <div class="row">
+                <div class="col-lg-8" style="padding:5px;">
+                  <div style="background-color:gray; height:200px; padding-top:30px;">
+                    <% if current_user.store.present?%>
+                      <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
+                        <a class="" href="/home/storestart" style="font-size:23px; color:white;">
+                          <i class="fa fa-lock fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                          <p>영업시작</p>
+                        </a>
+                      <% else %>
+                        <a class="" href="/home/storefinish" style="font-size:23px; color:white;">
+                          <i class="fa fa-hourglass-half fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                          <p>영업끝</p>
+                        </a>
+                      <% end %>
+                    <% end %>
+  
+                  </div>
+                </div>
+                
+                <div class="col-lg-4" style=" padding:5px;">
                   <% if current_user.store.present?%>
-                    <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
-                      <a class="" href="/home/storestart" style="font-size:23px; color:white;">
-                        <i class="fa fa-lock fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
-                        <p>영업시작</p>
-                      </a>
+                    <% if !current_user.store.working %>
+                      <div style="background-color:gray; height:200px; padding-top:30px; ">
+                        <span class="" href="/sale/index" style="font-size:23px; color:white;">
+                          <i class="fa fa-calculator fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                          <p>판매하기</p>
+                        </span>
+                      </div>
                     <% else %>
-                      <a class="" href="/home/storefinish" style="font-size:23px; color:white;">
-                        <i class="fa fa-hourglass-half fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
-                        <p>영업끝</p>
-                      </a>
+                      <div style="background-color:green; height:200px; padding-top:30px; ">
+                        <a class="" href="/sale/index" style="font-size:23px; color:white;">
+                          <i class="fa fa-calculator fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                          <p>판매하기</p>
+                        </a>
+                      </div>
                     <% end %>
                   <% end %>
-
                 </div>
+                
               </div>
-              
-              <div class="col-lg-4" style=" padding:5px;">
-                <% if current_user.store.present?%>
-                  <% if !current_user.store.working %>
-                    <div style="background-color:gray; height:200px; padding-top:30px; ">
-                      <span class="" href="/sale/index" style="font-size:23px; color:white;">
-                        <i class="fa fa-calculator fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
-                        <p>판매하기</p>
-                      </span>
-                    </div>
-                  <% else %>
-                    <div style="background-color:green; height:200px; padding-top:30px; ">
-                      <a class="" href="/sale/index" style="font-size:23px; color:white;">
-                        <i class="fa fa-calculator fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
-                        <p>판매하기</p>
-                      </a>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-              
-            </div>
-         
-            <div class="row">
-              <div class="col-lg-4" style="padding:5px;">
-                <div style="background-color:red; height:200px; padding-top:30px; ">
-                  <a class="" href="/bill/index" style="font-size:23px; color:white;" >
-                    <i class="fa fa-print fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
-                    <p>계산서</p>
-                  </a>
+           
+              <div class="row">
+                <div class="col-lg-4" style="padding:5px;">
+                  <div style="background-color:red; height:200px; padding-top:30px; ">
+                    <a class="" href="/bill/index" style="font-size:23px; color:white;" >
+                      <i class="fa fa-print fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                      <p>계산서</p>
+                    </a>
+                  </div>
                 </div>
-              </div>
-              
-              <div class="col-lg-4" style="padding:5px;">
-                <div style="background-color:purple; height:200px; padding-top:30px; ">
-                  <a class="" href="/report/index" style="font-size:23px; color:white;">
-                    <i class="fa fa-line-chart fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
-                    <p>리포트</p>
-                  </a>
+                
+                <div class="col-lg-4" style="padding:5px;">
+                  <div style="background-color:purple; height:200px; padding-top:30px; ">
+                    <a class="" href="/report/index" style="font-size:23px; color:white;">
+                      <i class="fa fa-line-chart fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                      <p>리포트</p>
+                    </a>
+                  </div>
                 </div>
-              </div>
-              
-              <div class="col-lg-4" style="padding:5px;">
-                <div style="background-color:#FFBF00; height:200px; padding-top:30px; ">
-                  <a class="" href="/setting/menusetting" style="font-size:23px; color:white;">
-                    <i class="fa fa-edit fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
-                    <p>메뉴관리</p>
-                  </a>
+                
+                <div class="col-lg-4" style="padding:5px;">
+                  <div style="background-color:#FFBF00; height:200px; padding-top:30px; ">
+                    <a class="" href="/setting/menusetting" style="font-size:23px; color:white;">
+                      <i class="fa fa-edit fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
+                      <p>메뉴관리</p>
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+            <% end %>
               
-            </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+            
           </div> <!-- gridsystem에서 2번째 열의 ratio -->
         </div> <!--  가장 바깥범위의 gridsystem row -->
         

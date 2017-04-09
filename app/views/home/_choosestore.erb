@@ -1,65 +1,66 @@
-
-<div style="margin-top:20px;">
-  <div class="form-group">
-    <div style="margin-bottom:10px; margin:auto;">
-      <i class="fa fa-user-circle-o fa-5x" aria-hidden="true" style="font-size:50px;"></i>&nbsp;&nbsp;
-
-      <label for="exampleInputEmail1"><small>주점명 : </small></label>
-      <label style="color:white" for="exampleInputEmail1"><small><%= current_user.store.name %></small></label>
+<div style="background-color:#01A9DB; height:410px;">
+  <div style="padding:15px;">
+    <div style="color:white">
+      <h3><b>모두의 POS</b></h3><small>by Makers</small>
     </div>
+    <hr>
     
-    <div class="progress" style="margin-bottom:10px; margin-top:10px;">
-      <% if current_user.store.working %>
-        <small><%=@income_today%>원</small>
-      <% else%>
-          <small>-</small>
-      <%end%>
-      <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-        <span class="sr-only">40% Complete (success)</span><small>오늘 매출액</small>
-      </div>
-
-    </div>
-    <div class="progress" style="margin-bottom:10px;">
-      <% if current_user.store.working %>
-        <small><%=@bill_today_count%>개</small>
-      <% else%>
-          <small>-</small>
-      <%end%>
-
-      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-        <span class="sr-only">20% Complete</span><small>오늘 계산서 수</small>
-      </div>
-    </div>
-    <div class="progress" style="margin-bottom:10px;">
-      <small><%=@income_all%>원</small>
-      <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-        <span class="sr-only">60% Complete (warning)</span><small>누적 매출액</small>
-      </div>
-    </div>
-    <div class="progress" style="margin-bottom:10px;">
-      <small><%=@bill_all_count%>개</small>
-      <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-        <span class="sr-only">80% Complete (danger)</span><small>누적 계산서 수</small>
-      </div>
-    </div>
-
-    <% if current_user.store.confirmation%> <!-- 인증이 된 상점인지 확인한다. -->
-        <div style="margin-top:25px;">
-          <span id="clock"></span>
+    <div style="margin-top:20px;">
+      <div class="form-group">
+        <div style="margin-bottom:10px; margin:auto;">
+          <i class="fa fa-user-circle-o fa-5x" aria-hidden="true" style="font-size:50px;"></i>&nbsp;&nbsp;
+    
+          <label for="exampleInputEmail1"><small>주점명 : </small></label>
+          <label style="color:white" for="exampleInputEmail1"><small><%= current_user.store.name %></small></label>
         </div>
-    <% else %>
-        <form action = "/home/choosestore" method="POST">
-        상점 재인증이 필요합니다.</br>
-        <input type="text" class="form-control" name = "pincode" placeholder="유효한 인증코드 입력  " style="font-align:right;"><br>
-        <button type="submit" class="btn btn-default">재인증</button>
-    <%end%>
-
-
-
+        
+        <div class="progress" style="margin-bottom:10px; margin-top:10px;">
+          <% if current_user.store.working %>
+            <small><%=@income_today%>원</small>
+          <% else%>
+              <small>-</small>
+          <%end%>
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">40% Complete (success)</span><small>오늘 매출액</small>
+          </div>
     
+        </div>
+        <div class="progress" style="margin-bottom:10px;">
+          <% if current_user.store.working %>
+            <small><%=@bill_today_count%>개</small>
+          <% else%>
+              <small>-</small>
+          <%end%>
+    
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">20% Complete</span><small>오늘 계산서 수</small>
+          </div>
+        </div>
+        <div class="progress" style="margin-bottom:10px;">
+          <small><%=@income_all%>원</small>
+          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">60% Complete (warning)</span><small>누적 매출액</small>
+          </div>
+        </div>
+        <div class="progress" style="margin-bottom:10px;">
+          <small><%=@bill_all_count%>개</small>
+          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">80% Complete (danger)</span><small>누적 계산서 수</small>
+          </div>
+        </div>
+    
+        <% if current_user.store.confirmation%> <!-- 인증이 된 상점인지 확인한다. -->
+            <div style="margin-top:25px;">
+              <span id="clock"></span>
+            </div>
+        <% else %>
+            <form action = "/home/choosestore" method="POST">
+            상점 재인증이 필요합니다.</br>
+            <input type="text" class="form-control" name = "pincode" placeholder="유효한 인증코드 입력  " style="font-align:right;"><br>
+            <button type="submit" class="btn btn-default">재인증</button>
+        <%end%>
+
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-

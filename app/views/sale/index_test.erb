@@ -126,7 +126,7 @@
 
       $("#c_<%=c.id%>").click(function(){
           $("#menu").html("<% c.menu.each do |m| %>" + <!--#menu 자리에 삽입-->
-              "<button type=submit value=<%=m.id %> name=menuid id=m_<%=m.id%>><%=m.name%>/<%=m.price%></button>" +
+              "<button type='submit' value='<%=m.id %>' name='menuid' id='m_<%=m.id%>><%=m.name%>/<%=m.price%>!!'</button>" +
               "<% end %>");
       });
         <%end%>

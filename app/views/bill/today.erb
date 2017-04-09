@@ -21,35 +21,35 @@
         <div id="mainbox">
           <% @bill_today.each do |b|%>
 
-              <div id="card">
-                <div id ="store_title"><%=b.created_at.strftime("%F // %H:%M")%></div>
+            <div id="card">
+              <div id ="store_title"><%=b.created_at.strftime("%F // %H:%M")%></div>
 
-                <div id ="store_content">
-                  --------------------------------------</br>
-                  <% b.salesmenu.each do |s|%>
-                      <form action="/bill/qty_minus" method = "post">
-                        <%=s.menu.name%> &nbsp; &nbsp;
-                        <%=s.qty%>
-                        <button type="submit" class="glyphicon glyphicon-minus" name ="qty" value ="<%=s.id%>"> </button>
-                      </form>
-                  <%end%>
-                </div>
-                ------------------------------------------
-                <div id ="store_title">총 금액 : <%=b.totalprice%> 원</div>
-                <form action="/bill/bill_destroy" method = "post">
-                  <button type="submit" class="btn btn-default" name = "billid" value ="<%=b.id%>">계산서삭제</button>
-                </form>
+              <div id ="store_content">
+                --------------------------------------</br>
+                <% b.salesmenu.each do |s|%>
+                    <form action="/bill/qty_minus" method = "post">
+                      <%=s.menu.name%> &nbsp; &nbsp;
+                      <%=s.qty%>
+                      <button type="submit" class="glyphicon glyphicon-minus" name ="qty" value ="<%=s.id%>"> </button>
+                    </form>
+                <%end%>
               </div>
+              ------------------------------------------
+              <div id ="store_title">총 금액 : <%=b.totalprice%> 원</div>
+              <form action="/bill/bill_destroy" method = "post">
+                <button type="submit" class="btn btn-default" name = "billid" value ="<%=b.id%>">계산서삭제</button>
+              </form>
+            </div>
 
-          <%end%>
+          <% end %>
 
 
         </div>
 
-    <%else%>
+    <% else %>
       '영업중'이 아닙니다.
 
-    <%end%>
+    <% end %>
 
 
 
