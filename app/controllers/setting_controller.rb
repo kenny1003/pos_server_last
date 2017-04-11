@@ -42,6 +42,7 @@ class SettingController < ApplicationController
 
 
   def showmenu
+    @category_entry = current_user.store.category
     @categoryid = params[:categoryid]
     @category = Store.find(current_user.id).category
     flash[:notice] = "Post successfully created"

@@ -35,14 +35,14 @@
             </form>
             <hr>
       
-            <%@category.each do |c|%>
+            <% @category_entry.each do |c| %>
               <form action="/setting/showmenu" method="post">
                 <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
                 <a href="/setting/category_destroy/<%=c.id%>">
                   <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
                 </a>
               </form>
-            <%end%>
+            <% end %>
             
           </div> <!-- 가장 우측 div box의 gridsystem ratio -->
           
@@ -71,8 +71,6 @@
                         <button type="submit" class="btn btn-default">입력</button>
                       </form>
                   </div>
-                  
-                  
                   <hr>
                 </div>
               </div>
@@ -95,8 +93,8 @@
                       <td class="col-md-4" style="text-align:center;"><%=m.name%></td>
                       <td class="col-md-4 "><%=m.price%></td>
                       <td class="col-md-2" style="text-align:center;"></td>
-                      <td class="col-md-2" style="text-align:center;font-size:15px;">
-                        <a href="/setting/menu_change1/<%=m.id%>">수정</a>/
+                      <td class="col-md-2" style="text-align:center; font-size:13px;">
+                        <a href="/setting/menu_change1/<%=m.id%>">수정</a> /
                         <a href="/setting/menu_destroy/<%=m.id%>">삭제</a>
                       </td>
                     </tr>
@@ -110,7 +108,6 @@
           </div> <!-- gridsystem에서 2번째 열의 ratio -->
         </div> <!--  가장 바깥범위의 gridsystem row -->
       </main> <!-- 모두의POS container -->
-
   
   </body>
 </html>
