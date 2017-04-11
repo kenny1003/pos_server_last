@@ -60,7 +60,7 @@ class SettingController < ApplicationController
     @menu.name = params[:menu_name]
     @menu.price = params[:menu_price]
     @menu.save
-    
+
     redirect_to :back
     # redirect_to "/setting/showmenu/"+params[:category_id]
 

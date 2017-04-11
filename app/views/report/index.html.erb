@@ -71,31 +71,33 @@
   <% if !current_user.store.bills.present? %>
   <h1><%= @error_message %></h1>
   <% else %>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        정렬
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><a href="/report/index/0">순번</a></li>
+        <li><a href="/report/index/1">순번 역순</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/report/index/2">일자</a></li>
+        <li><a href="/report/index/3">일자 역</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/report/index/4">가격</a></li>
+        <li><a href="/report/index/5">가격 역순</a></li>
+      </ul>
+    </div>
+
     <div class="container">
     	<div class="list-group">
         <table border='1' class="table table-bordered" style="font-weight:bold; text-align:center;">
              <!--table table-striped sortable 이것은 자바스크립트로 돌아가는 정렬-->
              <!--table table-striped sortable 후에 연구할 예정-->
           <tr>
-            <% if  @order_count==0%>
-              <th onclick="location.href='/report/index/1'" class="col-md-1">순번</th>
-            <% else %>
-              <th onclick="location.href='/report/index/0'" class="col-md-1">순번</th>
-            <% end %>
-            
-            <% if  @order_count==2%>
-              <th onclick="location.href='/report/index/3'" class="col-md-3">일자</th>
-            <% else %>
-              <th onclick="location.href='/report/index/2'" class="col-md-3">일자</th>
-            <% end %>
-            
+            <th class="col-md-1">순번</th>
+            <th class="col-md-3">일자</th>
             <th class="col-md-2">판매상품</th>
-            
-            <% if  @order_count==4%>
-              <th onclick="location.href='/report/index/5'" class="col-md-2">총가격</th>
-            <% else %>
-              <th onclick="location.href='/report/index/4'" class="col-md-2">총가격</th>
-            <% end %>
+            <th class="col-md-2">총가격</th>
           </tr>
         </table>
       </div>
