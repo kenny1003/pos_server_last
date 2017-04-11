@@ -5,16 +5,27 @@
  
 </head>
 <body>
+<a href="/report/index">리포트</a>
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    정렬
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <li role="separator" class="divider"></li>
+    <li><a href="/report/sales_rate/0">판매량</a></li>
+    <li><a href="/report/sales_rate/1">판매량 역순</a></li>
+    <li role="separator" class="divider"></li>
+  </ul>
+</div>
   <div class="container">
   	<div class="list-group">
       <table class="table table-bordered">
         <tr><th class="col-md-4">누적판매량</th></tr>
-        <tr><th class="col-md-1">이름</th>
-          <% if @order_count==0%>
-            <th onclick="location.href='/report/sales_rate/1'" class="col-md-4">판매량</th>
-          <% else %>
-            <th onclick="location.href='/report/sales_rate/0'" class="col-md-4">판매량</th>
-          <% end %></tr>
+        <tr>
+        <th class="col-md-1">이름</th>
+        <th class="col-md-4">판매량</th>
+        </tr>
       </table>
     </div>
   </div>  
@@ -42,5 +53,7 @@
           <% end %>
             <th class="col-md-4"><%=@sales_rate_.keys[0]%></th></tr>
       </table>
+    </div>
+  </div>
 </body>
 </html>
