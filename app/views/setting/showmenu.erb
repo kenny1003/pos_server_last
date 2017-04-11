@@ -72,42 +72,44 @@
                 </form>
               </ul>>
             </div>
+            
+            <hr>
+          </div>
+        </div>
+      </div>
 
-            <div class="row" style="padding:5px; height:318px; overflow-y:scroll; margin-bottom:20px;">
-              <div style="background-color:white; margin-right:20px;">
-                <table border="1" style="font-weight:bold; text-align:center;">
-                  <tr class="row" style="font-size:20px;">
-                    <td class="col-md-4">메뉴명</td>
-                    <td class="col-md-3">가격</td>
-                    <td class="col-md-2">비고</td>
-                    <td class="col-md-3"style="font-size:15px;">수정/삭제</td>
-                  </tr>
-                </table>
-                
-                <div style="margin-bottom:20px;">
-                  <table border="1" style="text-align:center;">
-                    <% if @menu.present? %>
-                      <% @menu.each do |m|%>
-                        <tr class="row" style="font-size:20px;">
-                          <td class="col-md-4" style="text-align:center;"><%=m.name%></td>
-                          <td class="col-md-3"><%= number_with_precision(m.price, :precision => 0, :delimiter => ',') %></td>
-                          <td class="col-md-2" style="text-align:center;"></td>
-                          <td class="col-md-3" style="text-align:center; font-size:13px;">
-                            <a href="/setting/menu_change1/<%=m.id%>">수정</a> /
-                            <a href="/setting/menu_destroy/<%=m.id%>">삭제</a>
-                          </td>
-                        </tr>
-                      <%end%>
-                    <%else%>
-                      <!-- 메뉴가 없습니다. -->
-                    <%end%>
+      <div class="row" style="padding:5px; height:418px; overflow-y:scroll; margin-bottom:20px;">
+        <div style="background-color:white; margin-right:20px;">
+          <table border="1" style="font-weight:bold; text-align:center;">
+            <tr class="row" style="font-size:20px;">
+              <td class="col-md-4">메뉴명</td>
+              <td class="col-md-3">가격</td>
+              <td class="col-md-2">비고</td>
+              <td class="col-md-3"style="font-size:15px;">수정/삭제</td>
+            </tr>
+          </table>
+          <% if @menu.present? %>
+              <% @menu.each do |m|%>
+                  <table border="1" style="text-align:centbor;">
+                    <tr class="row" style="font-size:20px;">
+                      <td class="col-md-4" style="text-align:center;"><%=m.name%></td>
+                      <td class="col-md-3 "><%=m.price%></td>
+                      <td class="col-md-2" style="text-align:center;"></td>
+                      <td class="col-md-3" style="text-align:center; font-size:13px;">
+                        <a href="/setting/menu_change1/<%=m.id%>">수정</a> /
+                        <a href="/setting/menu_destroy/<%=m.id%>">삭제</a>
+                      </td>
+                    </tr>
                   </table>
-                </div>
-              </div>
-            </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
-          </div> <!-- gridsystem에서 2번째 열의 ratio -->
-        </div> <!--  가장 바깥범위의 gridsystem row -->
-      </main> <!-- 모두의POS container -->
-  
-  </body>
+              <%end%>
+          <%else%>
+              <!-- 메뉴가 없습니다. -->
+          <%end%>
+        </div>
+      </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+    </div> <!-- gridsystem에서 2번째 열의 ratio -->
+  </div> <!--  가장 바깥범위의 gridsystem row -->
+</main> <!-- 모두의POS container -->
+
+</body>
 </html>
