@@ -31,19 +31,15 @@
                   <button type="submit" class="btn btn-default">추가</button>
                 </ul>
               </div>
-              
-           
             </form>
             <hr>
-            <%@category.each do |c|%>
+            
+            <% @category.each do |c| %>
               <form action="/setting/showmenu" method="post">
                 <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
                 <a href="/setting/category_destroy/<%=c.id%>">
                   <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
                 </a></br>
-
-
-
               </form>
             <%end%>
             
@@ -56,11 +52,7 @@
             <div>
               <div style="padding-top:5px;">
                 <div class="row" style=" vertical-align:middle;">
-                  <label for="exampleInputEmail1">메뉴 목록</label>
-                  
-                  
-                  
-                  
+                  <label for="exampleInputEmail1" style="padding-bottom:33px;">메뉴 목록</label>
                   <hr>
                 </div>
               </div>
@@ -68,29 +60,8 @@
          
             <div class="row" style="padding:5px; height:338px;">
               <div style="background-color:white; margin-right:20px;">
-                <table border="1" style="font-weight:bold; text-align:center;">
-                  <tr class="row" style="font-size:20px;">
-                    <td class="col-md-5">메뉴명</td>
-                    <td class="col-md-5">가격</td>
-                    <td class="col-md-2">비고</td>
-                  </tr>
-                  </table>
-                <% if @menu.present? %>
-                  <% @menu.each do |m|%>
-                    <table border="1" style="text-align:centbor;">
-                    <tr class="row" style="font-size:20px;">
-                      <td class="col-md-5" style="text-align:center;"><%=m.name%></td>
-                      <td class="col-md-5"><%=m.price%></td>
-                      <td class="col-md-2" style="text-align:center;"></td>
-                    </tr>
-                    </table>
-                  <%end%>
-                <%else%>
-                  <!-- 메뉴가 없습니다. -->
-                <%end%>
-              </div>
-                        
                 
+              </div>
             </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
           </div> <!-- gridsystem에서 2번째 열의 ratio -->
         </div> <!--  가장 바깥범위의 gridsystem row -->
