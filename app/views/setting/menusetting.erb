@@ -34,13 +34,15 @@
       </form>
       <hr>
 
+      <button type="submit" class="btn btn-default" name="categoryid" id="all" style="width:200px; margin:3px; font-size:20px;">전체보기</button>
       <% @category.each do |c| %>
-          <form action="/setting/showmenu" method="post">
-            <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
+
+
+            <button type="submit" class="btn btn-default category"  name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
             <a href="/setting/category_destroy/<%=c.id%>">
               <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
             </a></br>
-          </form>
+
       <%end%>
 
     </div> <!-- 가장 우측 div box의 gridsystem ratio -->
@@ -51,7 +53,7 @@
     <div class="col-lg-8">
       <div>
         <div style="padding-top:5px;">
-          <div class="row" style=" vertical-align:middle;">
+          <div class="row" id="menulist" style=" vertical-align:middle;">
             <label for="exampleInputEmail1" style="padding-bottom:33px;">메뉴 목록</label>
             <hr>
           </div>
@@ -59,7 +61,36 @@
       </div>
 
       <div class="row" style="padding:5px; height:338px;">
-        <div style="background-color:white; margin-right:20px;">
+        <div id="table" remote="true" style="background-color:white; margin-right:20px;">
+          <table border="1" style="font-weight:bold; text-align:center;">
+            <tr class="row" style="font-size:20px;">
+              <td class="col-md-4">카테고리</td>
+              <td class="col-md-4">이름</td>
+              <td class="col-md-2">가</td>
+              <td class="col-md-2"style="font-size:15px;">수정/삭제</td>
+            </tr>
+          </table>
+          <% if @category.present? %>
+              <% @category.each do |m|%>
+                  <% m.menu.each do |y| %>
+                  <table border="1" style="text-align:centbor;">
+                    <tr class="row" style="font-size:20px;">
+                      <td class="col-md-4" style="text-align:center;"><%=m.name%></td>
+                      <td class="col-md-4 "><%=y.name%></td>
+                      <td class="col-md-2" style="text-align:center;"><%=y.price %></td>
+                      <td class="col-md-2" style="text-align:center; font-size:13px;">
+                        <a href="/setting/menu_change1/<%=y.id%>">수정</a> 
+                        <a href="/setting/menu_destroy/<%=y.id%>">삭제</a>
+                      </td>
+                    </tr>
+                  </table>
+              <%end%>
+            <%end%>
+          <%else%>
+              <!-- 메뉴가 없습니다. -->
+          <%end%>
+        </div>
+      </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
 
         </div>
       </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
@@ -67,6 +98,78 @@
   </div> <!--  가장 바깥범위의 gridsystem row -->
 </main> <!-- 모두의POS container -->
 
+<script>
+
+
+    $(".category").click(function(){
+        send_value=this.value;
+        $.ajax({
+            method: "POST",
+            url: "/setting/menusetting",
+            data: { categoryid : send_value},
+            dataType : 'json'
+        })
+            .done(function (data) {
+        $("#table").html(" ");
+        $("#table").html("<table border='1' style='font-weight:bold; text-align:center;'>"+
+        "<tr class='row' style='font-size:20px;'>" + "<td class='col-md-4'>이름</td>" +
+            "<td class='col-md-3'>가격</td>" + "<td class='col-md-3'>비고</td>" +
+            "<td class='col-md-2' style=' font-size:15px;'>수정/삭제</td></tr>");
+
+        for (var i=0;i<data.length;i++) {
+
+            $( "#table").append( "<table border='1' style='text-align:center;'>"+
+                "<tr class='row' style='font-size:20px;'>" +
+                "<td class='col-md-4' style='text-align:center;'>"+ data[i].name +"</td>" +
+                "<td class='col-md-3'>"+ data[i].price+"</td>" +
+                "<td class='col-md-3' style='text-align:center;'></td>" +
+                "<td class='col-md-2' style='text-align:center; font-size:13px;'>" +
+                "<a href='/setting/menu_change1/"+ data[i].id +"'>수정</a>" +
+                "<a href='/setting/menu_destroy/"+ data[i].id +"'>삭제</a></td>"+
+                "</tr></table>"); }
+                $("#menulist").html("<label for='exampleInputEmail1'>메뉴 목록</label>" + "<div class='dropdown'>" +
+                    "<button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>" +
+                    "<i class='fa fa-asterisk' aria-hidden='true'></i><span class='caret'></span></button>"+
+                    "<ul class='dropdown-menu' aria-labelledby='dropdownMenu1'><form action = '/setting/menu_write' method='POST'>"+
+                    "<div class='form-group' style='float:left;'><label for='exampleInputEmail1' style='float:left;'>메뉴명</label>"+
+                    "<input type='text' class='form-control' name='menu_name' style='width:200px;'></div><div class='form-group'>"+
+                    "<label for='exampleInputEmail1' style='float:left;'>가격</label>"+
+                    "<input type='text' class='form-control' name='menu_price' style='width:200px;'>"+
+                    "<input type='hidden' class='form-control' name='category_id' value='"+ send_value +"'>"+
+                    "</div><button type='submit' class='btn btn-default'>입력</button></form></ul>></div><hr>"
+                );
+            });
+    });
+
+
+
+    $("#all").click(function(){
+
+        $("#menu").html("<%@category.each do |c|%>"+"<% c.menu.each do |m| %>"+
+            "<div class='col-lg-3' style='padding:5px;'>"+
+            "<button class='btn btn-defalut' id='showmenuid' type='submit' value='<%= m.id %>' name='menuid' style='background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;'><b><%=m.name%></b><br><%=m.price%> 원</button>"+
+            "</div>"+
+            "<% end %>"+"<% end %>");
+
+            $("#menulist").html("<label for='exampleInputEmail1' style='padding-bottom:33px;'>메뉴 목록</label>"+
+            "<hr>");
+            $("#table").html("<table border='1' style='font-weight:bold; text-align:center;'>"+
+                "<tr class='row' style='font-size:20px;'>" + "<td class='col-md-4'>카테고리</td>" +
+                "<td class='col-md-4'>이름</td>" + "<td class='col-md-2'>가격</td>" +
+                "<td class='col-md-2' style=' font-size:15px;'>수정/삭제</td></tr>" +
+                "</table><% if @category.present? %><% @category.each do |m|%>" +
+                "<% m.menu.each do |y| %>" +
+                "<table border='1' style='text-align:centbor;'>"+
+                "<tr class='row' style='font-size:20px;'>" +
+                "<td class='col-md-4' style='text-align:center;'><%=m.name%></td>" +
+                "<td class='col-md-4'><%=y.name%></td>" +
+                "<td class='col-md-2' style='text-align:center;'><%=y.price %></td>" +
+                "<td class='col-md-2' style='text-align:center; font-size:13px;'>" +
+                "<a href='/setting/menu_change1/<%=y.id%>'>수정</a>" +
+                "<a href='/setting/menu_destroy/<%=y.id%>''>삭제</a></td>"+
+                "</tr></table><%end%><%end%><%else%><%end%>");
+        });
+</script>
 
 </body>
 </html>

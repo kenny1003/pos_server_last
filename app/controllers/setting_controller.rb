@@ -11,7 +11,19 @@ class SettingController < ApplicationController
   end
 
   def menusetting
+
     @category = current_user.store.category
+
+    if params[:categoryid].present?
+      puts params[:categoryid]
+      @menu =  current_user.store.category.find(params[:categoryid].to_i).menu
+
+      respond_to do |format|
+        format.js { render :json => @menu }
+      end
+
+    end
+
   end
 
   #메뉴카테고리 입력하기

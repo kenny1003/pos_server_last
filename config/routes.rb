@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   get 'setting/index'
   get 'setting/category_index'
   get 'setting/menusetting'
+  post 'setting/menusetting'=> 'setting#menusetting'
   post 'setting/category_write'=>'setting#category_write'
   get 'setting/category_destroy/:categoryid'=>'setting#category_destroy'
   post 'setting/showmenu' => 'setting#showmenu'
