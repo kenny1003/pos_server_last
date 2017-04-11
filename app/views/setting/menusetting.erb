@@ -1,73 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-  
-      <title>모두의 POS</title>
-    
-  </head>
-  
-  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    
-      <main class="container">
-        <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC;">
-          <div class="col-lg-4" style="padding:5px;">
-            
-            <form action = "/setting/category_write" method="POST">
-              <label for="exampleInputEmail1">카테고리</label>
-              
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <i class="fa fa-asterisk" aria-hidden="true"></i>
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <input type="text" class="form-control" name = "category" placeholder="ex) 주류,안주류,기타" style="width:200px; float:left">
-                  <button type="submit" class="btn btn-default">추가</button>
-                </ul>
-              </div>
-            </form>
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>모두의 POS</title>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<main class="container">
+  <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC;">
+    <div class="col-lg-4" style="padding:5px;">
+
+      <form action = "/setting/category_write" method="POST">
+        <label for="exampleInputEmail1">카테고리</label>
+
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <input type="text" class="form-control" name = "category" placeholder="ex) 주류,안주류,기타" style="width:200px; float:left">
+            <button type="submit" class="btn btn-default">추가</button>
+          </ul>
+        </div>
+      </form>
+      <hr>
+
+      <% @category.each do |c| %>
+          <form action="/setting/showmenu" method="post">
+            <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
+            <a href="/setting/category_destroy/<%=c.id%>">
+              <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
+            </a></br>
+          </form>
+      <%end%>
+
+    </div> <!-- 가장 우측 div box의 gridsystem ratio -->
+
+
+
+
+    <div class="col-lg-8">
+      <div>
+        <div style="padding-top:5px;">
+          <div class="row" style=" vertical-align:middle;">
+            <label for="exampleInputEmail1" style="padding-bottom:33px;">메뉴 목록</label>
             <hr>
-            
-            <% @category.each do |c| %>
-              <form action="/setting/showmenu" method="post">
-                <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
-                <a href="/setting/category_destroy/<%=c.id%>">
-                  <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
-                </a></br>
-              </form>
-            <%end%>
-            
-          </div> <!-- 가장 우측 div box의 gridsystem ratio -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="padding:5px; height:338px;">
+        <div style="background-color:white; margin-right:20px;">
+
+        </div>
+      </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+    </div> <!-- gridsystem에서 2번째 열의 ratio -->
+  </div> <!--  가장 바깥범위의 gridsystem row -->
+</main> <!-- 모두의POS container -->
 
 
-
-
-          <div class="col-lg-8">
-            <div>
-              <div style="padding-top:5px;">
-                <div class="row" style=" vertical-align:middle;">
-                  <label for="exampleInputEmail1" style="padding-bottom:33px;">메뉴 목록</label>
-                  <hr>
-                </div>
-              </div>
-            </div>
-         
-            <div class="row" style="padding:5px; height:338px;">
-              <div style="background-color:white; margin-right:20px;">
-                
-              </div>
-            </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
-          </div> <!-- gridsystem에서 2번째 열의 ratio -->
-        </div> <!--  가장 바깥범위의 gridsystem row -->
-      </main> <!-- 모두의POS container -->
-
-  
-  </body>
+</body>
 </html>
-

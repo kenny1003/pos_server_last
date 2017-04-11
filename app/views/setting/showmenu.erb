@@ -1,94 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-  
-      <title>모두의 POS</title>
-    
-  </head>
-  
-  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    
-      <main class="container">
-        <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC;">
-          <div class="col-lg-4" style="padding:5px;">
-            
-            <form action = "/setting/category_write" method="POST">
-              <label for="exampleInputEmail1">카테고리</label>
-              
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <i class="fa fa-asterisk" aria-hidden="true"></i>
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <input type="text" class="form-control" name = "category" placeholder="ex) 주류,안주류,기타" style="width:200px; float:left">
-                  <button type="submit" class="btn btn-default">추가</button>
-                </ul>
-              </div>
+<head>
 
-            </form>
-            <hr>
-      
-            <% @category_entry.each do |c| %>
-              <form action="/setting/showmenu" method="post">
-                <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
-                <a href="/setting/category_destroy/<%=c.id%>">
-                  <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
-                </a>
-              </form>
-            <% end %>
-            
-          </div> <!-- 가장 우측 div box의 gridsystem ratio -->
-          
-          <div class="col-lg-8">
-            <div>
-              <div style="padding-top:5px;">
-                <div class="row" style=" vertical-align:middle;">
-                  <label for="exampleInputEmail1">메뉴 목록</label>
-                  
-                  <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class="fa fa-asterisk" aria-hidden="true"></i>
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <form action = "/setting/menu_write" method="POST">
-                        <div class="form-group" style="float:left;">
-                          <label for="exampleInputEmail1" style="float:left;">메뉴명</label>
-                          <input type="text" class="form-control" name="menu_name" style="width:200px;">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1" style="float:left;">가격</label>
-                          <input type="text" class="form-control" name="menu_price" style="width:200px;">
-                          <input type="hidden" class="form-control" name="category_id" value="<%=@categoryid%>">
-                        </div>
-                        <button type="submit" class="btn btn-default">입력</button>
-                      </form>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>모두의 POS</title>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<main class="container">
+  <div class="row intro-section" style="width:80%; margin: 0 auto; background-color:#DCDCDC;">
+    <div class="col-lg-4" style="padding:5px;">
+
+      <form action = "/setting/category_write" method="POST">
+        <label for="exampleInputEmail1">카테고리</label>
+
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <input type="text" class="form-control" name = "category" placeholder="ex) 주류,안주류,기타" style="width:200px; float:left">
+            <button type="submit" class="btn btn-default">추가</button>
+          </ul>
+        </div>
+
+      </form>
+      <hr>
+
+      <% @category_entry.each do |c| %>
+          <form action="/setting/showmenu" method="post">
+            <button type="submit" class="btn btn-default" name="categoryid" value="<%=c.id%>" style="width:200px; margin:3px; font-size:20px;"><%= c.name%></button>
+            <a href="/setting/category_destroy/<%=c.id%>">
+              <i class="fa fa-close fa-5x" aria-hidden="true" style="font-size:20px;"></i>
+            </a>
+          </form>
+      <% end %>
+
+    </div> <!-- 가장 우측 div box의 gridsystem ratio -->
+
+    <div class="col-lg-8">
+      <div>
+        <div style="padding-top:5px;">
+          <div class="row" style=" vertical-align:middle;">
+            <label for="exampleInputEmail1">메뉴 목록</label>
+
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <i class="fa fa-asterisk" aria-hidden="true"></i>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <form action = "/setting/menu_write" method="POST">
+                  <div class="form-group" style="float:left;">
+                    <label for="exampleInputEmail1" style="float:left;">메뉴명</label>
+                    <input type="text" class="form-control" name="menu_name" style="width:200px;">
                   </div>
-                  <hr>
-                </div>
-              </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" style="float:left;">가격</label>
+                    <input type="text" class="form-control" name="menu_price" style="width:200px;">
+                    <input type="hidden" class="form-control" name="category_id" value="<%=@categoryid%>">
+                  </div>
+                  <button type="submit" class="btn btn-default">입력</button>
+                </form>
+              </ul>>
             </div>
-         
-            <div class="row" style="padding:5px; height:338px;">
-              <div style="background-color:white; margin-right:20px;">
-                <table border="1" style="font-weight:bold; text-align:center;">
-                  <tr class="row" style="font-size:20px;">
-                    <td class="col-md-4">메뉴명</td>
-                    <td class="col-md-4">가격</td>
-                    <td class="col-md-2">비고</td>
-                    <td class="col-md-2"style="font-size:15px;">수정/삭제</td>
-                  </tr>
-                  </table>
-                <% if @menu.present? %>
-                  <% @menu.each do |m|%>
-                    <table border="1" style="text-align:centbor;">
+            <hr>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="padding:5px; height:338px;">
+        <div style="background-color:white; margin-right:20px;">
+          <table border="1" style="font-weight:bold; text-align:center;">
+            <tr class="row" style="font-size:20px;">
+              <td class="col-md-4">메뉴명</td>
+              <td class="col-md-4">가격</td>
+              <td class="col-md-2">비고</td>
+              <td class="col-md-2"style="font-size:15px;">수정/삭제</td>
+            </tr>
+          </table>
+          <% if @menu.present? %>
+              <% @menu.each do |m|%>
+                  <table border="1" style="text-align:centbor;">
                     <tr class="row" style="font-size:20px;">
                       <td class="col-md-4" style="text-align:center;"><%=m.name%></td>
                       <td class="col-md-4 "><%=m.price%></td>
@@ -98,18 +99,16 @@
                         <a href="/setting/menu_destroy/<%=m.id%>">삭제</a>
                       </td>
                     </tr>
-                    </table>
-                  <%end%>
-                <%else%>
-                  <!-- 메뉴가 없습니다. -->
-                <%end%>
-              </div>
-            </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
-          </div> <!-- gridsystem에서 2번째 열의 ratio -->
-        </div> <!--  가장 바깥범위의 gridsystem row -->
-      </main> <!-- 모두의POS container -->
-  
-  </body>
+                  </table>
+              <%end%>
+          <%else%>
+              <!-- 메뉴가 없습니다. -->
+          <%end%>
+        </div>
+      </div> <!-- 2번째 열 안에서의 2번째 행에 대한 row 클래스 -->
+    </div> <!-- gridsystem에서 2번째 열의 ratio -->
+  </div> <!--  가장 바깥범위의 gridsystem row -->
+</main> <!-- 모두의POS container -->
+
+</body>
 </html>
-
-
