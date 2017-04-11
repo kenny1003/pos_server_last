@@ -35,7 +35,7 @@
                         <% @billshow.salesmenu.each do |m|%>
                             <div>
                               <span class="col-lg-5"><%= m.menu.name %></span>
-                              <span class="col-lg-2"><%= m.menu.price * m.qty %></span>
+                              <span class="col-lg-2"><%= number_with_precision(m.menu.price * m.qty, :precision => 0, :delimiter => ',') %></span>
                               <span class="col-lg-5">
                                 <button onclick="location.href='/sale/qty_plus/<%=m.id%>'" class="glyphicon glyphicon-plus" name = "qty" value ="<%=m.id%>"></button>
                                 <span style="font-size:11px;"><%= m.qty %></span>
@@ -54,7 +54,7 @@
 
               <div class="row">
                 <span class="col-lg-4">총 액</span>
-                <span class="col-lg-8" style="text-align:right"><%= @total_price %> 원</span>
+                <span class="col-lg-8" style="text-align:right"><%= number_with_precision(@total_price, :precision => 0, :delimiter => ',') %> 원</span>
               </div>
             </div>
             <div>================================</div>
@@ -87,11 +87,11 @@
             <div class="btn-group">
               <div class="btn-group">
 
-                <button id = "all" class="btn btn-defalut" style="background-color:white; height:45px; width:90px; box-shadow:0 2px 2px 0 darkgray;">전체보기</button>
+                <button id="all" class="btn btn-primary btn-lg" style="height:45px; width:90px; box-shadow:0 2px 2px 0 darkgray; margin-left:1px; margin-right:1px;">전체</button>
 
 
                 <% @category.each do |c|%>
-                  <button id="c_<%=c.id%>" class="btn btn-defalut" style="background-color:white; height:45px; width:90px; box-shadow:0 2px 2px 0 darkgray;"><%=c.name%></button>
+                  <button id="c_<%=c.id%>" class="btn btn-primary btn-lg" style="height:45px; width:90px; box-shadow:0 2px 2px 0 darkgray; margin-left:1px; margin-right:1px;"><%=c.name%></button>
                 <% end %>
               </div>
             </div>
@@ -111,7 +111,7 @@
                   <div class="col-lg-3" style="padding:5px;" >
                     <button class="btn btn-defalut" id='showmenuid' type='submit' value='<%= m.id %>' name='menuid' style="background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;">
                       <b><%=m.name%></b><br>
-                      <%=m.price%> 원
+                      <%= number_with_precision(m.price, :precision => 0, :delimiter => ',') %> 원
                     </button>
                   </div>
                 <% end %>
@@ -135,7 +135,9 @@
         $("#c_<%=c.id%>").click(function(){ <!--11아이디를 가진 버튼을 누를 때-->
             $("#menu").html("<% c.menu.each do |m| %>" +
                 "<div class='col-lg-3' style='padding:5px;'>"+
-                "<button class='btn btn-defalut' id='showmenuid' type='submit' value='<%= m.id %>' name='menuid' style='background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;'><b><%=m.name%></b><br><%=m.price%> 원</button>" +
+                "<button class='btn btn-defalut' id='showmenuid' type='submit' value='<%= m.id %>'" +
+                " name='menuid' style='background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;'>" +
+                " <b><%=m.name%></b><br><%= number_with_precision(m.price, :precision => 0, :delimiter => ',') %> 원</button>" +
                 "</div>"+
                 "<% end %>");
         });
@@ -146,7 +148,9 @@
 
         $("#menu").html("<%@category.each do |c|%>"+"<% c.menu.each do |m| %>"+
             "<div class='col-lg-3' style='padding:5px;'>"+
-            "<button class='btn btn-defalut' id='showmenuid' type='submit' value='<%= m.id %>' name='menuid' style='background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;'><b><%=m.name%></b><br><%=m.price%> 원</button>"+
+            "<button class='btn btn-defalut' id='showmenuid' type='submit' value='<%= m.id %>'" +
+            " name='menuid' style='background-color:white; height:100px; width:130px; box-shadow:0 2px 2px 0 darkgray;'>" +
+            " <b><%=m.name%></b><br><%= number_with_precision(m.price, :precision => 0, :delimiter => ',') %> 원</button>"+
             "</div>"+
             "<% end %>"+"<% end %>");
     });

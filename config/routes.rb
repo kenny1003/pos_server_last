@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'home/setting'
   get 'home/setting_store' #상점 수정 페이지
   post 'home/setting_store_update' => 'home#setting_store_update'
+  post 'home/storestart' => 'home#storestart'
 
   #판매
   get 'sale/index'
@@ -66,16 +67,9 @@ Rails.application.routes.draw do
   get 'setting/menusetting'
   post 'setting/menusetting'=> 'setting#menusetting'
   post 'setting/category_write'=>'setting#category_write'
-  get 'setting/category_destroy/:categoryid'=>'setting#category_destroy'
   post 'setting/showmenu' => 'setting#showmenu'
   get 'setting/showmenu/:category_id' => 'setting#showmenu'
   get 'setting/showmenu'
-  get 'setting/menu_change1/:menuid'=>'setting#menu_change1'
-  post 'setting/menu_change2'
-  get 'setting/menu_destroy/:menuid'=>'setting#menu_destroy'
-
-
-
 
   post 'setting/menu_write'=>'setting#menu_write'
 

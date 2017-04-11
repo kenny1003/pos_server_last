@@ -27,6 +27,8 @@ class HomeController < ApplicationController
 
       #오늘계산서 수
       @bill_today_count = current_user.store.workperiod.last.bill.size
+      
+      @workperiod2 = current_user.store.workperiod.last
     end
 
 
@@ -41,6 +43,7 @@ class HomeController < ApplicationController
   end
 
   def choosestore
+      
     if Pincode.where(:pincode => params[:pincode]).present? and !Pincode.where(:pincode => params[:pincode]).last.used
       @temp = Pincode.where(:pincode => params[:pincode])
       @pincode = @temp.last
@@ -48,6 +51,8 @@ class HomeController < ApplicationController
       @temp_store = current_user.store
       @temp_store.confirmation = true
       @temp_store.save
+      
+      
 
       #인증코드
       @pincode.storeid=@temp_store.id
@@ -79,9 +84,12 @@ class HomeController < ApplicationController
         @store.user_id = current_user.id
         @store.name = params[:store_name]
         @store.major = params[:major]
-        @store.goal = params[:goal]
+        # @store.input_cost = params[:input_cost]
+        # @store.cash = params[:cash]
         @store.confirmation = true
         @store.save
+        
+         
 
         #인증코드
         @pincode.storeid=@store.id
@@ -105,13 +113,14 @@ class HomeController < ApplicationController
 
   #영업 시작
   def storestart
-
+    
     current_user.store.working = true
     current_user.store.save
 
     @workperiod = Workperiod.new
     @workperiod.store_id = current_user.store.id #db 연결 (workperiod <-> store)
     @workperiod.startingtime = "start"
+    @workperiod.startmoney = params[:startmoney]
     @workperiod.save
     redirect_to "/home/index"
   end
@@ -147,8 +156,9 @@ class HomeController < ApplicationController
   def setting_store_update
     @store = current_user.store
     @store.name = params[:store_name]
-    @store.goal = params[:goal]
     @store.major = params[:major]
+    @store.input_cost = params[:input_cost]
+    @store.cash = params[:cash]
     @store.save
 
     redirect_to "/home/setting"

@@ -54,10 +54,6 @@
           <th class="col-md-10"><%=@store.created_at.strftime("%F")%></th>
         </tr>
         <tr>
-          <th class="col-md-2">목표매출액</th>
-          <th class="col-md-10"><%=@store.goal%></th>
-        </tr>
-        <tr>
           <th class="col-md-2">누적매출액</th>
           <th class="col-md-10"><%=@store.incomeall%></th>
         </tr>
@@ -68,6 +64,14 @@
         <tr>
           <th class="col-md-2">누적계산서 수</th>
           <th class="col-md-10"><%=@store.bills.size%></th>
+        </tr>
+        <tr>
+          <th class="col-md-2">투입 비용</th>
+          <th class="col-md-10"><%=@store.input_cost%></th>
+        </tr>
+        <tr>
+          <th class="col-md-2">보유 현금</th>
+          <th class="col-md-10"><%=@store.cash%></th>
         </tr>
         </thead>
       </table>
