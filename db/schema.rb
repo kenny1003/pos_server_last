@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20170405122320) do
   create_table "stores", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.integer  "goal"
     t.integer  "incometoday",  default: 0
     t.integer  "incomeall",    default: 0
     t.boolean  "working",      default: false
@@ -93,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170405122320) do
 
   create_table "workperiods", force: :cascade do |t|
     t.integer  "store_id"
+    t.integer  "startmoney"
     t.string   "startingtime"
     t.string   "finishtime"
     t.datetime "created_at",   null: false

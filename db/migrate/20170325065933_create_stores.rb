@@ -3,7 +3,8 @@ class CreateStores < ActiveRecord::Migration
     create_table :stores do |t|
       t.integer :user_id
       t.string :name #주점 이름
-      t.integer :goal #목표매출
+      # t.integer :input_cost #투입비용
+      # t.integer :cash #보유현금
       t.integer :incometoday, :default => 0
       t.integer :incomeall, :default => 0
       t.boolean :working, :default => false  #영업중인지 아닌지 확인, true 이면 영업중임

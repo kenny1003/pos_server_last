@@ -20,8 +20,11 @@
           <label for="exampleInputEmail1"><small>주 점 이 름</small></label>
           <input type="text" class="form-control" name = "store_name" value="<%=@store.name%>"><br>
 
-          <label for="exampleInputEmail1"><small>목 표 매 출</small></label>
-          <input type="text" class="form-control" name = "goal" value="<%=@store.goal%>" style="font-align:right;"><br>
+          <label for="exampleInputEmail1"><small>투 입 비 용</small></label>
+          <input type="text" class="form-control" name = "input_cost" placeholder="원" style="font-align:right;" required><br>
+          
+          <label for="exampleInputEmail1"><small>보 유 현 금</small></label>
+          <input type="text" class="form-control" name = "cash" placeholder="원" style="font-align:right;" required><br>
 
           <label for="exampleInputEmail1"><small>코리아텍 학과</small></label>
           <input type="text" class="form-control" name = "major" value="<%=@store.major%>" style="font-align:right;"><br>

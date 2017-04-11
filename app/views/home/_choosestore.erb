@@ -1,9 +1,5 @@
 <div style="background-color:#01A9DB; height:410px;">
   <div style="padding:15px;">
-    <div style="color:white">
-      <h3><b>모두의 POS</b></h3><small>by Makers</small>
-    </div>
-    <hr>
     
     <div style="margin-top:20px;">
       <div class="form-group">
@@ -13,10 +9,10 @@
           <label for="exampleInputEmail1"><small>주점명 : </small></label>
           <label style="color:white" for="exampleInputEmail1"><small><%= current_user.store.name %></small></label>
         </div>
-        
+        <hr>
         <div class="progress" style="margin-bottom:10px; margin-top:10px;">
           <% if current_user.store.working %>
-            <small><%=@income_today%>원</small>
+            <small><%= number_with_precision(@income_today, :precision => 0, :delimiter => ',') %>원</small>
           <% else%>
               <small>-</small>
           <%end%>
@@ -37,7 +33,7 @@
           </div>
         </div>
         <div class="progress" style="margin-bottom:10px;">
-          <small><%=@income_all%>원</small>
+          <small><%= number_with_precision(@income_all, :precision => 0, :delimiter => ',') %>원</small>
           <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
             <span class="sr-only">60% Complete (warning)</span><small>누적 매출액</small>
           </div>
@@ -48,6 +44,18 @@
             <span class="sr-only">80% Complete (danger)</span><small>누적 계산서 수</small>
           </div>
         </div>
+        <div class="progress" style="margin-bottom:10px;">
+          <% if current_user.store.working %>
+            <small><%= number_with_precision(@workperiod2.startmoney + @income_today, :precision => 0, :delimiter => ',') %>원</small>
+          <% else%>
+              <small>-</small>
+          <%end%>
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            <span class="sr-only">80% Complete (danger)</span><small>오늘 현금</small>
+          </div>
+        </div>
+
+        
     
         <% if current_user.store.confirmation%> <!-- 인증이 된 상점인지 확인한다. -->
             <div style="margin-top:25px;">

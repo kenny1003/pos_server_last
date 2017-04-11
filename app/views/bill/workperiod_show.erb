@@ -54,7 +54,7 @@
               <% end %>
             </div>
             ------------------------------------------
-            <div id ="store_title">총 금액 : <%=b.totalprice%> 원</div> </br>
+            <div id ="store_title">총 금액 : <%= number_with_precision(b.totalprice, :precision => 0, :delimiter => ',') %> 원</div> </br>
             <form action="/bill/bill_destroy" method = "post">
               <button type="submit" class="btn btn-default" name = "billid" value ="<%=b.id%>">계산서삭제</button>
             </form>
