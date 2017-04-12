@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.1
-lock '3.1.0'
+lock '3.4.1'
 
 set :application, 'koreatech_pos'
-set :repo_url, ''
+set :repo_url, 'git@github.com:kenny1003/pos_server_last.git'
 
 set :deploy_to, '/home/deploy/koreatech_pos'
 
