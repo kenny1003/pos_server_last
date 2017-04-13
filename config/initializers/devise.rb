@@ -8,6 +8,8 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '3cb72f4a100eec1bac90aa1b0741db5197b887784097d25ed5b7c5799a41d5226e65469b8b6fd9ea8fbf02492afbe52cdbfb4c98a1ef7f1ef875fd67e39d6dbb'
 
+  config.secret_key = '687d7d84ad86a53b97e562aafc58c189740de6371935f0569f1ee36db7f3ffe7d49047ac6985873af3a9fe61c66387a51c12d6b2bd0357a7c0bef9fe7ffe42a9'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -273,7 +275,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
 
-  config.secret_key = ENV['3f2a2f987d31d5ffea1101882933cbb6fa0db1f8821f360955f40f3187a7336697816e34c68013e429de20a1fee70792fc72309585611f196e3adf1c04a772ac'] if Rails.env.production?
+  #config.secret_key = ENV['3f2a2f987d31d5ffea1101882933cbb6fa0db1f8821f360955f40f3187a7336697816e34c68013e429de20a1fee70792fc72309585611f196e3adf1c04a772ac'] if Rails.env.production?
 
 
 end
