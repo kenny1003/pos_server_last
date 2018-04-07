@@ -3,14 +3,14 @@
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <button type="button" class="btn btn-default">
-    <%= link_to "계정만들기", new_registration_path(resource_name) %><br />
+  <button type="button" class="btn btn-default" id="sign_up" >
+    <div>계정만들기</div>
   </button>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <button type="button" class="btn btn-default">
-    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <button type="button" class="btn btn-default" id="find_pw">
+    <div>Forgot your password?</div>
   </button>
 <% end -%>
 
@@ -27,3 +27,17 @@
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
+<script>
+  $( document ).ready(function() {
+    
+    $( "#sign_up" ).on( "click", function( event ) {
+      var url="<%= new_registration_path(resource_name) %>";
+      $(location).attr('href',url);
+    });
+    $( "#find_pw" ).on( "click", function( event ) {
+      var url="<%= new_password_path(resource_name) %>";
+      $(location).attr('href',url);
+    });
+    
+});
+</script>
