@@ -21,30 +21,31 @@ body {
   font-family: 'Lato', sans-serif;
   background-color: #f8f8f8;
   height: 98%;
+  z-index:1;
+  
 }
-body .container {
-  position: relative;
+.containers {
+
   overflow: hidden;
-  width: 700px;
+  width: 100%;
   height: 575px;
-  margin: 40px auto 0;
+  margin: 0 40 40 40;
   background-color: #ffffff;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
 }
-body .container .half {
+.half {
   float: left;
-  width: 50%;
+  width: 40%;
   height: 600px;
   padding: 58px 40px 0;
 }
-body .container .half.bg {
-  background-image: url('https://s3.ap-northeast-2.amazonaws.com/tongilstorage/PosForEveryOne.png');
-  background-size:  320px;
-  background-repeat: no-repeat;
+.bg {
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/tongilstorage/pos/2.jpg');
+  height:100%;
 }
-body .container h1 {
+h1 {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 23px;
@@ -54,12 +55,12 @@ body .container h1 {
   text-transform: uppercase;
   color: #263238;
 }
-body .container .tabs {
+body .containers .tabs {
   width: 100%;
   margin-bottom: 29px;
   border-bottom: 1px solid #d9d9d9;
 }
-body .container .tabs .tab {
+.tab {
   display: inline-block;
   margin-bottom: -1px;
   padding: 20px 15px 10px;
@@ -72,39 +73,39 @@ body .container .tabs .tab {
   user-select: none;
   transition: all 0.1s ease-in-out;
 }
-body .container .tabs .tab a {
+.tab a {
   font-size: 11px;
   text-decoration: none;
   text-transform: uppercase;
   color: #d9d9d9;
   transition: all 0.1s ease-in-out;
 }
-body .container .tabs .tab.active a, body .container .tabs .tab:hover a {
+.active a, .tab:hover a {
   color: #263238;
 }
-body .container .tabs .tab.active {
+.active {
   border-bottom: 1px solid #263238;
 }
-body .container .content form {
-  position: relative;
+.content form {
+
   height: 200px;
 }
-body .container .content label:first-of-type, body .container .content input:first-of-type, body .container .content .more:first-of-type {
+.content label:first-of-type, .content input:first-of-type,  .more:first-of-type {
   -moz-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
   -webkit-animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
   animation: slideIn 0.4s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content label:nth-of-type(2), body .container .content input:nth-of-type(2), body .container .content .more:nth-of-type(2) {
+.content label:nth-of-type(2), .content input:nth-of-type(2), .more:nth-of-type(2) {
   -moz-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
   -webkit-animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
   animation: slideIn 0.5s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content label:nth-of-type(3), body .container .content input:nth-of-type(3), body .container .content .more:nth-of-type(3) {
+.content label:nth-of-type(3), .content input:nth-of-type(3), .more:nth-of-type(3) {
   -moz-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
   -webkit-animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
   animation: slideIn 0.6s cubic-bezier(0.37, 0.82, 0.2, 1);
 }
-body .container .content label {
+ .content label {
   font-size: 12px;
   color: #263238;
   -moz-user-select: -moz-none;
@@ -112,10 +113,10 @@ body .container .content label {
   -webkit-user-select: none;
   user-select: none;
 }
-body .container .content label:not([for='remember']) {
+.content label:not([for='remember']) {
   display: none;
 }
-body .container .content input.inpt {
+.content input.inpt {
   font-size: 14px;
   display: block;
   width: 100%;
@@ -129,30 +130,30 @@ body .container .content input.inpt {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-body .container .content input.inpt::-webkit-input-placeholder {
+.content input.inpt::-webkit-input-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:-moz-placeholder {
+.content input.inpt:-moz-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt::-moz-placeholder {
+ .content input.inpt::-moz-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:-ms-input-placeholder {
+.content input.inpt:-ms-input-placeholder {
   font-size: 14px;
   color: #999999;
   font-family: 'Lato', sans-serif;
 }
-body .container .content input.inpt:focus {
+ .content input.inpt:focus {
   border-color: #999999;
 }
-body .container .content input.submit {
+ .content input.submit {
   font-size: 12px;
   line-height: 42px;
   display: block;
@@ -169,7 +170,7 @@ body .container .content input.submit {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
-body .container .content input.submit:hover {
+ .content input.submit:hover {
   background-color: #263238;
   color: #ffffff;
   -moz-transition: all 0.2s;
@@ -177,10 +178,10 @@ body .container .content input.submit:hover {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-body .container .content input:focus {
+ .content input:focus {
   outline: none;
 }
-body .container .content .checkbox {
+.checkbox {
   margin-top: 4px;
   overflow: hidden;
   clip: rect(0 0 0 0);
@@ -190,12 +191,12 @@ body .container .content .checkbox {
   padding: 0;
   border: 0;
 }
-body .container .content .checkbox + label {
+.checkbox + label {
   vertical-align: middle;
   display: inline-block;
   width: 50%;
 }
-body .container .content .checkbox + label:before {
+.checkbox + label:before {
   content: "\A";
   color: #999999;
   font-family: Verdana;
@@ -205,7 +206,7 @@ body .container .content .checkbox + label:before {
   text-align: center;
   display: inline-block;
   vertical-align: middle;
-  position: relative;
+
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -215,16 +216,16 @@ body .container .content .checkbox + label:before {
   height: 11px;
   margin: -2px 8px 0 0;
 }
-body .container .content .checkbox:checked + label:before {
+.checkbox:checked + label:before {
   content: "?";
 }
-body .container .content .submit-wrap {
+.submit-wrap {
  
   bottom: 0;
   width: 100%;
 }
 
-body .container .content .submit-wrap a {
+.submit-wrap a {
   font-size: 12px;
   display: block;
   margin-top: 20px;
@@ -232,10 +233,10 @@ body .container .content .submit-wrap a {
   text-decoration: none;
   color: #999999;
 }
-body .container .content .submit-wrap a:hover {
+.submit-wrap a:hover {
   text-decoration: underline;
 }
-body .container .content .signup-cont {
+.signup-cont {
   display: none;
 }
 
@@ -265,7 +266,7 @@ body .container .content .signup-cont {
 }
 .credits {
   display: block;
-  position: absolute;
+
   right: 0;
   bottom: 0;
   color: #999999;
@@ -285,11 +286,12 @@ body .container .content .signup-cont {
 </head>
 
 <body id="page-top">
-  
+
   <!-- Intro Section -->
   <section id="intro" class="intro-section" style="padding-top:0px;background-color:#E6E6E6">
-    <div class="container" style="padding-top:0px;margin-top:10px;">
-      <article class="half" >
+      <%= render "devise/sessions/nav" %>
+    <div class="containers" style="margin:60px;">
+      <article class="  col-md-5" >
 			        <h1>Pos For EveryOne</h1>
 			        <div class="tabs">
 				            <span class="tab signin active"><a href="#signin">Sign in</a></span>
@@ -358,7 +360,9 @@ body .container .content .signup-cont {
            </div>
        </article>
        
-       <div class="half bg"></div>
+       <div class="bg col-md-7">
+       </div>
+       
     </div>
   </section>
   

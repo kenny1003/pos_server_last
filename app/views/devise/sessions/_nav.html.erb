@@ -1,0 +1,47 @@
+<style>
+#logo{
+float: left;
+margin-right: 10px;
+font-size: 1.7em;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: -1px;
+font-weight: bold;
+&:hover{
+color: #fff;
+text-decoration:none;
+}
+}
+#text{
+padding-top:10px;
+float: right;
+margin-right:12px;
+font-size: 1.2em;
+color: white;
+text-transform: uppercase;
+letter-spacing: -1px;
+&:hover{
+color: white;
+text-decoration:none;
+font-weight: bold;
+}
+}
+#fixed-menu {
+  background-color:black;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+   width: 100%;
+   z-index:10;
+   opacity: 0.5;
+}
+</style>
+
+  <nav id="fixed-menu" style="margin-bottom:0px;">
+    <a id = "logo"class="navbar-brand col-md-3" href="#">모두의 Pos</a>
+    <a id="text" class="nav-link col-md-1" href="#">Home</a>
+    <a id="text" class="nav-link col-md-1" href="#">Features</a>
+    <a id="text" class="nav-link col-md-1" href="#">Pricing</a>
+    <a id="text" class="nav-link col-md-1" href="#">Disabled</a>
+  
+  </nav>
