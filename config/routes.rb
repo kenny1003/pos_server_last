@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   #처음시작페이지
+
+  get 'home/index_temp'
+
   get 'home/index'
   get 'home/nav'
   get 'home/start'
