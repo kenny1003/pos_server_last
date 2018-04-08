@@ -6,7 +6,8 @@ gem 'axlsx', '2.0.1'
 gem 'axlsx_rails'
 #devise (회원관리)
 gem 'devise'
-
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'sass-rails', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
