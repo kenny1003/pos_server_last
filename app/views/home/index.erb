@@ -49,8 +49,8 @@
   
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-      <main class="container">
-        <div class="row intro-section" style="width:80%; margin: 0 auto;">
+      <main class="container" style="text-align:center">
+        <div class="row intro-section" style="width:100%; margin: 0 auto;">
           <!-- 기존에 주점을 만들었는지 확인함 -->
           <div class="col-lg-3" style="padding:5px;">
             
@@ -76,15 +76,17 @@
                         <!-- 액션만들고,   -->
                         <form action = "/home/storestart" method="POST" onsubmit="return validateForm()">
                           <div class="form-group col-lg-6">
-                            <label for="exampleInputEmail1"><small>오늘 현금</small></label>
-                            <input type="text" class="form-control" name="startmoney" placeholder="오늘 현금" style="text-align:center;" required><br>
-                            
-                            <button type="submit" class="btn btn-default" onclick="myFunction_start()" style="color:white;">
+                            <label for="exampleInputEmail1"><small>오늘의 잔돈</small></label>
+                            <input id="startmoney" type="text" class="form-control" name="startmoney" placeholder="오늘 준비한 잔돈" style="text-align:center;" required><br>
+                          </div>
+                          
+                          <div class="col-lg-6">
+                            <button type="submit" onclick="myFunction_start()" style="background-color:gray; border:none; font-size:23px; color:white;">
                               <i class="fa fa-lock fa-5x" aria-hidden="true" style="margin-bottom:5px;"></i>
                               <p>영업시작</p>
                             </button>
-
                           </div>
+                          
                         </form>
                         
                       <% else %>
@@ -155,7 +157,7 @@
         </div>
         
         <div class="row intro-section">
-          <div class="container" style="width:80%; padding:5px;">
+          <div class="container" style="width:100%; padding:10px 20px 10px 20px">
             <% if current_user.store.present?%>
               <% if !current_user.store.working %> <!--영업중인지 아닌지 확인한다. -->
                 <div style="background-color:gray; height:50px; padding-top:15px;">
@@ -176,12 +178,17 @@
       <script>
           function myFunction_start() {
               var x;
-              if (confirm("오늘 영업을 시작하시겠습니까?") == true) {
-                  location.href = "/home/storestart";
-              } else {
-
+              var temp = document.getElementById('startmoney').value;
+              console.log(temp);
+        			if(isNaN(temp) == true) {
+        				  alert("오늘의 잔금에는 문자를 입력하실 수 없습니다.");
+                  document.getElementById('startmoney').value="";
+              
+              }else{
+                 if (confirm("오늘 영업을 시작하시겠습니까?") == true) {
+                          location.href = "/home/storestart";
+                    }
               }
-
           }
       </script>
 
