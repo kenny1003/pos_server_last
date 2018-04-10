@@ -120,7 +120,12 @@ class HomeController < ApplicationController
     @workperiod = Workperiod.new
     @workperiod.store_id = current_user.store.id #db 연결 (workperiod <-> store)
     @workperiod.startingtime = "start"
-    @workperiod.startmoney = params[:startmoney]
+    if params[:startmoney].nil?
+      startmoney=0
+    else
+      startmoney=params[:startmoney]
+    end
+    @workperiod.startmoney = startmoney
     @workperiod.save
     redirect_to "/home/index"
   end
