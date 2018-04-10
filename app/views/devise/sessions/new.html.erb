@@ -16,7 +16,10 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+.article-height{
+  height:575px;
+  position:relative;
+}
 body {
   font-family: 'Lato', sans-serif;
   background-color: #f8f8f8;
@@ -28,7 +31,7 @@ body {
 
   overflow: hidden;
   width: 100%;
-  height: 575px;
+  
   margin: 0 40 40 40;
   background-color: #ffffff;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
@@ -43,7 +46,7 @@ body {
 }
 .bg {
   background-image: url('https://s3.ap-northeast-2.amazonaws.com/tongilstorage/pos/2.jpg');
-  height:100%;
+  height:575px;
 }
 h1 {
   font-size: 18px;
@@ -291,7 +294,7 @@ body .containers .tabs {
   <section id="intro" class="intro-section" style="padding-top:0px;background-color:#E6E6E6">
       <%= render "devise/sessions/nav" %>
     <div class="containers" style="margin:60px;">
-      <article class="  col-md-5" >
+      <article class="article-height col-md-5" >
 			        <h1>Pos For EveryOne</h1>
 			        <div class="tabs">
 				            <span class="tab signin active"><a href="#signin">Sign in</a></span>
@@ -339,7 +342,9 @@ body .containers .tabs {
                           <%= f.label :"비밀번호 확인" %>
                           <%= f.password_field :password_confirmation, autocomplete: "off",class:"inpt", required:"required", placeholder:"비밀번호 확인" %>
                         </div>
-                        -------------기본정보입력-------------
+                        <div style="width:100%;text-align:center;">
+                       <%= f.label :"-------------기본정보입력-------------" ,style:"display:inline;"%>
+                       </div>
                         <div>
                           <%= f.label :"이름" %>
                           <%= f.text_field :name, class:"inpt", placeholder:"이름"%>
@@ -365,23 +370,33 @@ body .containers .tabs {
        
     </div>
   </section>
-  
+     <%= render "devise/sessions/nav2" %>
+     <%= render "devise/sessions/nav3" %>
+     <%= render "devise/sessions/nav4" %>
+     <%= render "devise/sessions/nav5" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <script type="text/javascript">
-$('.tabs .tab').click(function(){
-    if ($(this).hasClass('signin')) {
-        $('.tabs .tab').removeClass('active');
-        $(this).addClass('active');
-        $('.cont').hide();
-        $('.signin-cont').show();
-    } 
-    if ($(this).hasClass('signup')) {
-        $('.tabs .tab').removeClass('active');
-        $(this).addClass('active');
-        $('.cont').hide();
-        $('.signup-cont').show();
-    }
-});
+$( document ).ready(function() {
+
+  
+  $('.tabs .tab').click(function(){
+      if ($(this).hasClass('signin')) {
+          $('.tabs .tab').removeClass('active');
+          $(this).addClass('active');
+          $('.cont').hide();
+          $('.signin-cont').show();
+      } 
+      if ($(this).hasClass('signup')) {
+          $('.tabs .tab').removeClass('active');
+          $(this).addClass('active');
+          $('.cont').hide();
+          $('.signup-cont').show();
+      }
+  });
+
+  
+  
+  });
 
 </script>
 
