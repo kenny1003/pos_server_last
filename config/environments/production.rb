@@ -5,18 +5,17 @@ Rails.application.configure do
   config.cache_classes = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'pure-scrubland-65223.herokuapp.com' }
+  ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address              => 'smtp.gmail.com',
-    :domain               => 'mail.google.com',
-    :port                 => 25,
-    :user_name            => "xhdtn8070@likelion.org",
-    :password             => "dp6410lx",
-    :authentication       => 'login',
-    :enable_starttls_auto => true
-  }
-
+  address:              'smtp.gmail.com',
+  port:                 2525,
+  domain:               'pure-scrubland-65223.herokuapp.com',
+  user_name:            'xhdtn8070@likelion.org',
+  password:             'dp6410lx',
+  authentication:       'plain',
+  enable_starttls_auto: true 
+}
+  config.action_mailer.default_url_options = { host: 'pure-scrubland-65223.herokuapp.com'}
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers

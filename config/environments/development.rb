@@ -21,7 +21,7 @@ Rails.application.configure do
     enable_starttls_auto: true,
     :authentication => :plain,
     :address => "smtp.mailgun.org",
-    :port => 2525,
+    :port => 587,
     :domain => ENV["domain"],
     :user_name => ENV["user_name"],
     :password => ENV["password"]
