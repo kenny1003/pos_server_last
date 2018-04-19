@@ -14,8 +14,19 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { 
+    enable_starttls_auto: true,
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 2525,
+    :domain => ENV["domain"],
+    :user_name => ENV["user_name"],
+    :password => ENV["password"]
+  }
+  config.action_mailer.default_url_options = { host: 'posforeveryone-ruby2017.c9users.io'}
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
